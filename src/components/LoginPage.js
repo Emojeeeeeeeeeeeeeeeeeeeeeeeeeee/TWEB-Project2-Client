@@ -1,11 +1,34 @@
 import React, { useState } from 'react';
 import { AuthContext } from './AuthProvider';
 import { Redirect } from 'react-router-dom';
+import Background from '../images/login_background_2.jpg';
+
+import {
+    MDBContainer,
+    MDBRow,
+    MDBCol,
+    MDBCard,
+    MDBCardBody,
+    MDBModalFooter,
+    MDBIcon,
+    MDBCardHeader,
+    MDBBtn,
+    MDBInput
+  } from 'mdbreact';
 
 export const LoginPage = () => {
 
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const backgroundStyle = {
+        backgroundImage: `url(${Background})`,
+        width: '100%',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        height: '100vh',
+    }
 
     return (
         <AuthContext>
@@ -17,84 +40,75 @@ export const LoginPage = () => {
 
                 const onSubmit = (e) => {
                     e.preventDefault();
-                    signIn({ username, password });
+                    signIn({ email, password });
                 };
 
                 return (
-                    <div>
-                        <h1>LoginPage</h1>
+                    <MDBContainer style={backgroundStyle}>
+                        <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
+                            <MDBCol md="6">
+                                <MDBCard style={{marginTop: '20%'}}>
+                                    <MDBCardBody>
+                                        <h1 className="my-1" style={ { textAlign: 'center'} }>
+                                            Happy
+                                            <span role="img" aria-label="happyFace1">😙</span>
+                                            <span role="img" aria-label="happyFace2">😺</span>
+                                            <span role="img" aria-label="happyFace3">👻</span>
+                                        </h1> 
+                                        <MDBCardHeader className="form-header deep-blue-gradient rounded">
+                                            <h3 className="my-3">
+                                                <MDBIcon icon="lock" /> Login:
+                                            </h3> 
+                                        </MDBCardHeader>
 
-                        <form onSubmit={onSubmit}>
-                            <input 
-                                type="text"
-                                placeholder="username"
-                                value={username}
-                                onChange={e => setUsername(e.target.value)} />
-                            <br />
-                            <input 
-                                type="password"
-                                placeholder="password"
-                                value={password}
-                                onChange={e => setPassword(e.target.value)} />
-                            <br />
-                            <button type="submit">LOGIN</button>
-                            <p style={{ color: 'red' }}>{error}</p>
-                        </form>
-                    </div>
+                                        <form onSubmit={onSubmit}>
+                                            <div className="grey-text">
+                                                <MDBInput 
+                                                    label="Type your 📧"
+                                                    icon="envelope"
+                                                    group
+                                                    type="email"
+                                                    validate
+                                                    error="wrong"
+                                                    success="right"
+                                                    value={email}
+                                                    onChange={e => setEmail(e.target.value)} />
+                                                <MDBInput
+                                                    label="Type your 🔑"
+                                                    icon="lock"
+                                                    group
+                                                    type="password"
+                                                    validate
+                                                    value={password}
+                                                    onChange={e => setPassword(e.target.value)} />
+                                            </div>
+                                            <div className="text-center mt-4">
+                                                <MDBBtn
+                                                    color="light-blue"
+                                                    className="mb-3"
+                                                    type="submit">Login</MDBBtn>
+                                            </div>
+                                        </form>
+                                        <MDBModalFooter>
+                                            <div className="font-weight-light">
+                                                <p>Not a 
+                                                    <span role="img" aria-label="member">👪</span> 
+                                                    ? Sign 
+                                                    <span role="img" aria-label="up">🆙</span>
+                                                </p>
+                                                <p>Forgot 
+                                                    <span role="img" aria-label="password">🔑</span>
+                                                     ?
+                                                </p>
+                                            </div>
+                                        </MDBModalFooter>
+                                    </MDBCardBody>
+                                </MDBCard>
+                            </MDBCol>
+                        </MDBRow>
+                    </MDBContainer>
                 );
             }}
         </AuthContext>
     );
 };
-
-/*export class LoginPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: '',
-            password: ''
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-    }
-
-    handleChange(e) {
-        this.setState({ [e.target.name]: e.target.value });
-    }
-
-    onSubmit(e) {
-        e.preventDefault(); // cancel default behaviour
-    }
-    
-    render() {
-        return (
-            <AuthContext>
-                {(authContext) => {
-                    console.log(authContext);
-                }}
-                <h1>Login Page</h1>
-
-                <form onSubmit={this.onSubmit}>
-                    <input 
-                        type="text"
-                        name="username"
-                        placeholder="username" 
-                        value={this.state.username}
-                        onChange={this.handleChange}
-                    />
-                    <br />
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                    />
-                    <br />
-                    <button type="submit">LOGIN</button>
-                </form>
-            </AuthContext>
-        );
-    }
-}*/

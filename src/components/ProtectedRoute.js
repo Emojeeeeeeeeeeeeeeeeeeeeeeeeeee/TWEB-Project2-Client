@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import React from 'react';
+import {Route, Redirect } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
 
 export const ProtectedRoute = ({ component: Component, ...others }) => (
