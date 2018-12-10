@@ -92,12 +92,12 @@ export const LoginPage = () => {
                                         <MDBModalFooter>
                                             <div className="font-weight-light">
                                                 <p>Not a 
-                                                    <span role="img" aria-label="member">👪</span> 
+                                                    <span role="img" aria-label="member"> 👪</span> 
                                                     ? Sign 
-                                                    <span role="img" aria-label="up">🆙</span>
+                                                    <span role="img" aria-label="up"> 🆙</span>
                                                 </p>
                                                 <p>Forgot 
-                                                    <span role="img" aria-label="password">🔑</span>
+                                                    <span role="img" aria-label="password"> 🔑</span>
                                                      ?
                                                 </p>
                                             </div>
