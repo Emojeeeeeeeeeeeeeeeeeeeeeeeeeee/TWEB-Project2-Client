@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { AuthContext } from './AuthProvider';
 import { Redirect } from 'react-router-dom';
-import Background from '../images/login_background_2.jpg';
+import { BackgroundPage } from './BackgroundPage';
 
 import {
-    MDBContainer,
     MDBRow,
     MDBCol,
     MDBCard,
@@ -21,15 +20,6 @@ export const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const backgroundStyle = {
-        backgroundImage: `url(${Background})`,
-        width: '100%',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        height: '100vh',
-    }
-
     return (
         <AuthContext>
             {({ error, user, signIn }) => {
@@ -44,7 +34,7 @@ export const LoginPage = () => {
                 };
 
                 return (
-                    <MDBContainer style={backgroundStyle}>
+                    <BackgroundPage>
                         <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
                             <MDBCol md="6">
                                 <MDBCard style={{marginTop: '20%'}}>
@@ -106,7 +96,7 @@ export const LoginPage = () => {
                                 </MDBCard>
                             </MDBCol>
                         </MDBRow>
-                    </MDBContainer>
+                    </BackgroundPage>
                 );
             }}
         </AuthContext>
