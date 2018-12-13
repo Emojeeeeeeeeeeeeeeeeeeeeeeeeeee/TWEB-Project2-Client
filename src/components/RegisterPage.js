@@ -4,12 +4,16 @@ import { BackgroundPage } from './BackgroundPage';
 
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBModalFooter, MDBIcon, MDBCardHeader, MDBBtn, MDBInput } from 'mdbreact';
 
-const RegisterPage = () => {
+export const RegisterPage = () => {
     
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+    };
 
     return (
         <BackgroundPage>
@@ -37,7 +41,7 @@ const RegisterPage = () => {
                                         onChange={e => setEmail(e.target.value)} />
                                     <MDBInput
                                         label="Type your username"
-                                        icon="fa-user-circle"
+                                        icon="user"
                                         group
                                         type="text"
                                         validate
@@ -71,7 +75,10 @@ const RegisterPage = () => {
                             </form>
                             <MDBModalFooter>
                                 <div className="font-weight-light">
-                                    <p>Back to login page</p>
+                                    <p>
+                                        <span role="img" aria-label="back">🔙</span>
+                                        to login page
+                                    </p>
                                 </div>
                             </MDBModalFooter>
                         </MDBCardBody>

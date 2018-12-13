@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "emojilib": "^2.4.0",
     "mdbreact": "^4.8.5-patch.1",
     "react": "^16.7.0-alpha.2",
     "react-center": "^1.1.1",

@@ -3,17 +3,7 @@ import { AuthContext } from './AuthProvider';
 import { Redirect } from 'react-router-dom';
 import { BackgroundPage } from './BackgroundPage';
 
-import {
-    MDBRow,
-    MDBCol,
-    MDBCard,
-    MDBCardBody,
-    MDBModalFooter,
-    MDBIcon,
-    MDBCardHeader,
-    MDBBtn,
-    MDBInput
-  } from 'mdbreact';
+import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBModalFooter, MDBIcon, MDBCardHeader, MDBBtn, MDBInput } from 'mdbreact';
 
 export const LoginPage = () => {
 
@@ -88,7 +78,7 @@ export const LoginPage = () => {
                                                 </p>
                                                 <p>Forgot 
                                                     <span role="img" aria-label="password"> 🔑</span>
-                                                     ?
+                                                    ?
                                                 </p>
                                             </div>
                                         </MDBModalFooter>

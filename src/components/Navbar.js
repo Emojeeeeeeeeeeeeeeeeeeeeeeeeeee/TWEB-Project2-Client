@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, Container, Fa } from "mdbreact";
+import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, Fa } from "mdbreact";
 
 export class NavbarPage extends React.Component {
     constructor(props) {
@@ -16,8 +16,7 @@ export class NavbarPage extends React.Component {
 
     render() {
         return (
-           <Container>
-                <Navbar color="secondary-color" dark expand="md" style={{marginTop: "20px"}}>
+                <Navbar color="secondary-color" dark expand="md" style={{marginTop: '20px'}}>
                     <NavbarBrand>
                         <strong className="white-text">
                             Happy
@@ -53,7 +52,7 @@ export class NavbarPage extends React.Component {
                             <NavItem>
                                 <Dropdown>
                                     <DropdownToggle className="dopdown-toggle" nav>
-                                        <img src="http://a69.g.akamai.net/n/69/10688/v1/img5.allocine.fr/acmedia/medias/nmedia/18/90/07/03/20079741.jpg" className="rounded-circle z-depth-0" style={{height: "35px", padding: 0}} alt="" />
+                                        <img src="http://a69.g.akamai.net/n/69/10688/v1/img5.allocine.fr/acmedia/medias/nmedia/18/90/07/03/20079741.jpg" className="rounded-circle z-depth-0" style={{height: '35px', width: '35px', padding: 0}} alt="" />
                                     </DropdownToggle>
                                     <DropdownMenu className="dropdown-default" right>
                                         <DropdownItem href="#!">My Profile</DropdownItem>
@@ -65,7 +64,6 @@ export class NavbarPage extends React.Component {
                         </NavbarNav>
                     </Collapse>
                 </Navbar>
-           </Container>
         );
     }
 }
