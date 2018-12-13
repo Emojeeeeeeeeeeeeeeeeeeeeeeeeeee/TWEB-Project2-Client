@@ -29,4 +29,9 @@
     "not ie <= 11",
     "not op_mini all"
   ]
+  "buildpacks": [
+    {
+      "url": "https://github.com/mars/create-react-app-buildpack"
+    }
+  ]
 }
