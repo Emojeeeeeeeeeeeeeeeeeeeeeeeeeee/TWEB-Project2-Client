@@ -26,7 +26,7 @@ export const LoginPage = () => {
                 return (
                     <BackgroundPage>
                         <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
-                            <MDBCol md="6">
+                            <MDBCol md="4">
                                 <MDBCard style={{marginTop: '20%'}}>
                                     <MDBCardBody>
                                         <h1 className="my-1" style={ { textAlign: 'center'} }>
@@ -71,15 +71,17 @@ export const LoginPage = () => {
                                         </form>
                                         <MDBModalFooter>
                                             <div className="font-weight-light">
-                                                <p>Not a 
+                                                <a href="/register">Not in our 
                                                     <span role="img" aria-label="member"> 👪</span> 
-                                                    ? Sign 
+                                                    <span role="img" aria-label="questionMark"> ❓ </span>
+                                                    Sign 
                                                     <span role="img" aria-label="up"> 🆙</span>
-                                                </p>
-                                                <p>Forgot 
+                                                </a>
+                                                <br />
+                                                <a href="/#!">Forgot 
                                                     <span role="img" aria-label="password"> 🔑</span>
-                                                    ?
-                                                </p>
+                                                    <span role="img" aria-label="questionMark"> ❓</span>
+                                                </a>
                                             </div>
                                         </MDBModalFooter>
                                     </MDBCardBody>

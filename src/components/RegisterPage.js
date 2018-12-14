@@ -18,7 +18,7 @@ export const RegisterPage = () => {
     return (
         <BackgroundPage>
             <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
-                <MDBCol md="6">
+                <MDBCol md="4">
                     <MDBCard style={{marginTop: '20%'}}>
                         <MDBCardBody>
                             <MDBCardHeader className="form-header deep-blue-gradient rounded">
@@ -75,10 +75,10 @@ export const RegisterPage = () => {
                             </form>
                             <MDBModalFooter>
                                 <div className="font-weight-light">
-                                    <p>
+                                    <a href="/login">
                                         <span role="img" aria-label="back">🔙</span>
                                         to login page
-                                    </p>
+                                    </a>
                                 </div>
                             </MDBModalFooter>
                         </MDBCardBody>

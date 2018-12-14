@@ -15,7 +15,7 @@ export class BackgroundPage extends React.Component {
     render() {
         const { children } = this.props;
         return (
-            <Container style={backgroundStyle}>
+            <Container fluid style={backgroundStyle}>
                 {children}
             </Container>
         );
