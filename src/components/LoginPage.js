@@ -35,6 +35,9 @@ export const LoginPage = () => {
                                             <span role="img" aria-label="happyFace2">😺</span>
                                             <span role="img" aria-label="happyFace3">👻</span>
                                         </h1> 
+                                        {/*<div style={{textAlign: 'center'}}>
+                                            The first E M O J I S Social Network !!!
+                                        </div>*/}
                                         <MDBCardHeader className="form-header deep-blue-gradient rounded">
                                             <h3 className="my-3">
                                                 <MDBIcon icon="lock" /> Login:
@@ -42,7 +45,7 @@ export const LoginPage = () => {
                                         </MDBCardHeader>
 
                                         <form onSubmit={onSubmit}>
-                                            <div className="grey-text">
+                                            <div className="grey-text" style={{ textAlign: 'left' }}>
                                                 <MDBInput 
                                                     label="Type your 📧"
                                                     icon="envelope"
@@ -70,7 +73,7 @@ export const LoginPage = () => {
                                             </div>
                                         </form>
                                         <MDBModalFooter>
-                                            <div className="font-weight-light">
+                                            <div className="font-weight-light" style={{ textAlign: 'right' }}>
                                                 <a href="/register">Not in our 
                                                     <span role="img" aria-label="member"> 👪</span> 
                                                     <span role="img" aria-label="questionMark"> ❓ </span>

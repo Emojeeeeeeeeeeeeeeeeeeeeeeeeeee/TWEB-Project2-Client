@@ -16,7 +16,7 @@ export class NavbarPage extends React.Component {
 
     render() {
         return (
-                <Navbar color="secondary-color" dark expand="md" style={{marginTop: '20px'}}>
+                <Navbar color="secondary-color" dark expand="md">
                     <NavbarBrand>
                         <strong className="white-text">
                             Happy

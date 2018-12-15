@@ -6,7 +6,7 @@ const backgroundStyle = {
     backgroundImage: `url(${Background})`,
     width: '100%',
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
+    backgroundRepeat: 'repeatY',
     backgroundPosition: 'center', 
     height: '100vh'
 };

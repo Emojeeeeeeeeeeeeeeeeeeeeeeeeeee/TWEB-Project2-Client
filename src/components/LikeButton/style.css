@@ -36,18 +36,18 @@
 }
 
 .button-like:hover {
-    border-color: #cc4b37;
+    border-color: #cc3750;
     background-color: transparent;
 }
 
 .button-like:hover .fa,
 .button-like:hover span {
-  color: #cc4b37;
+  color: #cc3750;
 }
 
 .liked {
-    background-color: #cc4b37;
-    border-color: #cc4b37;
+    background-color: #cc3750;
+    border-color: #cc3750;
   }
   
 .liked .fa,
@@ -56,7 +56,7 @@
 }
   
 .liked:focus {
-    background-color: #cc4b37;
+    background-color: #cc3750;
 }
   
 .liked:focus .fa,
@@ -65,8 +65,8 @@
 }
   
 .liked:hover {
-    background-color: #cc4b37;
-    border-color: #cc4b37;
+    background-color: #cc3750;
+    border-color: #cc3750;
 }
   
 .liked:hover .fa,
@@ -86,7 +86,7 @@
     margin-left: -23px;
     border-radius: 10em;
     padding: 1px 7px;
-    background-color: #fe1212;
+    background-color: #ff68a2;
     font-size: 11px;
     color: #fff;
     left: auto;
