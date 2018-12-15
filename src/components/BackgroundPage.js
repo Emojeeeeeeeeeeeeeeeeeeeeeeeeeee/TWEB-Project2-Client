@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'mdbreact';
-import Background from '../images/login_background_2.jpg';
+import Background from '../images/login_background_3.png';
 
 const backgroundStyle = {
     backgroundImage: `url(${Background})`,

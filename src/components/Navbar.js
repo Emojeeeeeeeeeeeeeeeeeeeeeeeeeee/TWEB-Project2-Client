@@ -27,10 +27,15 @@ export class NavbarPage extends React.Component {
                     </NavbarBrand>
                     <NavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
                     <Collapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
-                        <NavbarNav left>
+                        <NavbarNav left style={{ fontSize: '2rem' }}>
                             <NavItem active>
                                 <NavLink to="#!">
                                 <span role="img" aria-label="home">🏠</span>
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink to="#!">
+                                    <span role="img" aria-label="newMessage">💬</span>
                                 </NavLink>
                             </NavItem>
                         </NavbarNav>
