@@ -34,7 +34,7 @@ export class LikeButton extends Component {
     }
 
     render() {
-        const buttonLabel = this.state.status ? "button button-like liked" : "button button-like" ;
+        const buttonLabel = this.state.status ? "button button-like liked " : "button button-like" ;
         return (
             <div>
                 <button className={buttonLabel} onClick={this.toggleLike}>
