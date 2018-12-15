@@ -41,6 +41,7 @@ export class LikeButton extends Component {
                     <i className="fa fa-heart"></i>
                     <span>Like</span>
                 </button>
+                <span className="counter">{this.state.likes}</span>
             </div>
         );
     }
