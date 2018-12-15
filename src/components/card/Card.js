@@ -4,7 +4,7 @@ import { LikeButton } from '../LikeButton/LikeButton';
 
 import './style.css';
 
-const colors = ['aqua-gradient'];
+const colors = ['aqua-gradient', 'blue-gradient', 'purple-gradient', 'peach-gradient', 'dusty-grass-gradient'];
 
 export class Card extends Component {
     constructor(props) {
@@ -15,18 +15,17 @@ export class Card extends Component {
     }
 
     componentWillMount() {
-        this.setState = { 
+        this.setState({ 
             // set random card color
             cardUpColor: colors[Math.floor(Math.random() * colors.length)]
-        }; 
+        }); 
     }
 
     render() {
         return (
-            
             /*<div className="card-container">*/
               <div className="card testimonial-card" style={{ maxWidth: "22rem" }}>
-                <div className="card-up aqua-gradient" />
+                <div className={`card-up ${this.state.cardUpColor}`} />
                 <div className="avatar mx-auto white square-image">
                   <img
                     src={this.props.avatar}
