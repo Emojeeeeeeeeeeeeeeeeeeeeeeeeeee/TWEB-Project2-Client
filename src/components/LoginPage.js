@@ -5,6 +5,8 @@ import { BackgroundPage } from './BackgroundPage';
 
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBModalFooter, MDBIcon, MDBCardHeader, MDBBtn, MDBInput } from 'mdbreact';
 
+import Background from '../images/login_background_3.png';
+
 export const LoginPage = () => {
 
     const [email, setEmail] = useState('');
@@ -24,7 +26,7 @@ export const LoginPage = () => {
                 };
 
                 return (
-                    <BackgroundPage>
+                    <BackgroundPage src={Background}>
                         <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
                             <MDBCol md="4">
                                 <MDBCard style={{marginTop: '20%'}}>
