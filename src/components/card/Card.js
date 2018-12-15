@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { LikeButton } from '../LikeButton/LikeButton';
+
 import './style.css';
 
 const colors = ['aqua-gradient'];
@@ -37,6 +39,7 @@ export class Card extends Component {
                   <hr />
                   <p>{this.props.messageContent}</p>
                 </div>
+                <LikeButton />
               </div>
             /*</div>*/
           
