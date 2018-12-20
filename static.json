@@ -5,7 +5,7 @@
         "origin": "https://emojee-server.herokuapp.com/auth"
       },
       "/graphql/": {
-        "origin": "https://emojee-server.herokuapp.com/graqphl"
+        "origin": "https://emojee-server.herokuapp.com/graphql"
       },
       "/api/": {
         "origin": "https://emojee-server.herokuapp.com/api"
