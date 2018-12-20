@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "https://emojee-server.herokuapp.com/",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -28,5 +28,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/mars/create-react-app-buildpack"
+    }
   ]
 }
