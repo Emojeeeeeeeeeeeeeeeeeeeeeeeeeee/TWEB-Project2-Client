@@ -1,6 +1,14 @@
 {
     "root": "build/",
-    "routes": {
-      "/**": "index.html"
+    "proxies": {
+      "/auth/": {
+        "origin": "https://emojee-server.herokuapp.com/auth"
+      },
+      "/graphql/": {
+        "origin": "https://emojee-server.herokuapp.com/graqphl"
+      },
+      "/api/": {
+        "origin": "https://emojee-server.herokuapp.com/api"
+      }
     }
 }
