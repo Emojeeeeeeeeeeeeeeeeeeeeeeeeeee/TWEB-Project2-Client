@@ -144,7 +144,7 @@
     "category": "people"
   },
   "money_mouth_face": {
-    "keywords": ["rich", "dollar", "cupid", "cupidity"],
+    "keywords": ["rich", "cupid", "cupidity"],
     "char": "🤑",
     "fitzpatrick_scale": false,
     "category": "people"
@@ -462,7 +462,7 @@
     "category": "people"
   },
   "+1": {
-    "keywords": ["thumbsup", "yes", "awesome", "good", "agree", "accept", "cool", "like", "thumb"],
+    "keywords": ["thumbsup", "yes", "awesome", "good", "agree", "accept", "like", "thumb"],
     "char": "👍",
     "fitzpatrick_scale": true,
     "category": "people"
@@ -1867,7 +1867,7 @@
     "category": "animals_and_nature"
   },
   "earth_africa": {
-    "keywords": ["globe", "world", "international", "planet", "earth"],
+    "keywords": ["globe", "world", "planet", "earth"],
     "char": "🌍",
     "fitzpatrick_scale": false,
     "category": "animals_and_nature"
@@ -2827,7 +2827,7 @@
     "category": "activity"
   },
   "musical_score": {
-    "keywords": ["treble", "clef", "music"],
+    "keywords": ["treble", "clef"],
     "char": "🎼",
     "fitzpatrick_scale": false,
     "category": "activity"
@@ -3146,7 +3146,7 @@
     "category": "travel_and_places"
   },
   "construction": {
-    "keywords": ["construction", "caution", "warning"],
+    "keywords": ["construction", "caution"],
     "char": "🚧",
     "fitzpatrick_scale": false,
     "category": "travel_and_places"
@@ -3392,7 +3392,7 @@
     "category": "travel_and_places"
   },
   "synagogue": {
-    "keywords": ["judaism", "synagogue", "temple", "jewish"],
+    "keywords": ["synagogue", "temple"],
     "char": "🕍",
     "fitzpatrick_scale": false,
     "category": "travel_and_places"
@@ -3514,12 +3514,6 @@
   "hourglass_flowing_sand": {
     "keywords": ["hourglass", "time", "countdown"],
     "char": "⏳",
-    "fitzpatrick_scale": false,
-    "category": "objects"
-  },
-  "hourglass": {
-    "keywords": ["time", "clock", "oldschool", "limit", "exam", "quiz", "test"],
-    "char": "⌛",
     "fitzpatrick_scale": false,
     "category": "objects"
   },
@@ -3680,7 +3674,7 @@
     "category": "objects"
   },
   "skull_and_crossbones": {
-    "keywords": ["poison", "danger", "deadly", "death", "pirate"],
+    "keywords": ["poison", "deadly", "death"],
     "char": "☠",
     "fitzpatrick_scale": false,
     "category": "objects"
@@ -3740,7 +3734,7 @@
     "category": "objects"
   },
   "toilet": {
-    "keywords": ["restroom", "wc", "washroom", "toilet", "potty"],
+    "keywords": ["washroom", "toilet", "potty"],
     "char": "🚽",
     "fitzpatrick_scale": false,
     "category": "objects"
@@ -4107,1403 +4101,774 @@
     "category": "symbols"
   },
   "latin_cross": {
-    "keywords": ["christianity"],
+    "keywords": ["christianity", "christ"],
     "char": "✝",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "star_and_crescent": {
-    "keywords": ["islam"],
-    "char": "☪",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "om": {
-    "keywords": ["hinduism", "buddhism", "sikhism", "jainism"],
-    "char": "🕉",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "wheel_of_dharma": {
-    "keywords": ["hinduism", "buddhism", "sikhism", "jainism"],
-    "char": "☸",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "star_of_david": {
-    "keywords": ["judaism"],
-    "char": "✡",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "six_pointed_star": {
-    "keywords": ["purple-square", "religion", "jewish", "hexagram"],
+    "keywords": ["judaism", "jew", "jewish", "juda"],
     "char": "🔯",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "menorah": {
-    "keywords": ["hanukkah", "candles", "jewish"],
+    "keywords": ["hanukkah", "menorah"],
     "char": "🕎",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "yin_yang": {
-    "keywords": ["balance"],
+    "keywords": ["yinyang"],
     "char": "☯",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "orthodox_cross": {
-    "keywords": ["suppedaneum", "religion"],
+    "keywords": ["suppedaneum"],
     "char": "☦",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "place_of_worship": {
-    "keywords": ["religion", "church", "temple", "prayer"],
+    "keywords": ["worship"],
     "char": "🛐",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "ophiuchus": {
-    "keywords": ["sign", "purple-square", "constellation", "astrology"],
+    "keywords": ["ophiuchus"],
     "char": "⛎",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "aries": {
-    "keywords": ["sign", "purple-square", "zodiac", "astrology"],
+    "keywords": ["aries"],
     "char": "♈",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "taurus": {
-    "keywords": ["purple-square", "sign", "zodiac", "astrology"],
+    "keywords": ["taurus"],
     "char": "♉",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "gemini": {
-    "keywords": ["sign", "zodiac", "purple-square", "astrology"],
+    "keywords": ["gemini"],
     "char": "♊",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "cancer": {
-    "keywords": ["sign", "zodiac", "purple-square", "astrology"],
+    "keywords": ["cancer"],
     "char": "♋",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "leo": {
-    "keywords": ["sign", "purple-square", "zodiac", "astrology"],
+    "keywords": ["leo"],
     "char": "♌",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "virgo": {
-    "keywords": ["sign", "zodiac", "purple-square", "astrology"],
+    "keywords": ["virgo"],
     "char": "♍",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "libra": {
-    "keywords": ["sign", "purple-square", "zodiac", "astrology"],
+    "keywords": ["libra"],
     "char": "♎",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "scorpius": {
-    "keywords": ["sign", "zodiac", "purple-square", "astrology", "scorpio"],
+    "keywords": ["scorpius", "scorpio"],
     "char": "♏",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "sagittarius": {
-    "keywords": ["sign", "zodiac", "purple-square", "astrology"],
+    "keywords": ["sagittarius"],
     "char": "♐",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "capricorn": {
-    "keywords": ["sign", "zodiac", "purple-square", "astrology"],
+    "keywords": ["capricorn"],
     "char": "♑",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "aquarius": {
-    "keywords": ["sign", "purple-square", "zodiac", "astrology"],
+    "keywords": ["aquarius"],
     "char": "♒",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "pisces": {
-    "keywords": ["purple-square", "sign", "zodiac", "astrology"],
+    "keywords": ["pisces"],
     "char": "♓",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "id": {
-    "keywords": ["purple-square", "words"],
+    "keywords": ["id"],
     "char": "🆔",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "atom_symbol": {
-    "keywords": ["science", "physics", "chemistry"],
+    "keywords": ["atom"],
     "char": "⚛",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "u7a7a": {
-    "keywords": ["kanji", "japanese", "chinese", "empty", "sky", "blue-square"],
-    "char": "🈳",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "u5272": {
-    "keywords": ["cut", "divide", "chinese", "kanji", "pink-square"],
-    "char": "🈹",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "radioactive": {
-    "keywords": ["nuclear", "danger"],
+    "keywords": ["nuclear", "radioactive", "radioactivity"],
     "char": "☢",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "biohazard": {
-    "keywords": ["danger"],
+    "keywords": ["biohazard"],
     "char": "☣",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "mobile_phone_off": {
-    "keywords": ["mute", "orange-square", "silence", "quiet"],
-    "char": "📴",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "vibration_mode": {
-    "keywords": ["orange-square", "phone"],
-    "char": "📳",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "u6709": {
-    "keywords": ["orange-square", "chinese", "have", "kanji"],
-    "char": "🈶",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "u7121": {
-    "keywords": ["nothing", "chinese", "kanji", "japanese", "orange-square"],
-    "char": "🈚",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "u7533": {
-    "keywords": ["chinese", "japanese", "kanji", "orange-square"],
-    "char": "🈸",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "u55b6": {
-    "keywords": ["japanese", "opening hours", "orange-square"],
-    "char": "🈺",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "u6708": {
-    "keywords": ["chinese", "month", "moon", "japanese", "orange-square", "kanji"],
-    "char": "🈷️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "eight_pointed_black_star": {
-    "keywords": ["orange-square", "shape", "polygon"],
-    "char": "✴️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "vs": {
-    "keywords": ["words", "orange-square"],
+    "keywords": ["vs", "versus", "duel"],
     "char": "🆚",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "accept": {
-    "keywords": ["ok", "good", "chinese", "kanji", "agree", "yes", "orange-circle"],
-    "char": "🉑",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "white_flower": {
-    "keywords": ["japanese", "spring"],
-    "char": "💮",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "ideograph_advantage": {
-    "keywords": ["chinese", "kanji", "obtain", "get", "circle"],
-    "char": "🉐",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "secret": {
-    "keywords": ["privacy", "chinese", "sshh", "kanji", "red-circle"],
-    "char": "㊙️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "congratulations": {
-    "keywords": ["chinese", "kanji", "japanese", "red-circle"],
-    "char": "㊗️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "u5408": {
-    "keywords": ["japanese", "chinese", "join", "kanji", "red-square"],
-    "char": "🈴",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "u6e80": {
-    "keywords": ["full", "chinese", "japanese", "red-square", "kanji"],
-    "char": "🈵",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "u7981": {
-    "keywords": ["kanji", "japanese", "chinese", "forbidden", "limit", "restricted", "red-square"],
-    "char": "🈲",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "a": {
-    "keywords": ["red-square", "alphabet", "letter"],
+    "keywords": ["a"],
     "char": "🅰️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "b": {
-    "keywords": ["red-square", "alphabet", "letter"],
+    "keywords": ["b"],
     "char": "🅱️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "ab": {
-    "keywords": ["red-square", "alphabet"],
+    "keywords": ["ab"],
     "char": "🆎",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "cl": {
-    "keywords": ["alphabet", "words", "red-square"],
+    "keywords": ["cl"],
     "char": "🆑",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "o2": {
-    "keywords": ["alphabet", "red-square", "letter"],
+  "o": {
+    "keywords": ["o"],
     "char": "🅾️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "sos": {
-    "keywords": ["help", "red-square", "words", "emergency", "911"],
+    "keywords": ["help", "sos", "emergency", "911"],
     "char": "🆘",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "no_entry": {
-    "keywords": ["limit", "security", "privacy", "bad", "denied", "stop", "circle"],
+    "keywords": ["limit", "security", "privacy", "stop", "noentry", "keepout"],
     "char": "⛔",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "name_badge": {
-    "keywords": ["fire", "forbid"],
-    "char": "📛",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "no_entry_sign": {
-    "keywords": ["forbid", "stop", "limit", "denied", "disallow", "circle"],
+    "keywords": ["forbid", "denied", "disallow", "interdiction", "deny", "disallowed"],
     "char": "🚫",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "x": {
-    "keywords": ["no", "delete", "remove", "cancel", "red"],
+    "keywords": ["no", "delete", "remove", "cancel", "cross"],
     "char": "❌",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "o": {
+  "o2": {
     "keywords": ["circle", "round"],
     "char": "⭕",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "stop_sign": {
-    "keywords": ["stop"],
-    "char": "🛑",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "anger": {
-    "keywords": ["angry", "mad"],
+    "keywords": ["anger"],
     "char": "💢",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "hotsprings": {
-    "keywords": ["bath", "warm", "relax"],
+    "keywords": ["hotsprings", "warm"],
     "char": "♨️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "no_pedestrians": {
-    "keywords": ["rules", "crossing", "walking", "circle"],
-    "char": "🚷",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "do_not_litter": {
-    "keywords": ["trash", "bin", "garbage", "circle"],
-    "char": "🚯",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "no_bicycles": {
-    "keywords": ["cyclist", "prohibited", "circle"],
-    "char": "🚳",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "non-potable_water": {
-    "keywords": ["drink", "faucet", "tap", "circle"],
-    "char": "🚱",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "underage": {
-    "keywords": ["18", "drink", "pub", "night", "minor", "circle"],
+    "keywords": ["-18", "underage", "minor"],
     "char": "🔞",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "no_mobile_phones": {
-    "keywords": ["iphone", "mute", "circle"],
-    "char": "📵",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "exclamation": {
-    "keywords": ["heavy_exclamation_mark", "danger", "surprise", "punctuation", "wow", "warning"],
+    "keywords": ["exclamation", "surprise", "wow", "!"],
     "char": "❗",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "grey_exclamation": {
-    "keywords": ["surprise", "punctuation", "gray", "wow", "warning"],
-    "char": "❕",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "question": {
-    "keywords": ["doubt", "confused"],
+    "keywords": ["question", "?"],
     "char": "❓",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "grey_question": {
-    "keywords": ["doubts", "gray", "huh", "confused"],
-    "char": "❔",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "bangbang": {
-    "keywords": ["exclamation", "surprise"],
-    "char": "‼️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "interrobang": {
-    "keywords": ["wat", "punctuation", "surprise"],
+    "keywords": ["wat"],
     "char": "⁉️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "100": {
-    "keywords": ["score", "perfect", "numbers", "century", "exam", "quiz", "test", "pass", "hundred"],
+    "keywords": ["100", "perfect", "hundred"],
     "char": "💯",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "low_brightness": {
-    "keywords": ["sun", "afternoon", "warm", "summer"],
-    "char": "🔅",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "high_brightness": {
-    "keywords": ["sun", "light"],
-    "char": "🔆",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "trident": {
-    "keywords": ["weapon", "spear"],
+    "keywords": ["trident"],
     "char": "🔱",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "fleur_de_lis": {
-    "keywords": ["decorative", "scout"],
-    "char": "⚜",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "part_alternation_mark": {
-    "keywords": ["graph", "presentation", "stats", "business", "economics", "bad"],
-    "char": "〽️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "warning": {
-    "keywords": ["exclamation", "wip", "alert", "error", "problem", "issue"],
+    "keywords": ["danger", "warning", "alert", "error", "problem", "issue"],
     "char": "⚠️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "children_crossing": {
-    "keywords": ["school", "warning", "danger", "sign", "driving", "yellow-diamond"],
+    "keywords": ["school"],
     "char": "🚸",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "beginner": {
-    "keywords": ["badge", "shield"],
-    "char": "🔰",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "recycle": {
-    "keywords": ["arrow", "environment", "garbage", "trash"],
+    "keywords": ["recycle", "environment", "recyclying"],
     "char": "♻️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "u6307": {
-    "keywords": ["chinese", "point", "green-square", "kanji"],
-    "char": "🈯",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "chart": {
-    "keywords": ["green-square", "graph", "presentation", "stats"],
-    "char": "💹",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "sparkle": {
-    "keywords": ["stars", "green-square", "awesome", "good", "fireworks"],
-    "char": "❇️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "eight_spoked_asterisk": {
-    "keywords": ["star", "sparkle", "green-square"],
-    "char": "✳️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "negative_squared_cross_mark": {
-    "keywords": ["x", "green-square", "no", "deny"],
-    "char": "❎",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "white_check_mark": {
-    "keywords": ["green-square", "ok", "agree", "vote", "election", "answer", "tick"],
+    "keywords": ["ok", "agree"],
     "char": "✅",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "diamond_shape_with_a_dot_inside": {
-    "keywords": ["jewel", "blue", "gem", "crystal", "fancy"],
-    "char": "💠",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "cyclone": {
-    "keywords": ["weather", "swirl", "blue", "cloud", "vortex", "spiral", "whirlpool", "spin", "tornado", "hurricane", "typhoon"],
+    "keywords": ["swirl", "vortex", "spiral", "whirlpool", "spin", "hurricane", "typhoon"],
     "char": "🌀",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "loop": {
-    "keywords": ["tape", "cassette"],
-    "char": "➿",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "globe_with_meridians": {
-    "keywords": ["earth", "international", "world", "internet", "interweb", "i18n"],
+    "keywords": ["international"],
     "char": "🌐",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "m": {
-    "keywords": ["alphabet", "blue-circle", "letter"],
+    "keywords": ["m"],
     "char": "Ⓜ️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "atm": {
-    "keywords": ["money", "sales", "cash", "blue-square", "payment", "bank"],
+    "keywords": ["atm"],
     "char": "🏧",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "sa": {
-    "keywords": ["japanese", "blue-square", "katakana"],
-    "char": "🈂️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "passport_control": {
-    "keywords": ["custom", "blue-square"],
-    "char": "🛂",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "customs": {
-    "keywords": ["passport", "border", "blue-square"],
-    "char": "🛃",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "baggage_claim": {
-    "keywords": ["blue-square", "airport", "transport"],
+    "keywords": ["luggage", "baggage"],
     "char": "🛄",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "left_luggage": {
-    "keywords": ["blue-square", "travel"],
-    "char": "🛅",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "wheelchair": {
-    "keywords": ["blue-square", "disabled", "a11y", "accessibility"],
+    "keywords": ["handicaped", "handicape"],
     "char": "♿",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "no_smoking": {
-    "keywords": ["cigarette", "blue-square", "smell", "smoke"],
+    "keywords": ["nosmoking"],
     "char": "🚭",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "wc": {
-    "keywords": ["toilet", "restroom", "blue-square"],
+    "keywords": ["restroom"],
     "char": "🚾",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "parking": {
-    "keywords": ["cars", "blue-square", "alphabet", "letter"],
+    "keywords": ["p", "parking"],
     "char": "🅿️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "potable_water": {
-    "keywords": ["blue-square", "liquid", "restroom", "cleaning", "faucet"],
-    "char": "🚰",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "mens": {
-    "keywords": ["toilet", "restroom", "wc", "blue-square", "gender", "male"],
+    "keywords": ["men", "mens"],
     "char": "🚹",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "womens": {
-    "keywords": ["purple-square", "woman", "female", "toilet", "loo", "restroom", "gender"],
+    "keywords": ["women", "womens"],
     "char": "🚺",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "baby_symbol": {
-    "keywords": ["orange-square", "child"],
-    "char": "🚼",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "restroom": {
-    "keywords": ["blue-square", "toilet", "refresh", "wc", "gender"],
-    "char": "🚻",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "put_litter_in_its_place": {
-    "keywords": ["blue-square", "sign", "human", "info"],
-    "char": "🚮",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "cinema": {
-    "keywords": ["blue-square", "record", "film", "movie", "curtain", "stage", "theater"],
+    "keywords": ["record", "film"],
     "char": "🎦",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "signal_strength": {
-    "keywords": ["blue-square", "reception", "phone", "internet", "connection", "wifi", "bluetooth", "bars"],
+    "keywords": ["signal", "reception", "connection"],
     "char": "📶",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "koko": {
-    "keywords": ["blue-square", "here", "katakana", "japanese", "destination"],
-    "char": "🈁",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "ng": {
-    "keywords": ["blue-square", "words", "shape", "icon"],
+    "keywords": ["ng"],
     "char": "🆖",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "ok": {
-    "keywords": ["good", "agree", "yes", "blue-square"],
-    "char": "🆗",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "up": {
-    "keywords": ["blue-square", "above", "high"],
+    "keywords": ["up", "above"],
     "char": "🆙",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "cool": {
-    "keywords": ["words", "blue-square"],
-    "char": "🆒",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "new": {
-    "keywords": ["blue-square", "words", "start"],
+    "keywords": ["new"],
     "char": "🆕",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "free": {
-    "keywords": ["blue-square", "words"],
+    "keywords": ["free"],
     "char": "🆓",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "zero": {
-    "keywords": ["0", "numbers", "blue-square", "null"],
+    "keywords": ["0", "null", "zero"],
     "char": "0️⃣",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "one": {
-    "keywords": ["blue-square", "numbers", "1"],
+    "keywords": ["one", "numbers", "1"],
     "char": "1️⃣",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "two": {
-    "keywords": ["numbers", "2", "prime", "blue-square"],
+    "keywords": ["two", "2"],
     "char": "2️⃣",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "three": {
-    "keywords": ["3", "numbers", "prime", "blue-square"],
+    "keywords": ["3", "three"],
     "char": "3️⃣",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "four": {
-    "keywords": ["4", "numbers", "blue-square"],
+    "keywords": ["4", "four", "fourth"],
     "char": "4️⃣",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "five": {
-    "keywords": ["5", "numbers", "blue-square", "prime"],
+    "keywords": ["5", "five", "fifth"],
     "char": "5️⃣",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "six": {
-    "keywords": ["6", "numbers", "blue-square"],
+    "keywords": ["6", "six", "sixth"],
     "char": "6️⃣",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "seven": {
-    "keywords": ["7", "numbers", "blue-square", "prime"],
+    "keywords": ["7", "seven", "senventh"],
     "char": "7️⃣",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "eight": {
-    "keywords": ["8", "blue-square", "numbers"],
+    "keywords": ["8", "eight"],
     "char": "8️⃣",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "nine": {
-    "keywords": ["blue-square", "numbers", "9"],
+    "keywords": ["nine", "nineth", "9"],
     "char": "9️⃣",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "keycap_ten": {
-    "keywords": ["numbers", "10", "blue-square"],
+    "keywords": ["ten", "10"],
     "char": "🔟",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "asterisk": {
-    "keywords": ["star", "keycap"],
-    "char": "*⃣",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "1234": {
-    "keywords": ["numbers", "blue-square"],
+    "keywords": ["1234", "numbers"],
     "char": "🔢",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "eject_button": {
-    "keywords": ["blue-square"],
+    "keywords": ["eject"],
     "char": "⏏️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "arrow_forward": {
-    "keywords": ["blue-square", "right", "direction", "play"],
+    "keywords": ["play"],
     "char": "▶️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "pause_button": {
-    "keywords": ["pause", "blue-square"],
+    "keywords": ["pause"],
     "char": "⏸",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "next_track_button": {
-    "keywords": ["forward", "next", "blue-square"],
+    "keywords": ["forward", "next"],
     "char": "⏭",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "stop_button": {
-    "keywords": ["blue-square"],
-    "char": "⏹",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "record_button": {
-    "keywords": ["blue-square"],
-    "char": "⏺",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "play_or_pause_button": {
-    "keywords": ["blue-square", "play", "pause"],
-    "char": "⏯",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "previous_track_button": {
-    "keywords": ["backward"],
+    "keywords": ["backward", "previous"],
     "char": "⏮",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "fast_forward": {
-    "keywords": ["blue-square", "play", "speed", "continue"],
-    "char": "⏩",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "rewind": {
-    "keywords": ["play", "blue-square"],
+    "keywords": ["rewind"],
     "char": "⏪",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "twisted_rightwards_arrows": {
-    "keywords": ["blue-square", "shuffle", "music", "random"],
+    "keywords": ["shuffle", "random"],
     "char": "🔀",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "repeat": {
-    "keywords": ["loop", "record"],
+    "keywords": ["loop", "repeat"],
     "char": "🔁",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "repeat_one": {
-    "keywords": ["blue-square", "loop"],
-    "char": "🔂",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "arrow_backward": {
-    "keywords": ["blue-square", "left", "direction"],
-    "char": "◀️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "arrow_up_small": {
-    "keywords": ["blue-square", "triangle", "direction", "point", "forward", "top"],
-    "char": "🔼",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "arrow_down_small": {
-    "keywords": ["blue-square", "direction", "bottom"],
-    "char": "🔽",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "arrow_double_up": {
-    "keywords": ["blue-square", "direction", "top"],
-    "char": "⏫",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "arrow_double_down": {
-    "keywords": ["blue-square", "direction", "bottom"],
-    "char": "⏬",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "arrow_right": {
-    "keywords": ["blue-square", "next"],
+    "keywords": ["right"],
     "char": "➡️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "arrow_left": {
-    "keywords": ["blue-square", "previous", "back"],
+    "keywords": ["left"],
     "char": "⬅️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "arrow_up": {
-    "keywords": ["blue-square", "continue", "top", "direction"],
-    "char": "⬆️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "arrow_down": {
-    "keywords": ["blue-square", "direction", "bottom"],
+    "keywords": ["bottom"],
     "char": "⬇️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "arrow_upper_right": {
-    "keywords": ["blue-square", "point", "direction", "diagonal", "northeast"],
+    "keywords": ["diagonal", "northeast"],
     "char": "↗️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "arrow_lower_right": {
-    "keywords": ["blue-square", "direction", "diagonal", "southeast"],
+    "keywords": ["southeast"],
     "char": "↘️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "arrow_lower_left": {
-    "keywords": ["blue-square", "direction", "diagonal", "southwest"],
+    "keywords": ["southwest"],
     "char": "↙️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "arrow_upper_left": {
-    "keywords": ["blue-square", "point", "direction", "diagonal", "northwest"],
+    "keywords": ["northwest"],
     "char": "↖️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "arrow_up_down": {
-    "keywords": ["blue-square", "direction", "way", "vertical"],
+    "keywords": ["vertical"],
     "char": "↕️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "left_right_arrow": {
-    "keywords": ["shape", "direction", "horizontal", "sideways"],
+    "keywords": ["horizontal", "sideways"],
     "char": "↔️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "arrows_counterclockwise": {
-    "keywords": ["blue-square", "sync", "cycle"],
+    "keywords": ["counterclockwise", "sync", "cycle"],
     "char": "🔄",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "arrow_right_hook": {
-    "keywords": ["blue-square", "return", "rotate", "direction"],
-    "char": "↪️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "leftwards_arrow_with_hook": {
-    "keywords": ["back", "return", "blue-square", "undo", "enter"],
-    "char": "↩️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "arrow_heading_up": {
-    "keywords": ["blue-square", "direction", "top"],
-    "char": "⤴️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "arrow_heading_down": {
-    "keywords": ["blue-square", "direction", "bottom"],
-    "char": "⤵️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "hash": {
-    "keywords": ["symbol", "blue-square", "twitter"],
+    "keywords": ["hashtag", "hash", "twitter"],
     "char": "#️⃣",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "information_source": {
-    "keywords": ["blue-square", "alphabet", "letter"],
+    "keywords": ["information"],
     "char": "ℹ️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "abc": {
-    "keywords": ["blue-square", "alphabet"],
-    "char": "🔤",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "abcd": {
-    "keywords": ["blue-square", "alphabet"],
-    "char": "🔡",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "capital_abcd": {
-    "keywords": ["alphabet", "words", "blue-square"],
+    "keywords": ["alphabet", "abcd", "abc"],
     "char": "🔠",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "symbols": {
-    "keywords": ["blue-square", "music", "note", "ampersand", "percent", "glyphs", "characters"],
-    "char": "🔣",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "musical_note": {
-    "keywords": ["score", "tone", "sound"],
+    "keywords": ["musical", "musicalnote"],
     "char": "🎵",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "notes": {
-    "keywords": ["music", "score"],
+    "keywords": ["music"],
     "char": "🎶",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "wavy_dash": {
-    "keywords": ["draw", "line", "moustache", "mustache", "squiggle", "scribble"],
-    "char": "〰️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "curly_loop": {
-    "keywords": ["scribble", "draw", "shape", "squiggle"],
-    "char": "➰",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "heavy_check_mark": {
-    "keywords": ["ok", "nike", "answer", "yes", "tick"],
-    "char": "✔️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "arrows_clockwise": {
-    "keywords": ["sync", "cycle", "round", "repeat"],
-    "char": "🔃",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "heavy_plus_sign": {
-    "keywords": ["math", "calculation", "addition", "more", "increase"],
+    "keywords": ["addition", "more", "increase"],
     "char": "➕",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "heavy_minus_sign": {
-    "keywords": ["math", "calculation", "subtract", "less"],
+    "keywords": ["subtract", "subtraction", "less"],
     "char": "➖",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "heavy_division_sign": {
-    "keywords": ["divide", "math", "calculation"],
+    "keywords": ["divide", "division"],
     "char": "➗",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "heavy_multiplication_x": {
-    "keywords": ["math", "calculation"],
+    "keywords": ["multiplication"],
     "char": "✖️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "infinity": {
-    "keywords": ["forever"],
+    "keywords": ["forever", "infinity", "infinite"],
     "char": "♾",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "heavy_dollar_sign": {
-    "keywords": ["money", "sales", "payment", "currency", "buck"],
+    "keywords": ["money", "dollars", "currency", "buck"],
     "char": "💲",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "currency_exchange": {
-    "keywords": ["money", "sales", "dollar", "travel"],
-    "char": "💱",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "copyright": {
-    "keywords": ["ip", "license", "circle", "law", "legal"],
+    "keywords": ["copyright"],
     "char": "©️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "registered": {
-    "keywords": ["alphabet", "circle"],
-    "char": "®️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "tm": {
-    "keywords": ["trademark", "brand", "law", "legal"],
+    "keywords": ["trademark", "tm"],
     "char": "™️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "end": {
-    "keywords": ["words", "arrow"],
+    "keywords": ["end"],
     "char": "🔚",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "back": {
-    "keywords": ["arrow", "words", "return"],
+    "keywords": ["back"],
     "char": "🔙",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "on": {
-    "keywords": ["arrow", "words"],
+    "keywords": ["on"],
     "char": "🔛",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "top": {
-    "keywords": ["words", "blue-square"],
+    "keywords": ["top"],
     "char": "🔝",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "soon": {
-    "keywords": ["arrow", "words"],
+    "keywords": ["soon"],
     "char": "🔜",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "ballot_box_with_check": {
-    "keywords": ["ok", "agree", "confirm", "black-square", "vote", "election", "yes", "tick"],
-    "char": "☑️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "radio_button": {
-    "keywords": ["input", "old", "music", "circle"],
-    "char": "🔘",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "white_circle": {
-    "keywords": ["shape", "round"],
-    "char": "⚪",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "black_circle": {
-    "keywords": ["shape", "button", "round"],
+    "keywords": ["black"],
     "char": "⚫",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "red_circle": {
-    "keywords": ["shape", "error", "danger"],
+    "keywords": ["red"],
     "char": "🔴",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "large_blue_circle": {
-    "keywords": ["shape", "icon", "button"],
+    "keywords": ["blue"],
     "char": "🔵",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "small_orange_diamond": {
-    "keywords": ["shape", "jewel", "gem"],
-    "char": "🔸",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "small_blue_diamond": {
-    "keywords": ["shape", "jewel", "gem"],
-    "char": "🔹",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "large_orange_diamond": {
-    "keywords": ["shape", "jewel", "gem"],
-    "char": "🔶",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "large_blue_diamond": {
-    "keywords": ["shape", "jewel", "gem"],
-    "char": "🔷",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "small_red_triangle": {
-    "keywords": ["shape", "direction", "up", "top"],
+    "keywords": ["triangle"],
     "char": "🔺",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "black_small_square": {
-    "keywords": ["shape", "icon"],
-    "char": "▪️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "white_small_square": {
-    "keywords": ["shape", "icon"],
-    "char": "▫️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "black_large_square": {
-    "keywords": ["shape", "icon", "button"],
+    "keywords": ["square"],
     "char": "⬛",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "white_large_square": {
-    "keywords": ["shape", "icon", "stone", "button"],
-    "char": "⬜",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "small_red_triangle_down": {
-    "keywords": ["shape", "direction", "bottom"],
-    "char": "🔻",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "black_medium_square": {
-    "keywords": ["shape", "button", "icon"],
-    "char": "◼️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "white_medium_square": {
-    "keywords": ["shape", "stone", "icon"],
-    "char": "◻️",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "black_medium_small_square": {
-    "keywords": ["icon", "shape", "button"],
-    "char": "◾",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "white_medium_small_square": {
-    "keywords": ["shape", "stone", "icon", "button"],
-    "char": "◽",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "black_square_button": {
-    "keywords": ["shape", "input", "frame"],
-    "char": "🔲",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "white_square_button": {
-    "keywords": ["shape", "input"],
-    "char": "🔳",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "speaker": {
-    "keywords": ["sound", "volume", "silence", "broadcast"],
+    "keywords": ["speaker", "volume"],
     "char": "🔈",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "sound": {
-    "keywords": ["volume", "speaker", "broadcast"],
-    "char": "🔉",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "loud_sound": {
-    "keywords": ["volume", "noise", "noisy", "speaker", "broadcast"],
+    "keywords": ["sound", "noise", "noisy"],
     "char": "🔊",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "mute": {
-    "keywords": ["sound", "volume", "silence", "quiet"],
+    "keywords": ["silence"],
     "char": "🔇",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "mega": {
-    "keywords": ["sound", "speaker", "volume"],
-    "char": "📣",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "loudspeaker": {
-    "keywords": ["volume", "sound"],
-    "char": "📢",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "bell": {
-    "keywords": ["sound", "notification", "christmas", "xmas", "chime"],
+    "keywords": ["bell", "notification"],
     "char": "🔔",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "no_bell": {
-    "keywords": ["sound", "volume", "mute", "quiet", "silent"],
-    "char": "🔕",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "black_joker": {
-    "keywords": ["poker", "cards", "game", "play", "magic"],
+    "keywords": ["joker"],
     "char": "🃏",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "mahjong": {
-    "keywords": ["game", "play", "chinese", "kanji"],
+    "keywords": ["mahjong"],
     "char": "🀄",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "spades": {
-    "keywords": ["poker", "cards", "suits", "magic"],
+    "keywords": ["spades"],
     "char": "♠️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "clubs": {
-    "keywords": ["poker", "cards", "magic", "suits"],
+    "keywords": ["clubs"],
     "char": "♣️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "hearts": {
-    "keywords": ["poker", "cards", "magic", "suits"],
+    "keywords": ["hearts"],
     "char": "♥️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "diamonds": {
-    "keywords": ["poker", "cards", "magic", "suits"],
+    "keywords": ["diamonds"],
     "char": "♦️",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "flower_playing_cards": {
-    "keywords": ["game", "sunset", "red"],
-    "char": "🎴",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "thought_balloon": {
-    "keywords": ["bubble", "cloud", "speech", "thinking", "dream"],
+    "keywords": ["bubble", "thought", "speech", "dream"],
     "char": "💭",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "right_anger_bubble": {
-    "keywords": ["caption", "speech", "thinking", "mad"],
-    "char": "🗯",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
   "speech_balloon": {
-    "keywords": ["bubble", "words", "message", "talk", "chatting"],
+    "keywords": ["message", "chatting"],
     "char": "💬",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
-  "left_speech_bubble": {
-    "keywords": ["words", "message", "talk", "chatting"],
-    "char": "🗨",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "clock1": {
-    "keywords": ["time", "late", "early", "schedule"],
-    "char": "🕐",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
+
   "clock2": {
     "keywords": ["time", "late", "early", "schedule"],
     "char": "🕑",
@@ -5511,134 +4876,62 @@
     "category": "symbols"
   },
   "clock3": {
-    "keywords": ["time", "late", "early", "schedule"],
+    "keywords": ["time", "clock", "3am", "3pm"],
     "char": "🕒",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "clock4": {
-    "keywords": ["time", "late", "early", "schedule"],
+    "keywords": ["4am", "4pm"],
     "char": "🕓",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "clock5": {
-    "keywords": ["time", "late", "early", "schedule"],
+    "keywords": ["5am", "5pm"],
     "char": "🕔",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "clock6": {
-    "keywords": ["time", "late", "early", "schedule", "dawn", "dusk"],
+    "keywords": ["6am", "6pm"],
     "char": "🕕",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "clock7": {
-    "keywords": ["time", "late", "early", "schedule"],
+    "keywords": ["7am", "7pm"],
     "char": "🕖",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "clock8": {
-    "keywords": ["time", "late", "early", "schedule"],
+    "keywords": ["8pm", "8am"],
     "char": "🕗",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "clock9": {
-    "keywords": ["time", "late", "early", "schedule"],
+    "keywords": ["9am", "9pm"],
     "char": "🕘",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "clock10": {
-    "keywords": ["time", "late", "early", "schedule"],
+    "keywords": ["10am", "10pm"],
     "char": "🕙",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "clock11": {
-    "keywords": ["time", "late", "early", "schedule"],
+    "keywords": ["11am", "11pm"],
     "char": "🕚",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "clock12": {
-    "keywords": ["time", "noon", "midnight", "midday", "late", "early", "schedule"],
+    "keywords": ["0am", "noon", "midnight"],
     "char": "🕛",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "clock130": {
-    "keywords": ["time", "late", "early", "schedule"],
-    "char": "🕜",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "clock230": {
-    "keywords": ["time", "late", "early", "schedule"],
-    "char": "🕝",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "clock330": {
-    "keywords": ["time", "late", "early", "schedule"],
-    "char": "🕞",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "clock430": {
-    "keywords": ["time", "late", "early", "schedule"],
-    "char": "🕟",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "clock530": {
-    "keywords": ["time", "late", "early", "schedule"],
-    "char": "🕠",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "clock630": {
-    "keywords": ["time", "late", "early", "schedule"],
-    "char": "🕡",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "clock730": {
-    "keywords": ["time", "late", "early", "schedule"],
-    "char": "🕢",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "clock830": {
-    "keywords": ["time", "late", "early", "schedule"],
-    "char": "🕣",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "clock930": {
-    "keywords": ["time", "late", "early", "schedule"],
-    "char": "🕤",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "clock1030": {
-    "keywords": ["time", "late", "early", "schedule"],
-    "char": "🕥",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "clock1130": {
-    "keywords": ["time", "late", "early", "schedule"],
-    "char": "🕦",
-    "fitzpatrick_scale": false,
-    "category": "symbols"
-  },
-  "clock1230": {
-    "keywords": ["time", "late", "early", "schedule"],
-    "char": "🕧",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
@@ -7149,7 +6442,7 @@
     "category": "flags"
   },
   "pirate_flag": {
-    "keywords": ["skull", "crossbones", "flag", "banner"],
+    "keywords": ["pirate"],
     "char": "🏴‍☠️",
     "fitzpatrick_scale": false,
     "category": "flags"
