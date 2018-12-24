@@ -8,6 +8,7 @@ import { RegisterPage } from './components/RegisterPage';
 
 import { EmojiMessage } from './components/testMessage';
 import { TestCardMessage } from './components/testCardMessage';
+import { NewMessagePage } from './components/NewMessagePage';
 
 export default () => {
   return (
@@ -17,6 +18,7 @@ export default () => {
       <Route path="/register" component={RegisterPage} />
       <Route path="/test" component={EmojiMessage} />
       <Route path="/test2" component={TestCardMessage} />
+      <Route path="/newMessage" component={NewMessagePage} />
     </Switch>
   );
 };

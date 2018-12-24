@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, Fa } from "mdbreact";
+import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, MDBDropdownItem, Fa } from "mdbreact";
 
 export class NavbarPage extends React.Component {
     constructor(props) {
@@ -52,17 +52,22 @@ export class NavbarPage extends React.Component {
 
                         <NavbarNav right>
                             <NavItem>
-                                <NavLink className="waves-effect waves-light d-flex align-items-center" to="#!">1<Fa icon="envelope" className="ml-1" /></NavLink>
+                                <NavLink className="waves-effect waves-light d-flex align-items-center" 
+                                         to="#!" 
+                                         style={{ fontSize: '1.75rem' }}>
+                                         1<Fa icon="envelope" className="ml-1" />
+                                </NavLink>
                             </NavItem> 
                             <NavItem>
                                 <Dropdown>
-                                    <DropdownToggle className="dopdown-toggle" nav>
+                                    <DropdownToggle caret className="dopdown-toggle" nav>
                                         <img src="http://a69.g.akamai.net/n/69/10688/v1/img5.allocine.fr/acmedia/medias/nmedia/18/90/07/03/20079741.jpg" className="rounded-circle z-depth-0" style={{height: '35px', width: '35px', padding: 0}} alt="" />
                                     </DropdownToggle>
                                     <DropdownMenu className="dropdown-default" right>
-                                        <DropdownItem href="#!">My Profile</DropdownItem>
-                                        <DropdownItem href="#!">Settings</DropdownItem>
-                                        <DropdownItem onClick={this.props.logout}>Logout</DropdownItem>
+                                        <MDBDropdownItem href="#!">My Profile</MDBDropdownItem>
+                                        <MDBDropdownItem href="#!">Settings</MDBDropdownItem>
+                                        <MDBDropdownItem divider />
+                                        <MDBDropdownItem onClick={this.props.logout}>Logout</MDBDropdownItem>
                                     </DropdownMenu>
                                 </Dropdown>
                             </NavItem>

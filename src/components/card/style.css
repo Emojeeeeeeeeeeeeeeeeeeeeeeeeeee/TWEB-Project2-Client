@@ -1,7 +1,7 @@
 body {
     font-family: Roboto, sans-serif;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1;
     color: #212529;
     text-align: center;
   }
@@ -64,7 +64,7 @@ body {
   .testimonial-card .avatar {
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    width: 120px;
+    width: 100px;
     margin-top: -60px;
     overflow: hidden;
     border: 5px solid #fff;
@@ -147,8 +147,8 @@ body {
 
  .square-image {
     background: 50% 50% no-repeat; /* 50% 50% centers image in div */
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
  }
 
 

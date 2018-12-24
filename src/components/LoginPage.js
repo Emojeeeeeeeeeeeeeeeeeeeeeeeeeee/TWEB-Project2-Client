@@ -37,9 +37,6 @@ export const LoginPage = () => {
                                             <span role="img" aria-label="happyFace2">😺</span>
                                             <span role="img" aria-label="happyFace3">👻</span>
                                         </h1> 
-                                        {/*<div style={{textAlign: 'center'}}>
-                                            The first E M O J I S Social Network !!!
-                                        </div>*/}
                                         <MDBCardHeader className="form-header deep-blue-gradient rounded">
                                             <h3 className="my-3">
                                                 <MDBIcon icon="lock" /> Login:
@@ -49,7 +46,7 @@ export const LoginPage = () => {
                                         <form onSubmit={onSubmit}>
                                             <div className="grey-text" style={{ textAlign: 'left' }}>
                                                 <MDBInput 
-                                                    label="Type your 📧"
+                                                    label="✍ your 📧"
                                                     icon="envelope"
                                                     group
                                                     type="email"
@@ -59,7 +56,7 @@ export const LoginPage = () => {
                                                     value={email}
                                                     onChange={e => setEmail(e.target.value)} />
                                                 <MDBInput
-                                                    label="Type your 🔑"
+                                                    label="✍ your 🔑"
                                                     icon="lock"
                                                     group
                                                     type="password"
