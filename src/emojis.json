@@ -1,4 +1,10 @@
 {
+  "happyFaces": {
+    "keywords": ["happyFaces", "happyFace"],
+    "char": "Happy😙😺👻",
+    "fitzpatrick_scale": false,
+    "category": "social"
+  },
   "grinning": {
     "keywords": [":D", "grin"],
     "char": "😀",
@@ -30,7 +36,7 @@
     "category": "people"
   },
   "smiley": {
-    "keywords": ["face", ":)", "=)"],
+    "keywords": [":)", "=)"],
     "char": "😃",
     "fitzpatrick_scale": false,
     "category": "people"
@@ -66,7 +72,7 @@
     "category": "people"
   },
   "blush": {
-    "keywords": ["face", "smile", "happy", "flushed", "crush", "embarrassed", "shy", "joy"],
+    "keywords": ["smile", "happy", "flushed", "crush", "embarrassed", "shy", "joy"],
     "char": "😊",
     "fitzpatrick_scale": false,
     "category": "people"
@@ -180,7 +186,7 @@
     "category": "people"
   },
   "hugs": {
-    "keywords": ["face", "smile", "hug"],
+    "keywords": ["smile", "hug"],
     "char": "🤗",
     "fitzpatrick_scale": false,
     "category": "people"
@@ -192,13 +198,13 @@
     "category": "people"
   },
   "neutral_face": {
-    "keywords": ["indifference", "meh", ":|", "neutral"],
+    "keywords": ["face", "indifference", "meh", ":|", "neutral"],
     "char": "😐",
     "fitzpatrick_scale": false,
     "category": "people"
   },
   "expressionless": {
-    "keywords": ["indifferent", "-_-", "deadpan"],
+    "keywords": ["-_-", "deadpan"],
     "char": "😑",
     "fitzpatrick_scale": false,
     "category": "people"
@@ -258,7 +264,7 @@
     "category": "people"
   },
   "disappointed": {
-    "keywords": ["face", "upset", "depressed", ":("],
+    "keywords": ["upset", "depressed", ":("],
     "char": "😞",
     "fitzpatrick_scale": false,
     "category": "people"

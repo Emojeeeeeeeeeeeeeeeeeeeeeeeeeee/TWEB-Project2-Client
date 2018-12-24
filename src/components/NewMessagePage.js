@@ -6,7 +6,7 @@ import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBModalFooter, MDBIcon, MDBCardH
 import Background from '../images/login_background_2.jpg';
 import allEmoji from '../emojis.json';
 
-const SYMBOLS = '"%&,.<>@[]`{|}~';
+const SYMBOLS = '"%&,.<>@[]`{}~';
 const maxLength = '155';
 
 export class NewMessagePage extends Component {
