@@ -6,7 +6,7 @@ import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBModalFooter, MDBIcon, MDBCardH
 import Background from '../images/login_background_2.jpg';
 import allEmoji from '../emojis.json';
 
-const SYMBOLS = '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~';
+const SYMBOLS = '"%&,.<>@[]`{|}~';
 const maxLength = '155';
 
 export class NewMessagePage extends Component {
@@ -156,7 +156,7 @@ export class NewMessagePage extends Component {
                 <NavbarPage></NavbarPage>
                 <BackgroundPage src={Background}>
                     <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
-                        <MDBCol md="6">
+                        <MDBCol md="4">
                             <MDBCard style={{marginTop: '7%'}}>
                                 <MDBCardBody>
                                     <MDBCardHeader className="form-header deep-blue-gradient rounded">
@@ -175,8 +175,7 @@ export class NewMessagePage extends Component {
                                                 className="mb-3"
                                                 type="submit">Send</MDBBtn>
                                         </div>
-                                    </form>
-                                    
+                                    </form>                         
                                 </MDBCardBody>
                             </MDBCard>
                         </MDBCol>

@@ -18,7 +18,7 @@
     "category": "people"
   },
   "joy": {
-    "keywords": ["laughing", "laugh", "happy", "happytears", "haha", "funny"],
+    "keywords": ["laughing", "laugh", "happy", "happytears", "haha", "funny", ":')", "=')", ":'D"],
     "char": "😂",
     "fitzpatrick_scale": false,
     "category": "people"
@@ -30,7 +30,7 @@
     "category": "people"
   },
   "smiley": {
-    "keywords": ["face", ":)"],
+    "keywords": ["face", ":)", "=)"],
     "char": "😃",
     "fitzpatrick_scale": false,
     "category": "people"
@@ -4659,7 +4659,7 @@
     "category": "symbols"
   },
   "hash": {
-    "keywords": ["hashtag", "hash", "twitter"],
+    "keywords": ["hashtag", "hash", "twitter", "#"],
     "char": "#️⃣",
     "fitzpatrick_scale": false,
     "category": "symbols"
@@ -4689,25 +4689,25 @@
     "category": "symbols"
   },
   "heavy_plus_sign": {
-    "keywords": ["addition", "more", "increase"],
+    "keywords": ["addition", "more", "increase", "+"],
     "char": "➕",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "heavy_minus_sign": {
-    "keywords": ["subtract", "subtraction", "less"],
+    "keywords": ["subtract", "subtraction", "less", "-"],
     "char": "➖",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "heavy_division_sign": {
-    "keywords": ["divide", "division"],
+    "keywords": ["divide", "division", "/"],
     "char": "➗",
     "fitzpatrick_scale": false,
     "category": "symbols"
   },
   "heavy_multiplication_x": {
-    "keywords": ["multiplication"],
+    "keywords": ["multiplication", "*"],
     "char": "✖️",
     "fitzpatrick_scale": false,
     "category": "symbols"
