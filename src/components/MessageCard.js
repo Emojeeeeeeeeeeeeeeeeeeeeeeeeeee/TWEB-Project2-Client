@@ -21,8 +21,7 @@ export class MessageCard extends Component {
     render() {
         return (
             <Col style={{ maxWidth: "32rem" }}>
-                <Card testimonial>
-                
+                <Card testimonial>        
                     <CardBody>
                         <h4 className="card-title">{this.props.username}</h4>
                         <hr />
