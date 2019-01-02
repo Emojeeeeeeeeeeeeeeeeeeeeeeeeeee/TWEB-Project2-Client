@@ -9,6 +9,7 @@ import allEmoji from '../emojis.json';
 const SYMBOLS = '"%&,.<>@[]`{}~';
 const maxLength = '155';
 
+//todo: 1 5 5 emojis don't work on Firefox
 export class NewMessagePage extends Component {
 
     constructor(props) {

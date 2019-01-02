@@ -34,7 +34,9 @@ export class Card extends Component {
                   />
                 </div>
                 <div className="card-body">
+                <a href={`/${this.props.username}`}>
                   <h4 className="card-title">{this.props.username}</h4>
+                </a>
                   <hr />
                   <p>{this.props.messageContent}</p>
                 </div>

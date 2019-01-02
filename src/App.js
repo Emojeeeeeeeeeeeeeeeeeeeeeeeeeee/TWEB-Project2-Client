@@ -5,7 +5,7 @@ import { HomePage } from './components/HomePage';
 import { LoginPage } from './components/LoginPage';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { RegisterPage } from './components/RegisterPage';
-
+import { ProfilePage } from './components/ProfilePage';
 import { NewMessagePage } from './components/NewMessagePage';
 
 export default () => {
@@ -15,6 +15,7 @@ export default () => {
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
       <Route path="/newMessage" component={NewMessagePage} />
+      <Route path="/profile" component={ProfilePage} />
     </Switch>
   );
 };

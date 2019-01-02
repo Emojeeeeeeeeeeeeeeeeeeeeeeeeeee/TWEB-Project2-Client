@@ -16,19 +16,19 @@ export class MessagesGrid extends Component {
                     <MDBCol size="4">
                         <Card
                             avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                            username="George Washington"
+                            username="GeorgeWashington"
                             messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
                     </MDBCol>
                     <MDBCol size="4">
                         <Card
                             avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                            username="George Washington"
+                            username="GeorgeWashington"
                             messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
                     </MDBCol>
                     <MDBCol size="4">
                     <Card
                         avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="George Washington"
+                        username="GeorgeWashington"
                         messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
                     </MDBCol>
                 </MDBRow>
@@ -36,19 +36,19 @@ export class MessagesGrid extends Component {
                     <MDBCol size="4">
                     <Card
                         avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="George Washington"
+                        username="GeorgeWashington"
                         messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
                     </MDBCol>
                     <MDBCol size="4">
                     <Card
                         avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="George Washington"
+                        username="GeorgeWashington"
                         messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
                     </MDBCol>
                     <MDBCol size="4">
                     <Card
                         avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="George Washington"
+                        username="GeorgeWashington"
                         messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
                     </MDBCol>
                 </MDBRow>
@@ -56,19 +56,19 @@ export class MessagesGrid extends Component {
                     <MDBCol size="4">
                     <Card
                         avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="George Washington"
+                        username="GeorgeWashington"
                         messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
                     </MDBCol>
                     <MDBCol size="4">
                     <Card
                         avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="George Washington"
+                        username="GeorgeWashington"
                         messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
                     </MDBCol>
                     <MDBCol size="4">
                     <Card
                         avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="George Washington"
+                        username="GeorgeWashington"
                         messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" /> 
                     </MDBCol>
                 </MDBRow>
