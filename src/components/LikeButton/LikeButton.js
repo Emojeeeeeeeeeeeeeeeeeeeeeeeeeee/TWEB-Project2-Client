@@ -34,12 +34,13 @@ export class LikeButton extends Component {
     }
 
     render() {
-        const buttonLabel = this.state.status ? "button button-like liked " : "button button-like" ;
+        const buttonLabel = this.state.status ? "button button-like liked " : "button button-like";
+        const buttonText =  this.state.status ? <span>Liked</span> : <span>Like</span>;
         return (
             <div>
                 <button className={buttonLabel} onClick={this.toggleLike}>
                     <i className="fa fa-heart"></i>
-                    <span>Like</span>
+                    {buttonText}
                 </button>
                 <span className="counter">{this.state.likes}</span>
             </div>
