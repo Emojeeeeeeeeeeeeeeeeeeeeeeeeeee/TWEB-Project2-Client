@@ -25,11 +25,14 @@ export const RegisterPage = () => {
           password: password1,
           image: null
         }
-        graphQL.createUser(info)
+
+        if(graphQL.createUser(info) !== null) {
+            return <Redirect to="/login" />
+        }
       }
   };
     
-  
+
     return (
         <BackgroundPage src={Background}>
             <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
