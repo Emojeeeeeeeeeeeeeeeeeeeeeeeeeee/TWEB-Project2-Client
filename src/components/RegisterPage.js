@@ -28,9 +28,17 @@ export const RegisterPage = () => {
 
         createUser(info).then(data => {
             if(data !== null) {
-                window.location.replace("/login");
+                setUsername('');
+                setTimeout(() => {
+                    window.location.replace("/login");
+                }, 3000); 
+                
                 //return <Redirect to="/login" />
             }
+            
+            setEmail('');
+            setPassword1('');
+            setPassword2('');    
         })
     }
   };

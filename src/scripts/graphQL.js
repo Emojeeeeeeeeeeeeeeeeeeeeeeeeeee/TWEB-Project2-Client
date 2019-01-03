@@ -35,7 +35,6 @@ export function createUser (user){
     data : queryToSend
     })
     .then(response => response.data.data.createUser)
-    .then(response => console.log(response))
     .catch(error => {
       console.error(error);
       this.setState({ error: 'Invalid email or password' });
