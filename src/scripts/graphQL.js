@@ -1,11 +1,8 @@
 import axios from 'axios';
 //let fetch = require('node-fetch')
 
-function getMessage (email ) {
-}
 
-function getMessages () {
- 
+function getMessage (email ){
 }
 
 function createMessage (input) {
@@ -16,34 +13,34 @@ function updateMessage ( id, input ) {
 
 }
 
-export async function createUser (user){
-  
-  return await axios.post('http://localhost:5000/graphql', { 
-    query: `query CreateUser($input: UserInput!){createUser(input: $input){id}}`,
+
+export function createUser (user){
+  let queryToSend = {
+    query: 'query CreateUser($input: UserInput!){createUser(input: $input){id}}',
     variables: {
       input: {
-        email: user.email,
-        username: user.username,
-        password: user.password
+      email: user.email,
+      username: user.username,
+      password: user.password,
       }
     },
     headers: {
       'Content-type': 'application/json'
     }
-  })
-    .then(res => res.data.data.createUser)
+  }
 
-  /*return fetch('http://localhost:5000/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    body: JSON.stringify(queryToSend)
-  })
-  .then(res => console.log(res))
-  .catch(err=> console.log("errors :", err))*/
-}
+  return axios({
+    url: 'http://localhost:5000/graphql', 
+    method: 'post',
+    data : queryToSend
+    })
+    .then(response => response.data.data.createUser)
+    .then(response => console.log(response))
+    .catch(error => {
+      console.error(error);
+      this.setState({ error: 'Invalid email or password' });
+    })
+  }
 
 /*module.exports = {
   createUser,
