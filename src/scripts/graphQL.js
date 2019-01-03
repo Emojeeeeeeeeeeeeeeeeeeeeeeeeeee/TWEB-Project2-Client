@@ -1,4 +1,5 @@
-let fetch = require('node-fetch')
+import axios from 'axios';
+//let fetch = require('node-fetch')
 
 function getMessage (email ) {
 }
@@ -15,19 +16,24 @@ function updateMessage ( id, input ) {
 
 }
 
-function createUser (user){
-  const queryToSend = {
-    query: "mutation CreateUser($input: UserInput!){createUser(input: $input){id}}",
+export async function createUser (user){
+  
+  return await axios.post('http://localhost:5000/graphql', { 
+    query: `query CreateUser($input: UserInput!){createUser(input: $input){id}}`,
     variables: {
       input: {
-      email: user.email,
-      username: user.username,
-      password: user.password
+        email: user.email,
+        username: user.username,
+        password: user.password
       }
+    },
+    headers: {
+      'Content-type': 'application/json'
     }
-  }
-  
-  fetch('http://localhost:5000/graphql', {
+  })
+    .then(res => res.data.data.createUser)
+
+  /*return fetch('http://localhost:5000/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -35,14 +41,12 @@ function createUser (user){
     },
     body: JSON.stringify(queryToSend)
   })
-  .then(r => r.json())
-  .then(r => console.log('data returned:', r))
-  .catch(err=> console.log("erreurs :", err))
-  
+  .then(res => console.log(res))
+  .catch(err=> console.log("errors :", err))*/
 }
 
-module.exports = {
+/*module.exports = {
   createUser,
   createMessage,
   getMessage
-}
+}*/
