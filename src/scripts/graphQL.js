@@ -1,6 +1,10 @@
 let fetch = require('node-fetch')
 
-function getMessage (email ){
+function getMessage (email ) {
+}
+
+function getMessages () {
+ 
 }
 
 function createMessage (input) {
@@ -12,7 +16,7 @@ function updateMessage ( id, input ) {
 }
 
 function createUser (user){
-  let queryToSend = {
+  const queryToSend = {
     query: "mutation CreateUser($input: UserInput!){createUser(input: $input){id}}",
     variables: {
       input: {
