@@ -1,20 +1,35 @@
 import React, { useState } from 'react';
 import { BackgroundPage } from './BackgroundPage';
+import  { Redirect } from 'react-router-dom'
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBModalFooter, MDBIcon, MDBCardHeader, MDBBtn, MDBInput } from 'mdbreact';
 
 import Background from '../images/login_background_2.jpg';
+import { throws } from 'assert';
+import { withRouter } from "react-router";
+
+let graphQL = require('../scripts/graphQL')
 
 export const RegisterPage = () => {
-    
+        
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
 
     const onSubmit = (e) => {
-        e.preventDefault();
-    };
+      e.preventDefault();
+      if(password1 === password2){
+        let info = {
+          email :email,
+          username: username,
+          password: password1,
+          image: null
+        }
+        graphQL.createUser(info)
+      }
+  };
     
+  
     return (
         <BackgroundPage src={Background}>
             <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
@@ -88,5 +103,5 @@ export const RegisterPage = () => {
             </MDBRow>
         </BackgroundPage>
         );
-    
+ 
 };
