@@ -14,7 +14,7 @@ export default () => {
       <ProtectedRoute path="/" exact component={HomePage} />
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
-      <Route path="/newMessage" component={NewMessagePage} />
+      <ProtectedRoute path="/newMessage" component={NewMessagePage} />
       <Route path="/profile" component={ProfilePage} />
     </Switch>
   );

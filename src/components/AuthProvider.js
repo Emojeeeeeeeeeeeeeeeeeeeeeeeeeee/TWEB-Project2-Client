@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const {Provider: AuthContextProvider, Consumer: AuthContext} = React.createContext();
 
+
+
 class AuthProvider extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +12,8 @@ class AuthProvider extends Component {
             user: null,
             error: null,
             signIn: this.signIn,
-            signOut: this.signOut 
+            signOut: this.signOut,
+            getMessages: this.getMessages
         }
     }
 
@@ -49,6 +52,23 @@ class AuthProvider extends Component {
     signOut() {
         localStorage.removeItem('token');
         window.location.reload();
+    }
+
+    getMessages() {
+        console.log('getting messages for ' + this.state.user.email);
+        
+        const GET_MESSAGES_QUERY = `
+        {
+            getMessagesFromDB(email: ${this.state.user.email}, offset: 0) {
+              content
+              author
+              like
+              timestamp
+            }
+          }`;
+
+        axios.get('http://localhost:3000/graphql?query=' + GET_MESSAGES_QUERY)
+            .then(res => console.log(res.json()));
     }
 
     render() {

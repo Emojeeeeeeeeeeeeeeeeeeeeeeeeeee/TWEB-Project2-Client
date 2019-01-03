@@ -10,12 +10,12 @@ import Background from '../images/login_background_2.jpg';
 export const HomePage = () => {
     return (
         <AuthContext>
-            {({ signOut }) => {
+            {({ signOut, getMessages }) => {
                 return (
                     <div>
                         <NavbarPage logout={signOut}/>
                         <BackgroundPage src={Background}>
-                            <MessagesGrid />
+                            <MessagesGrid messages={getMessages}/>
                         </BackgroundPage>
                     </div>
                 );
