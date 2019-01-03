@@ -1,15 +1,13 @@
 import React from 'react';
 
-import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBCardHeader, MDBIcon } from 'mdbreact';
 import { AuthContext } from './AuthProvider';
 import { NavbarPage } from './Navbar';
 import { BackgroundPage } from './BackgroundPage';
+import { FollowButton } from './FollowButton/FollowButton';
 
 import Background from '../images/login_background_2.jpg';
 
 import './card/style.css';
-
-const colors = ['aqua-gradient', 'blue-gradient', 'purple-gradient', 'peach-gradient', 'dusty-grass-gradient'];
 
 export const ProfilePage = () => {
 
@@ -39,6 +37,7 @@ export const ProfilePage = () => {
                                                 Followers: 20
                                             </a>
                                         </div>
+                                        <FollowButton />
                                     </div>
                                 </div>
                             </div>  
