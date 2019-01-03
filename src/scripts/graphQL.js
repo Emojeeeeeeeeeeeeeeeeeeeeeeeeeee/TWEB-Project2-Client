@@ -22,8 +22,7 @@ function createUser (user){
       input: {
       email: user.email,
       username: user.username,
-      password: user.password,
-      image: null
+      password: user.password
       }
     }
   }
