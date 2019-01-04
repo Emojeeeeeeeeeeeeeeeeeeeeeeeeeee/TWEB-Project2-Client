@@ -28,11 +28,11 @@ function getMessages(email)
   .catch(err=> console.log("erreurs :", err))
 }
 
-export function getMessages(email, offset) {
+export function getMessages(authorId, offset) {
   const queryToSend = {
-    query: 'query GetMessagesFromDB($email: String!, $offset: Int!){getMessagesFromDB(email: $email, offset: $offset){id}}',
+    query: 'query GetMessagesFromDB($authorId: String!, $offset: Int!){getMessagesFromDB(authorId: $email, offset: $offset){id}}',
     variables: {
-      email: email,
+      authorId: authorId,
       offset: offset,
     },
     headers: {
@@ -77,7 +77,7 @@ export function createMessage (author, content) {
 
 export function deleteMessage(id, authorId){
   const queryToSend = {
-    query: 'query  DeleteMessage(id: String, author: String){deleteMessage(id: $id, author: $authorid){id}}',
+    query: 'query  DeleteMessage(messageId: String!, authorId: Stringü){deleteMessage(messageId: $id, authorId: $authorid){id}}',
     variables: {
       input: {
       id: id,
@@ -133,7 +133,8 @@ export function createUser (email, username, password){
   }
 
 
-  createMessage("5c2e49d308001d4020b59891","To be deleted")
+  let t = createMessage("5c2e49d308001d4020b59891","To be deleted")
+  
 
 /*module.exports = {
   createUser,
