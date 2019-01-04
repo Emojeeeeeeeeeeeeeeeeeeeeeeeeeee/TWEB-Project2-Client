@@ -17,7 +17,7 @@ export function createMessage (authorId, content) {
     method: 'post',
     data: queryToSend
   })
-  .then(response => response.data)
+  .then(response => response.data.createMessage)
   .catch(error => {
     console.error(error);
   })
@@ -25,7 +25,7 @@ export function createMessage (authorId, content) {
 
 export function deleteMessage(id, authorId){
   const queryToSend = {
-    query: 'query DeleteMessage($messageId: String!, $authorId: String!){deleteMessage(messageId: $id, authorId: $authorId){id}}',
+    query: 'query DeleteMessage($messageId: String!, $authorId: String!){deleteMessage(messageId: $id, authorId: $authorId)}',
     variables: {
       id: id,
       authorId : authorId
@@ -43,7 +43,6 @@ export function deleteMessage(id, authorId){
     .then(response => response.data.data.deleteMessage)
     .catch(error => {
       console.error(error);
-      this.setState({ error: 'Message not found ' });
     })
 }
 
@@ -66,7 +65,6 @@ export function getUser(userId){
     .then(response => response.data.data.getUser)
     .catch(error => {
       console.error(error);
-      this.setState({ error: 'User not found' });
     })
 }
 
@@ -114,7 +112,6 @@ export function createUser (email, username, password){
     .then(response => response.data.data.createUser)
     .catch(error => {
       console.error(error);
-      this.setState({ error: 'Invalid email or password' });
     })
   }
 
@@ -138,7 +135,6 @@ export function createUser (email, username, password){
       .then(response => response.data.data.like)
       .catch(error => {
         console.error(error);
-        this.setState({ error: 'Can not like' });
       })
   }
 
@@ -162,7 +158,6 @@ export function createUser (email, username, password){
       .then(response => response.data.data.unlike)
       .catch(error => {
         console.error(error);
-        this.setState({ error: 'Can not unlike' });
       })
   }
 
@@ -186,7 +181,6 @@ export function createUser (email, username, password){
       .then(response => response.data.data.like)
       .catch(error => {
         console.error(error);
-        this.setState({ error: 'Can not follow' });
       })
   }
 
