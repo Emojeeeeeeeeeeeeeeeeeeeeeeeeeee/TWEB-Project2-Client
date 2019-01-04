@@ -4,28 +4,74 @@ import axios from 'axios';
 
 
 
-function getMessages(email) 
-{
+export function createMessage (authorId, content) {
   const queryToSend = {
-    
-    query: "query GetMessages($email: String!){getMessages(email: $email){id}}",
+    query: 'query CreateMessage($authorId: String!, $content: String!){createMessage(authorId: $authorId, content: $content){id}}',
     variables: {
-      email: email
-      }
-    
-  }
-  
-  fetch('http://localhost:5000/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
+      authorId: authorId,
+      content: content,
     },
-    body: JSON.stringify(queryToSend)
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }
+
+  return axios({
+    url: 'http://localhost:5000/graphql',
+    method: 'post',
+    data: queryToSend
   })
-  .then(r => r.json())
-  .then(r => console.log('data returned:', r))
-  .catch(err=> console.log("erreurs :", err))
+  .then(response => console.log(response))
+  .catch(error => {
+    console.error(error);
+  })
+}
+
+export function deleteMessage(id, authorId){
+  const queryToSend = {
+    query: 'query  DeleteMessage(messageId: String!, authorId: Stringü){deleteMessage(messageId: $id, authorId: $authorid){id}}',
+    variables: {
+      id: id,
+      author : authorId
+    },
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }
+
+  return axios({
+    url: 'http://localhost:5000/graphql', 
+    method: 'post',
+    data : queryToSend
+    })
+    .then(response => response.data.data.deleteMessage)
+    .catch(error => {
+      console.error(error);
+      this.setState({ error: 'Message not found ' });
+    })
+}
+
+export function getUser(userId){
+  const queryToSend = {
+    query: 'query GetUser(userId: String!){getUser(userId: $userId)){id}}',
+    variables: {
+      userId: userId,
+    },
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }
+
+  return axios({
+    url: 'http://localhost:5000/graphql', 
+    method: 'post',
+    data : queryToSend
+    })
+    .then(response => response.data.data.getUser)
+    .catch(error => {
+      console.error(error);
+      this.setState({ error: 'User not found' });
+    })
 }
 
 export function getMessages(authorId, offset) {
@@ -52,68 +98,13 @@ export function getMessages(authorId, offset) {
   });
 }
 
-export function createMessage (author, content) {
-  const queryToSend = {
-    query: 'query CreateMessage($author: String!, $content: String!){createMessage(author: $author, content: $content){id}}',
-    variables: {
-      author: author,
-      content: content,
-    },
-    headers: {
-      'Content-type': 'application/json'
-    }
-  }
-
-  return axios({
-    url: 'http://localhost:5000/graphql',
-    method: 'post',
-    data: queryToSend
-  })
-  .then(response => console.log(response))
-  .catch(error => {
-    console.error(error);
-  })
-}
-
-export function deleteMessage(id, authorId){
-  const queryToSend = {
-    query: 'query  DeleteMessage(messageId: String!, authorId: Stringü){deleteMessage(messageId: $id, authorId: $authorid){id}}',
-    variables: {
-      input: {
-      id: id,
-      author : authorId,
-      }
-    },
-    headers: {
-      'Content-type': 'application/json'
-    }
-  }
-
-  return axios({
-    url: 'http://localhost:5000/graphql', 
-    method: 'post',
-    data : queryToSend
-    })
-    .then(response => response.data.data.deleteMessage)
-    .catch(error => {
-      console.error(error);
-      this.setState({ error: 'Invalid email or password' });
-    })
-}
-
-function updateMessage ( id, input ) {
-
-}
-
 export function createUser (email, username, password){
   const queryToSend = {
     query: 'query CreateUser(username: String!, password: String!, email: String!){createUser(username: $username, password: $password, email: $email){id}}',
     variables: {
-      input: {
       email: email,
       username: username,
       password: password,
-      }
     },
     headers: {
       'Content-type': 'application/json'
@@ -132,9 +123,112 @@ export function createUser (email, username, password){
     })
   }
 
-
-  let t = createMessage("5c2e49d308001d4020b59891","To be deleted")
+  export function like(messageId, authorId){
+    const queryToSend = {
+      query: 'query Like(messageId: String!, authorId: String!){like(messageId: $messageId, authorId: $authorId){}}',
+      variables: {
+        messageId: messageId,
+        authorId: authorId
+      },
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
   
+    return axios({
+      url: 'http://localhost:5000/graphql', 
+      method: 'post',
+      data : queryToSend
+      })
+      .then(response => response.data.data.like)
+      .catch(error => {
+        console.error(error);
+        this.setState({ error: 'Can not like' });
+      })
+  }
+
+  export function unlike(messageId, authorId){
+    const queryToSend = {
+      query: 'query Unlike(messageId: String!, authorId: String!){unlike(messageId: $messageId, authorId: $authorId){}}',
+      variables: {
+        messageId: messageId,
+        authorId: authorId
+      },
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+  
+    return axios({
+      url: 'http://localhost:5000/graphql', 
+      method: 'post',
+      data : queryToSend
+      })
+      .then(response => response.data.data.like)
+      .catch(error => {
+        console.error(error);
+        this.setState({ error: 'Can not unlike' });
+      })
+  }
+
+  export function follow(targetId, userId){
+    const queryToSend = {
+      query: 'query Follow(targetId: String!, userId: String!){follow(targetId: $targetId, userId: $userId){}}',
+      variables: {
+        targetId: targetId,
+        userId: userId
+      },
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+  
+    return axios({
+      url: 'http://localhost:5000/graphql', 
+      method: 'post',
+      data : queryToSend
+      })
+      .then(response => response.data.data.like)
+      .catch(error => {
+        console.error(error);
+        this.setState({ error: 'Can not follow' });
+      })
+  }
+
+
+  export function unfollow(targetId, userId){
+    const queryToSend = {
+      query: 'query Unollow(targetId: String!, userId: String!){unfollow(targetId: $targetId, userId: $userId){}}',
+      variables: {
+        targetId: targetId,
+        userId: userId
+      },
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+  
+    return axios({
+      url: 'http://localhost:5000/graphql', 
+      method: 'post',
+      data : queryToSend
+      })
+      .then(response => response.data.data.like)
+      .catch(error => {
+        console.error(error);
+        this.setState({ error: 'Can not unfollow' });
+      })
+  }
+
+
+
+  /*
+  let t = createMessage("5c2e49d308001d4020b59891","To be deleted")
+  t.then(data => {
+    console.log(data.id);
+    deleteMessage(data.id,"5c2e49d308001d4020b59891")
+  })
+  */
 
 /*module.exports = {
   createUser,
