@@ -3,6 +3,8 @@ import { BackgroundPage } from './BackgroundPage';
 import { NavbarPage } from './Navbar';
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBModalFooter, MDBIcon, MDBCardHeader, MDBBtn, MDBInput } from 'mdbreact';
 
+import { createMessage } from '../scripts/graphQL'
+
 import Background from '../images/login_background_2.jpg';
 import allEmoji from '../emojis.json';
 
@@ -22,7 +24,16 @@ export class NewMessagePage extends Component {
     }
 
     onSubmit(e) {
-        // todo
+        e.preventDefault();
+
+        createMessage('5c2e49d308001d4020b59891', this.state.messageContent)
+            .then(data => {
+                if(data !== null) {
+                    setTimeout(() => {
+                        window.location.replace("/");
+                    }, 100000); 
+                }
+            });
     };
 
     handleChange(e) {

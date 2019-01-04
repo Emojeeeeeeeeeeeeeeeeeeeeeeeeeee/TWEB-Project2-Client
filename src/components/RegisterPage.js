@@ -29,6 +29,7 @@ export const RegisterPage = () => {
         createUser(info).then(data => {
             if(data !== null) {
                 setUsername('');
+                //todo: add confirmation message
                 setTimeout(() => {
                     window.location.replace("/login");
                 }, 3000); 
