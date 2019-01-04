@@ -1,4 +1,5 @@
-let fetch = require('node-fetch')
+import axios from 'axios';
+//let fetch = require('node-fetch')
 
 
 function getMessages(email) 
@@ -28,7 +29,7 @@ function getMessages(email)
 
 function createMessage (input) {
   const queryToSend = {
-    query: "mutation CreateMessage($input: MessageInput){createMessage(input: $input){id}}",
+    query: "query CreateMessage($input: MessageInput){createMessage(input: $input){id}}",
     variables: {
       input: {
       content: input.content,
@@ -54,48 +55,36 @@ function deleteMessage(){
   
 }
 
-function createUser (user){
-  const queryToSend = {
-    query: "mutation CreateUser($input: UserInput!){createUser(input: $input){id}}",
+
+export function createUser (user){
+  let queryToSend = {
+    query: 'query CreateUser($input: UserInput!){createUser(input: $input){id}}',
     variables: {
       input: {
       email: user.email,
       username: user.username,
       password: user.password,
-      image: null
       }
+    },
+    headers: {
+      'Content-type': 'application/json'
     }
   }
-  
-  fetch('http://localhost:5000/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    body: JSON.stringify(queryToSend)
-  })
-  .then(r => r.json())
-  .then(r => console.log('data returned:', r))
-  .catch(err=> console.log("erreurs :", err))
-  
-}
 
-let t = {
-  author:"coucou@test.com",
-  content:"plz send only one"
-}
+  return axios({
+    url: 'http://localhost:5000/graphql', 
+    method: 'post',
+    data : queryToSend
+    })
+    .then(response => response.data.data.createUser)
+    .catch(error => {
+      console.error(error);
+      this.setState({ error: 'Invalid email or password' });
+    })
+  }
 
-createUser({
-  email:"coucou2@coucou.com",
-  password:"test",
-  username:"test"
-})
-//createMessage(t);
-//let email = "toto@tutu.tata"
-//getMessages(email)
-module.exports = {
+/*module.exports = {
   createUser,
   createMessage,
-  getMessages
-}
+  getMessage
+}*/

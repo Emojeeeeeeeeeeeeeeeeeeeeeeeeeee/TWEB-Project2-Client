@@ -7,7 +7,7 @@ import Background from '../images/login_background_2.jpg';
 import { throws } from 'assert';
 import { withRouter } from "react-router";
 
-let graphQL = require('../scripts/graphQL')
+import { createUser } from '../scripts/graphQL';
 
 export const RegisterPage = () => {
         
@@ -20,16 +20,29 @@ export const RegisterPage = () => {
       e.preventDefault();
       if(password1 === password2){
         let info = {
-          email :email,
+          email: email,
           username: username,
           password: password1,
           image: null
         }
-        graphQL.createUser(info)
-      }
+
+        createUser(info).then(data => {
+            if(data !== null) {
+                setUsername('');
+                setTimeout(() => {
+                    window.location.replace("/login");
+                }, 3000); 
+                
+                //return <Redirect to="/login" />
+            }
+            
+            setEmail('');
+            setPassword1('');
+            setPassword2('');    
+        })
+    }
   };
-    
-  
+
     return (
         <BackgroundPage src={Background}>
             <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
