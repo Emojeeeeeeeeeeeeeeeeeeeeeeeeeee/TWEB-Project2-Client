@@ -74,9 +74,8 @@ export function createMessage (author, content) {
     console.error(error);
   })
 }
-/*
-function deleteMessage(id, authorId){
-  
+
+export function deleteMessage(id, authorId){
   const queryToSend = {
     query: 'query  DeleteMessage(id: String, author: String){deleteMessage(id: $id, author: $authorid){id}}',
     variables: {
@@ -95,25 +94,25 @@ function deleteMessage(id, authorId){
     method: 'post',
     data : queryToSend
     })
-    .then(response => response.data.data.createUser)
+    .then(response => response.data.data.deleteMessage)
     .catch(error => {
       console.error(error);
       this.setState({ error: 'Invalid email or password' });
     })
 }
-*/
+
 function updateMessage ( id, input ) {
 
 }
 
-export function createUser (user){
+export function createUser (email, username, password){
   const queryToSend = {
-    query: 'query CreateUser($input: UserInput!){createUser(input: $input){id}}',
+    query: 'query CreateUser(username: String!, password: String!, email: String!){createUser(username: $username, password: $password, email: $email){id}}',
     variables: {
       input: {
-      email: user.email,
-      username: user.username,
-      password: user.password,
+      email: email,
+      username: username,
+      password: password,
       }
     },
     headers: {
@@ -132,6 +131,9 @@ export function createUser (user){
       this.setState({ error: 'Invalid email or password' });
     })
   }
+
+
+  createMessage("5c2e49d308001d4020b59891","To be deleted")
 
 /*module.exports = {
   createUser,
