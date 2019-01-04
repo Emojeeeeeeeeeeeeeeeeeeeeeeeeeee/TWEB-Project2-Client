@@ -2,6 +2,8 @@ import axios from 'axios';
 //let fetch = require('node-fetch')
 
 
+
+
 function getMessages(email) 
 {
   const queryToSend = {
@@ -26,38 +28,86 @@ function getMessages(email)
   .catch(err=> console.log("erreurs :", err))
 }
 
-
-function createMessage (input) {
+export function getMessages(email, offset) {
   const queryToSend = {
-    query: "query CreateMessage($input: MessageInput){createMessage(input: $input){id}}",
+    query: 'query GetMessagesFromDB($email: String!, $offset: Int!){getMessagesFromDB(email: $email, offset: $offset){id}}',
     variables: {
-      input: {
-      content: input.content,
-      author: input.author,
-      }
+      email: email,
+      offset: offset,
+    },
+    headers: {
+      'Content-type': 'application/json'
     }
   }
-  
-  fetch('http://localhost:5000/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    body: JSON.stringify(queryToSend)
+
+  return axios( {
+    url: 'http://localhost:5000/graphql', 
+    method: 'get',
+    data: queryToSend
   })
-  .then(r => r.json())
-  .then(r => console.log('data returned:', r))
-  .catch(err=> console.log("erreurs :", err))
+  .then(response => response.data)
+  .then(response => console.log(response))
+  .catch(error => {
+    console.error(error);
+  });
 }
 
-function deleteMessage(){
+export function createMessage (author, content) {
+  const queryToSend = {
+    query: 'query CreateMessage($author: String!, $content: String!){createMessage(author: $author, content: $content){id}}',
+    variables: {
+      author: author,
+      content: content,
+    },
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }
+
+  return axios({
+    url: 'http://localhost:5000/graphql',
+    method: 'post',
+    data: queryToSend
+  })
+  .then(response => console.log(response))
+  .catch(error => {
+    console.error(error);
+  })
+}
+/*
+function deleteMessage(id, authorId){
   
-}
+  const queryToSend = {
+    query: 'query  DeleteMessage(id: String, author: String){deleteMessage(id: $id, author: $authorid){id}}',
+    variables: {
+      input: {
+      id: id,
+      author : authorId,
+      }
+    },
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }
 
+  return axios({
+    url: 'http://localhost:5000/graphql', 
+    method: 'post',
+    data : queryToSend
+    })
+    .then(response => response.data.data.createUser)
+    .catch(error => {
+      console.error(error);
+      this.setState({ error: 'Invalid email or password' });
+    })
+}
+*/
+function updateMessage ( id, input ) {
+
+}
 
 export function createUser (user){
-  let queryToSend = {
+  const queryToSend = {
     query: 'query CreateUser($input: UserInput!){createUser(input: $input){id}}',
     variables: {
       input: {
