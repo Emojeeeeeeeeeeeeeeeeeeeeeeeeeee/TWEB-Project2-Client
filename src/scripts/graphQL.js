@@ -5,11 +5,11 @@ import axios from 'axios';
 function getMessage (email ){
 }
 
-export function getMessages(email, offset) {
+export function getMessages(authorId, offset) {
   const queryToSend = {
-    query: 'query GetMessagesFromDB($email: String!, $offset: Int!){getMessagesFromDB(email: $email, offset: $offset){id}}',
+    query: 'query GetMessagesFromDB($authorId: String!, $offset: Int!){getMessagesFromDB(authorId: $authorId, offset: $offset){id}}',
     variables: {
-      email: email,
+      authorId: authorId,
       offset: offset,
     },
     headers: {
@@ -29,11 +29,11 @@ export function getMessages(email, offset) {
   });
 }
 
-export function createMessage (author, content) {
+export function createMessage (authorId, content) {
   const queryToSend = {
-    query: 'query CreateMessage($author: String!, $content: String!){createMessage(author: $author, content: $content){id}}',
+    query: 'query CreateMessage($authorId: String!, $content: String!){createMessage(authorId: $authorId, content: $content){id}}',
     variables: {
-      author: author,
+      authorId: authorId,
       content: content,
     },
     headers: {
