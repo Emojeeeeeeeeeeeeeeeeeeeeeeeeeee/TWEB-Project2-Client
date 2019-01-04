@@ -31,7 +31,7 @@ export class NewMessagePage extends Component {
                     if(data !== null) {
                         setTimeout(() => {
                             window.location.replace("/");
-                        }, 1000000); 
+                        }, 1000); 
                     }
                 });
         }
