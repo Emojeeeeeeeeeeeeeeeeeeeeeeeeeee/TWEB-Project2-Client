@@ -7,7 +7,7 @@ function getMessage (email ){
 
 export function getMessages(authorId, offset) {
   const queryToSend = {
-    query: 'query GetMessagesFromDB($authorId: String!, $offset: Int!){getMessagesFromDB(authorId: $authorId, offset: $offset){id}}',
+    query: 'query GetMessagesFromDB($authorId: String!, $offset: Int!){getMessagesFromDB(authorId: $authorId, offset: $offset){id, like, content, author}}',
     variables: {
       authorId: authorId,
       offset: offset,
@@ -23,7 +23,6 @@ export function getMessages(authorId, offset) {
     data: queryToSend
   })
   .then(response => response.data)
-  .then(response => console.log(response))
   .catch(error => {
     console.error(error);
   });
@@ -46,7 +45,7 @@ export function createMessage (authorId, content) {
     method: 'post',
     data: queryToSend
   })
-  .then(response => console.log(response))
+  .then(response => response)
   .catch(error => {
     console.error(error);
   })

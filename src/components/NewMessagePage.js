@@ -19,24 +19,25 @@ export class NewMessagePage extends Component {
         this.state = {
             messageContent: ""
         }
-        this.handleChange = this.handleChange.bind(this);
+        this.handleMessageChange = this.handleMessageChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
     onSubmit(e) {
         e.preventDefault();
-
-        createMessage('5c2e49d308001d4020b59891', this.state.messageContent)
-            .then(data => {
-                if(data !== null) {
-                    setTimeout(() => {
-                        window.location.replace("/");
-                    }, 100000); 
-                }
-            });
+        if(this.state.messageContent !== "") {
+            createMessage(localStorage.getItem('user_id'), this.translate(this.state.messageContent))
+                .then(data => {
+                    if(data !== null) {
+                        setTimeout(() => {
+                            window.location.replace("/");
+                        }, 1000000); 
+                    }
+                });
+        }
     };
 
-    handleChange(e) {
+    handleMessageChange(e) {
         this.setState({ messageContent: e.target.value });
     }
 
@@ -159,6 +160,7 @@ export class NewMessagePage extends Component {
                 translation += firstSymbol + word + lastSymbol +  ' ';
             }
         }
+        
         return translation;
     }
 
@@ -178,7 +180,7 @@ export class NewMessagePage extends Component {
                                     </MDBCardHeader>
 
                                     <form onSubmit={this.onSubmit}>
-                                        <MDBInput type="textarea" label="(max 1️⃣5️⃣5️⃣ characters)" rows="3" maxLength={maxLength} value={this.state.messageContent} onChange={this.handleChange}/>
+                                        <MDBInput type="textarea" label="(max 1️⃣5️⃣5️⃣ characters)" rows="3" maxLength={maxLength} value={this.state.messageContent} onChange={this.handleMessageChange}/>
                                         <h4>Message preview:</h4>
                                         <p>{this.translate(this.state.messageContent)}</p>
                                         <div className="text-center mt-4">
