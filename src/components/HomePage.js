@@ -8,9 +8,7 @@ import { getMessages } from '../scripts/graphQL';
 
 import Background from '../images/login_background_2.jpg';
 
-
-export const HomePage = () => {
-    getMessages(localStorage.getItem('user_id'), 0).then(res => console.log(res));
+export const HomePage = () => {    
     return (
         <AuthContext>
             {({ signOut }) => {
@@ -18,8 +16,7 @@ export const HomePage = () => {
                     <div>
                         <NavbarPage logout={signOut}/>
                         <BackgroundPage src={Background}>
-                            
-                            <MessagesGrid messages={getMessages}/>
+                            <MessagesGrid messages={getMessages(localStorage.getItem('user_id'), 0).then(res => res.getMessagesFromDB)}/>
                         </BackgroundPage>
                     </div>
                 );

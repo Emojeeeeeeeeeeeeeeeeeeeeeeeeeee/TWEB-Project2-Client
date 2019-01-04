@@ -22,18 +22,16 @@ export const RegisterPage = () => {
         let info = {
           email: email,
           username: username,
-          password: password1,
-          image: null
+          password: password1
         }
 
-        createUser(info).then(data => {
+        createUser(info.email, info.username, info.password).then(data => {
             if(data !== null) {
                 setUsername('');
                 //todo: add confirmation message
                 setTimeout(() => {
                     window.location.replace("/login");
                 }, 3000); 
-                
                 //return <Redirect to="/login" />
             }
             

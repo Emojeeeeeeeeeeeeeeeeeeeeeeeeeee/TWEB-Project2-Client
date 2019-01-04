@@ -70,7 +70,7 @@ export function getUser(userId){
 
 export function getMessages(authorId, offset) {
   const queryToSend = {
-    query: 'query GetMessagesFromDB($authorId: String!, $offset: Int!){getMessagesFromDB(authorId: $authorId, offset: $offset){id, like, content, author}}',
+    query: 'query GetMessagesFromDB($authorId: String!, $offset: Int!){getMessagesFromDB(authorId: $authorId, offset: $offset){id, like, content, authorId}}',
     variables: {
       authorId: authorId,
       offset: offset,
@@ -85,7 +85,7 @@ export function getMessages(authorId, offset) {
     method: 'post',
     data: queryToSend
   })
-  .then(response => response)
+  .then(response => response.data.data)
   .catch(error => {
     console.error(error);
   });
@@ -205,7 +205,6 @@ export function createUser (email, username, password){
       .then(response => response.data.data.like)
       .catch(error => {
         console.error(error);
-        this.setState({ error: 'Can not unfollow' });
       })
   }
 
