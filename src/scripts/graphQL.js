@@ -43,7 +43,6 @@ export function deleteMessage(id, authorId){
     .then(response => response.data.data.deleteMessage)
     .catch(error => {
       console.error(error);
-      this.setState({ error: 'Message not found ' });
     })
 }
 
@@ -66,13 +65,12 @@ export function getUser(userId){
     .then(response => response.data.data.getUser)
     .catch(error => {
       console.error(error);
-      this.setState({ error: 'User not found' });
     })
 }
 
 export function getMessages(authorId, offset) {
   const queryToSend = {
-    query: 'query GetMessagesFromDB($authorId: String!, $offset: Int!){getMessagesFromDB(authorId: $authorId, offset: $offset){id, like, content, author}}',
+    query: 'query GetMessagesFromDB($authorId: String!, $offset: Int!){getMessagesFromDB(authorId: $authorId, offset: $offset){id, like, content, authorId}}',
     variables: {
       authorId: authorId,
       offset: offset,
@@ -87,7 +85,7 @@ export function getMessages(authorId, offset) {
     method: 'post',
     data: queryToSend
   })
-  .then(response => response)
+  .then(response => response.data.data)
   .catch(error => {
     console.error(error);
   });
@@ -114,7 +112,6 @@ export function createUser (email, username, password){
     .then(response => response.data.data.createUser)
     .catch(error => {
       console.error(error);
-      this.setState({ error: 'Invalid email or password' });
     })
   }
 
@@ -138,7 +135,6 @@ export function createUser (email, username, password){
       .then(response => response.data.data.like)
       .catch(error => {
         console.error(error);
-        this.setState({ error: 'Can not like' });
       })
   }
 
@@ -162,7 +158,6 @@ export function createUser (email, username, password){
       .then(response => response.data.data.like)
       .catch(error => {
         console.error(error);
-        this.setState({ error: 'Can not unlike' });
       })
   }
 
@@ -186,7 +181,6 @@ export function createUser (email, username, password){
       .then(response => response.data.data.like)
       .catch(error => {
         console.error(error);
-        this.setState({ error: 'Can not follow' });
       })
   }
 
@@ -211,7 +205,6 @@ export function createUser (email, username, password){
       .then(response => response.data.data.like)
       .catch(error => {
         console.error(error);
-        this.setState({ error: 'Can not unfollow' });
       })
   }
 
