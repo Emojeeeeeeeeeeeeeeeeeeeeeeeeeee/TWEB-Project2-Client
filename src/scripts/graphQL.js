@@ -42,7 +42,7 @@ export function getMessages(email, offset) {
 
   return axios( {
     url: 'http://localhost:5000/graphql', 
-    method: 'get',
+    method: 'post',
     data: queryToSend
   })
   .then(response => response.data)
