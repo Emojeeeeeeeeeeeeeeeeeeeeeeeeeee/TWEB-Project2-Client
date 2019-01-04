@@ -25,10 +25,10 @@ export function createMessage (authorId, content) {
 
 export function deleteMessage(id, authorId){
   const queryToSend = {
-    query: 'query  DeleteMessage(messageId: String!, authorId: Stringü){deleteMessage(messageId: $id, authorId: $authorid){id}}',
+    query: 'query DeleteMessage($messageId: String!, $authorId: String!){deleteMessage(messageId: $id, authorId: $authorId){id}}',
     variables: {
       id: id,
-      author : authorId
+      authorId : authorId
     },
     headers: {
       'Content-type': 'application/json'
@@ -49,7 +49,7 @@ export function deleteMessage(id, authorId){
 
 export function getUser(userId){
   const queryToSend = {
-    query: 'query GetUser(userId: String!){getUser(userId: $userId)){id}}',
+    query: 'query GetUser($userId: String!){getUser(userId: $userId)){id}}',
     variables: {
       userId: userId,
     },
@@ -95,7 +95,7 @@ export function getMessages(authorId, offset) {
 
 export function createUser (email, username, password){
   const queryToSend = {
-    query: 'query CreateUser(username: String!, password: String!, email: String!){createUser(username: $username, password: $password, email: $email){id}}',
+    query: 'query CreateUser($username: String!, $password: String!, $email: String!){createUser(username: $username, password: $password, email: $email){id}}',
     variables: {
       email: email,
       username: username,
@@ -120,7 +120,7 @@ export function createUser (email, username, password){
 
   export function like(messageId, authorId){
     const queryToSend = {
-      query: 'query Like(messageId: String!, authorId: String!){like(messageId: $messageId, authorId: $authorId){}}',
+      query: 'query Like($messageId: String!, $authorId: String!){like(messageId: $messageId, authorId: $authorId)}',
       variables: {
         messageId: messageId,
         authorId: authorId
@@ -144,7 +144,7 @@ export function createUser (email, username, password){
 
   export function unlike(messageId, authorId){
     const queryToSend = {
-      query: 'query Unlike(messageId: String!, authorId: String!){unlike(messageId: $messageId, authorId: $authorId){}}',
+      query: 'query Unlike($messageId: String!, $authorId: String!){unlike(messageId: $messageId, authorId: $authorId)}',
       variables: {
         messageId: messageId,
         authorId: authorId
@@ -159,7 +159,7 @@ export function createUser (email, username, password){
       method: 'post',
       data : queryToSend
       })
-      .then(response => response.data.data.like)
+      .then(response => response.data.data.unlike)
       .catch(error => {
         console.error(error);
         this.setState({ error: 'Can not unlike' });
@@ -168,7 +168,7 @@ export function createUser (email, username, password){
 
   export function follow(targetId, userId){
     const queryToSend = {
-      query: 'query Follow(targetId: String!, userId: String!){follow(targetId: $targetId, userId: $userId){}}',
+      query: 'query Follow($targetId: String!, $userId: String!){follow(targetId: $targetId, userId: $userId)}',
       variables: {
         targetId: targetId,
         userId: userId
@@ -193,7 +193,7 @@ export function createUser (email, username, password){
 
   export function unfollow(targetId, userId){
     const queryToSend = {
-      query: 'query Unollow(targetId: String!, userId: String!){unfollow(targetId: $targetId, userId: $userId){}}',
+      query: 'query Unollow($targetId: String!, $userId: String!){unfollow(targetId: $targetId, userId: $userId)}',
       variables: {
         targetId: targetId,
         userId: userId
