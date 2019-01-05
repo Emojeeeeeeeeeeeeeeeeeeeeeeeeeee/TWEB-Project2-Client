@@ -48,7 +48,7 @@ export function deleteMessage(id, authorId){
 
 export function getUser(userId){
   const queryToSend = {
-    query: 'query GetUser($userId: String!){getUser(userId: $userId)){id}}',
+    query: 'query GetUser($userId: String!){getUser(userId: $userId){id, username, image}}',
     variables: {
       userId: userId,
     },
@@ -115,12 +115,12 @@ export function createUser (email, username, password){
     })
   }
 
-  export function like(messageId, authorId){
+  export function like(messageId, userId){
     const queryToSend = {
-      query: 'query Like($messageId: String!, $authorId: String!){like(messageId: $messageId, authorId: $authorId)}',
+      query: 'query Like($messageId: String!, $userId: String!){like(messageId: $messageId, userId: $userId)}',
       variables: {
         messageId: messageId,
-        authorId: authorId
+        userId: userId
       },
       headers: {
         'Content-type': 'application/json'
@@ -138,12 +138,12 @@ export function createUser (email, username, password){
       })
   }
 
-  export function unlike(messageId, authorId){
+  export function unlike(messageId, userId){
     const queryToSend = {
-      query: 'query Unlike($messageId: String!, $authorId: String!){unlike(messageId: $messageId, authorId: $authorId)}',
+      query: 'query Unlike($messageId: String!, $userId: String!){unlike(messageId: $messageId, userId: $userId)}',
       variables: {
         messageId: messageId,
-        authorId: authorId
+        userId: userId
       },
       headers: {
         'Content-type': 'application/json'
@@ -156,6 +156,29 @@ export function createUser (email, username, password){
       data : queryToSend
       })
       .then(response => response.data.data.unlike)
+      .catch(error => {
+        console.error(error);
+      })
+  }
+
+  export function hasLike(messageId, userId){
+    const queryToSend = {
+      query: 'query HasLike($messageId: String!, $userId: String!){hasLike(messageId: $messageId, userId: $userId)}',
+      variables: {
+        messageId: messageId,
+        userId: userId
+      },
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+  
+    return axios({
+      url: 'http://localhost:5000/graphql', 
+      method: 'post',
+      data : queryToSend
+      })
+      .then(response => response.data.data.hasLike)
       .catch(error => {
         console.error(error);
       })

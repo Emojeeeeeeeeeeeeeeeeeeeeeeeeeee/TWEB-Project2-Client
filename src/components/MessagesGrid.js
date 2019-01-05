@@ -1,182 +1,172 @@
-import React, { Component } from 'react';
+import React from "react";
 import { Container, MDBRow, MDBCol } from 'mdbreact';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { getMessages, getUser } from '../scripts/graphQL';
 
 import { Card } from './card/Card'
 
 const fetchLength = 9;
-
-export class MessagesGrid extends Component {
+export class MessagesGrid extends React.Component {
     constructor(props) {
         super(props);
         
         this.state = {
             allMessages:[],
             currentMessages: [],
+            MessageToDisplay: [],
             index: fetchLength,
+            hasLoad : false,
         };
         this.fetchMoreMessages = this.fetchMoreMessages.bind(this);
-        this.renderMessages = this.renderMessagesRow.bind(this);
+        this.renderMessages = this.renderMessages.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
+        if(this.state.hasLoad === false){
         this.props.messages.then(response => {
             this.setState({ 
                 allMessages: response,
-                currentMessages: response.slice(0, fetchLength)
+                currentMessages: response.slice(0, fetchLength),
+                hasLoad: true
             });
-            console.log(this.state.allMessages);
-           
-            // fill currentMessages from allMessages
-        }).catch();
+            this.renderMessages(this.state.currentMessages)
+        }
+        ).catch();
+    }
     }
 
     fetchMoreMessages = () => {
+        var State = this
         setTimeout(() => {
-            /*while(this.state.index < fetchLength) {
-                this.setState(prevState => {
-                    return {
-                        currentMessages: [...prevState.currentMessages, prevState.allMessages[prevState.index]],
-                        index: prevState.index + 1
-                    }
-                });
-            }*/
-            
-        }, 1500);
-    }
+        if(State.state.hasLoad && State.state.currentMessages.length < State.state.allMessages.length){
+            State.setState({
+                currentMessages: State.state.allMessages.slice(0, State.state.index + fetchLength),
+                index: State.state.index + fetchLength,
+            })
+            State.renderMessages(State.state.currentMessages)
+        }
+    }, 500);
+  };
 
-    renderMessages() {
-        /*let msgs = [];
-        this.state.currentMessages.map((i, index) => (
-            <div key={index}>
-                {msgs.push(i)}               
-                {(index+1) % 3 === 0 && index > 0 ? this.renderMessagesRow(msgs) : ''}
-                {(index+1) % 3 === 0 && index > 0 ? msgs = [] : ''}
-            </div>
-        ))*/
-        let table = [];
-        for(let i = 0; this.state.currentMessages.length; i+=1) {
-            if(i%3 === 0) {
+  
+  async renderMessages(arrayToRender) {
+    let table = [];
+    for(let i = 0; i < arrayToRender.length; i+=3) {
+        if(arrayToRender[i].user === undefined){
+        await getUser(arrayToRender[i].authorId)
+        .then(res => arrayToRender[i].user = res);
+        }
+
+        if((i+2) < arrayToRender.length){
+            if(arrayToRender[i+1].user === undefined){
+                await getUser(arrayToRender[i+1].authorId)
+                .then(res => arrayToRender[i+1].user = res);
+            }
+            if(arrayToRender[i+2].user === undefined){
+                await getUser(arrayToRender[i+2].authorId)
+                .then(res => arrayToRender[i+2].user = res);
+            }
+
                 table.push(
                     <MDBRow>
                         <MDBCol size="4">
                             <Card
-                                avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                                username={this.state.currentMessages[i].authorId}
-                                messageContent={this.state.currentMessages[i].content} />
+                                avatar={arrayToRender[i].user.image}
+                                username={arrayToRender[i].user.username}
+                                messageContent={arrayToRender[i].content}
+                                userId={arrayToRender[i].user.id} 
+                                messageId={arrayToRender[i].id}
+                                messageLikes={arrayToRender[i].like} />
+                        </MDBCol>
+                        <MDBCol size="4">
+                            <Card
+                                avatar={arrayToRender[i+1].user.image}
+                                username={arrayToRender[i+1].user.username}
+                                messageContent={arrayToRender[i+1].content} 
+                                userId={arrayToRender[i+1].user.id} 
+                                messageId={arrayToRender[i+1].id}
+                                messageLikes={arrayToRender[i+1].like} />
+                        </MDBCol>
+                        <MDBCol size="4">
+                            <Card
+                                avatar={arrayToRender[i+2].user.image}
+                                username={arrayToRender[i+2].user.username}
+                                messageContent={arrayToRender[i+2].content} 
+                                userId={arrayToRender[i+2].user.id} 
+                                messageId={arrayToRender[i+2].id}
+                                messageLikes={arrayToRender[i+2].like} />
                         </MDBCol>
                     </MDBRow>
                 );
             }
-            else {
+            else if((i+1) < arrayToRender.length){
+                if(arrayToRender[i+1].user === undefined){
+                    await getUser(arrayToRender[i+1].authorId)
+                    .then(res => arrayToRender[i+1].user = res);
+                }
+                
                 table.push(
-                    <MDBCol size="4">
-                        <Card
-                            avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                            username={this.state.currentMessages[i].authorId}
-                            messageContent={this.state.currentMessages[i].content} />
-                    </MDBCol>
-                );
-            }
-        }
-        console.log("yooooo " + table);
-        return table;
-    }
-
-    renderMessagesRow(msgs = []) {
-        return (
-            <MDBRow>
-                {msgs.forEach(e => {
-                    return (
+                    <MDBRow>
                         <MDBCol size="4">
                             <Card
-                                avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                                username={e.authorId}
-                                messageContent={e.content} />
+                               avatar={arrayToRender[i].user.image}
+                               username={arrayToRender[i].user.username}
+                               messageContent={arrayToRender[i].content} 
+                               userId={arrayToRender[i].user.id} 
+                               messageId={arrayToRender[i].id}
+                               messageLikes={arrayToRender[i].like} />
                         </MDBCol>
-                    );
-                })}
-            </MDBRow>
-        );
+                        <MDBCol size="4">
+                            <Card
+                                avatar={arrayToRender[i+1].user.image}
+                                username={arrayToRender[i+1].user.username}
+                                messageContent={arrayToRender[i+1].content} 
+                                userId={arrayToRender[i+1].user.id} 
+                                messageId={arrayToRender[i+1].id}
+                                messageLikes={arrayToRender[i+1].like} />
+                        </MDBCol>
+                    </MDBRow>
+                );
+                this.setState({
+                    MessageToDisplay : table
+                })
+            }
+            else{
+                table.push(
+                    <MDBRow>
+                        <MDBCol size="4">
+                            <Card
+                                avatar={arrayToRender[i].user.image}
+                                username={arrayToRender[i].user.username}
+                                messageContent={arrayToRender[i].content} 
+                                userId={arrayToRender[i].user.id}
+                                messageId={arrayToRender[i].id}
+                                messageLikes={arrayToRender[i].like} />
+                        </MDBCol>
+                    </MDBRow>
+                );
+                this.setState({
+                    MessageToDisplay : table
+                })
+            }
     }
+    this.setState({
+        MessageToDisplay : table
+    })
+}
 
-    render() {
-        let msgs = [];
-        //const length = this.state.allMessages.length >= 9 ? 9 : this.state.allMessages;
-        return (
-            <div>
-                <InfiniteScroll 
-                    dataLength={fetchLength}
-                    next={this.fetchMoreMessages}
-                    hasMore={true}
-                    loader={<h4>Loading...</h4>} 
-                >
-                {this.renderMessages}
-                </InfiniteScroll>
-            </div>
-
-            /*<Container fluid>
-                <MDBRow>
-                    <MDBCol size="4">
-                        <Card
-                            avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                            username="GeorgeWashington"
-                            messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
-                    </MDBCol>
-                    <MDBCol size="4">
-                        <Card
-                            avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                            username="GeorgeWashington"
-                            messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
-                    </MDBCol>
-                    <MDBCol size="4">
-                    <Card
-                        avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="GeorgeWashington"
-                        messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
-                    </MDBCol>
-                </MDBRow>
-                <MDBRow>
-                    <MDBCol size="4">
-                    <Card
-                        avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="GeorgeWashington"
-                        messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
-                    </MDBCol>
-                    <MDBCol size="4">
-                    <Card
-                        avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="GeorgeWashington"
-                        messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
-                    </MDBCol>
-                    <MDBCol size="4">
-                    <Card
-                        avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="GeorgeWashington"
-                        messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
-                    </MDBCol>
-                </MDBRow>
-                <MDBRow>
-                    <MDBCol size="4">
-                    <Card
-                        avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="GeorgeWashington"
-                        messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
-                    </MDBCol>
-                    <MDBCol size="4">
-                    <Card
-                        avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="GeorgeWashington"
-                        messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" />
-                    </MDBCol>
-                    <MDBCol size="4">
-                    <Card
-                        avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-                        username="GeorgeWashington"
-                        messageContent="bla lab balla blab lala bla blab alb ab lablab lab abl abl" /> 
-                    </MDBCol>
-                </MDBRow>
-            </Container>*/
-        );
-    }
+  render() {
+    return (
+      <div>
+        <InfiniteScroll
+          dataLength={this.state.currentMessages.length}
+          next={this.fetchMoreMessages}
+          hasMore={this.state.currentMessages.length === this.state.allMessages.length ? false : true}
+          loader={<h4>Loading...</h4>}
+        >
+        {this.state.MessageToDisplay}
+        </InfiniteScroll>
+      </div>
+    );
+  }
 }

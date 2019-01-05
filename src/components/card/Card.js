@@ -34,13 +34,15 @@ export class Card extends Component {
                   />
                 </div>
                 <div className="card-body">
-                <a href={`/${this.props.username}`}>
+                <a href={`/${this.props.userId}`}>
                   <h4 className="card-title">{this.props.username}</h4>
                 </a>
                   <hr />
                   <p>{this.props.messageContent}</p>
                 </div>
-                <LikeButton />
+                <LikeButton 
+                    messageId={this.props.messageId}
+                    messageLikes={this.props.messageLikes}/>
               </div>
             /*</div>*/
           
