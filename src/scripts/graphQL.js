@@ -17,17 +17,17 @@ export function createMessage (authorId, content) {
     method: 'post',
     data: queryToSend
   })
-  .then(response => response.data)
+  .then(response => response.data.data.createMessage)
   .catch(error => {
     console.error(error);
   })
 }
 
-export function deleteMessage(id, authorId){
+export function deleteMessage(messageId, authorId){
   const queryToSend = {
-    query: 'query DeleteMessage($messageId: String!, $authorId: String!){deleteMessage(messageId: $id, authorId: $authorId){id}}',
+    query: 'query DeleteMessage($messageId: String!, $authorId: String!){deleteMessage(messageId: $messageId, authorId: $authorId)}',
     variables: {
-      id: id,
+      messageId: messageId,
       authorId : authorId
     },
     headers: {
@@ -201,7 +201,7 @@ export function createUser (email, username, password){
       method: 'post',
       data : queryToSend
       })
-      .then(response => response.data.data.like)
+      .then(response => response.data.data.follow)
       .catch(error => {
         console.error(error);
       })
@@ -210,7 +210,7 @@ export function createUser (email, username, password){
 
   export function unfollow(targetId, userId){
     const queryToSend = {
-      query: 'query Unollow($targetId: String!, $userId: String!){unfollow(targetId: $targetId, userId: $userId)}',
+      query: 'query Unfollow($targetId: String!, $userId: String!){unfollow(targetId: $targetId, userId: $userId)}',
       variables: {
         targetId: targetId,
         userId: userId
@@ -225,21 +225,77 @@ export function createUser (email, username, password){
       method: 'post',
       data : queryToSend
       })
-      .then(response => response.data.data.like)
+      .then(response => response.data.data.unfollow)
       .catch(error => {
         console.error(error);
       })
   }
 
+  export function getUserByEmail(email){
+    const queryToSend = {
+      query: 'query  GetUserByEmail($email: String!){getUserByEmail(email: $email){id}}',
+      variables: {
+        email: email,
+      },
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+  
+    return axios({
+      url: 'http://localhost:5000/graphql', 
+      method: 'post',
+      data : queryToSend
+      })
+      .then(response => response.data.data.getUserByEmail)
+      .catch(error => {
+        console.error(error);
+      })
+  }
 
+  export function getFollowers(userId){
+    const queryToSend = {
+      query: 'query  GetFollowers($userId: String!){getFollowers(userId: $userId){id}}',
+      variables: {
+        userId: userId,
+      },
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+  
+    return axios({
+      url: 'http://localhost:5000/graphql', 
+      method: 'post',
+      data : queryToSend
+      })
+      .then(response => response.data.data.getFollowers)
+      .catch(error => {
+        console.error(error);
+      })
+  }
 
-  /*
-  let t = createMessage("5c2e49d308001d4020b59891","To be deleted")
-  t.then(data => {
-    console.log(data.id);
-    deleteMessage(data.id,"5c2e49d308001d4020b59891")
-  })
-  */
+  export function getFollowings(userId){
+    const queryToSend = {
+      query: 'query GetFollowings($userId: String!){getFollowings(userId: $userId){id}}',
+      variables: {
+        userId: userId,
+      },
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+  
+    return axios({
+      url: 'http://localhost:5000/graphql', 
+      method: 'post',
+      data : queryToSend
+      })
+      .then(response => response.data.data.getFollowings)
+      .catch(error => {
+        console.error(error);
+      })
+  }
 
 /*module.exports = {
   createUser,
