@@ -13,22 +13,21 @@ export class MessagesGrid extends Component {
         this.state = {
             allMessages:[],
             currentMessages: [],
-            index: 0,
+            index: fetchLength,
         };
         this.fetchMoreMessages = this.fetchMoreMessages.bind(this);
+        this.renderMessages = this.renderMessagesRow.bind(this);
     }
 
     componentWillMount() {
         this.props.messages.then(response => {
             this.setState({ 
                 allMessages: response,
+                currentMessages: response.slice(0, fetchLength)
             });
-            
-            /*this.setState((prevState) => {
-                currentMessages: prevState.allMessages.slice(prevState.index, prevState.index + fetchLength)
-            });*/
+            console.log(this.state.allMessages);
+           
             // fill currentMessages from allMessages
-            console.log("allmessage = " + this.state.allMessages[0].content);
         }).catch();
     }
 
@@ -46,7 +45,7 @@ export class MessagesGrid extends Component {
         }, 1500);
     }
 
-    renderMessage() {
+    renderMessages() {
         /*let msgs = [];
         this.state.currentMessages.map((i, index) => (
             <div key={index}>
@@ -55,6 +54,33 @@ export class MessagesGrid extends Component {
                 {(index+1) % 3 === 0 && index > 0 ? msgs = [] : ''}
             </div>
         ))*/
+        let table = [];
+        for(let i = 0; this.state.currentMessages.length; i+=1) {
+            if(i%3 === 0) {
+                table.push(
+                    <MDBRow>
+                        <MDBCol size="4">
+                            <Card
+                                avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
+                                username={this.state.currentMessages[i].authorId}
+                                messageContent={this.state.currentMessages[i].content} />
+                        </MDBCol>
+                    </MDBRow>
+                );
+            }
+            else {
+                table.push(
+                    <MDBCol size="4">
+                        <Card
+                            avatar="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
+                            username={this.state.currentMessages[i].authorId}
+                            messageContent={this.state.currentMessages[i].content} />
+                    </MDBCol>
+                );
+            }
+        }
+        console.log("yooooo " + table);
+        return table;
     }
 
     renderMessagesRow(msgs = []) {
@@ -85,7 +111,7 @@ export class MessagesGrid extends Component {
                     hasMore={true}
                     loader={<h4>Loading...</h4>} 
                 >
-                {this.renderMessagesRow}
+                {this.renderMessages}
                 </InfiniteScroll>
             </div>
 
