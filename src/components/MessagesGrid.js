@@ -24,12 +24,21 @@ export class MessagesGrid extends React.Component {
     componentDidMount() {
         if(this.state.hasLoad === false){
         this.props.messages.then(response => {
-            this.setState({ 
-                allMessages: response,
-                currentMessages: response.slice(0, fetchLength),
-                hasLoad: true
-            });
-            this.renderMessages(this.state.currentMessages)
+            if(response !== null && response != undefined) {
+                this.setState({ 
+                    allMessages: response,
+                    currentMessages: response.slice(0, fetchLength),
+                    hasLoad: true
+                });
+                this.renderMessages(this.state.currentMessages)
+            }
+            else {
+                this.setState({
+                    MessageToDisplay: (
+                        <h4>No Messages yet :( But you can write your first message !</h4>
+                    )
+                });
+            }
         }
         ).catch();
     }
@@ -45,9 +54,8 @@ export class MessagesGrid extends React.Component {
             })
             State.renderMessages(State.state.currentMessages)
         }
-    }, 500);
+    }, 1500);
   };
-
   
   async renderMessages(arrayToRender) {
     let table = [];
