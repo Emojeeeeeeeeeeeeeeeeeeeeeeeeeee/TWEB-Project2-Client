@@ -1,12 +1,13 @@
-import React from "react";
-import { Container, MDBRow, MDBCol } from 'mdbreact';
+import React, { Component } from "react";
+import { MDBRow, MDBCol } from 'mdbreact';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { getMessages, getUser } from '../scripts/graphQL';
 
 import { Card } from './card/Card'
 
 const fetchLength = 9;
-export class MessagesGrid extends React.Component {
+
+export class MessagesGrid extends Component {
     constructor(props) {
         super(props);
         
@@ -30,7 +31,7 @@ export class MessagesGrid extends React.Component {
                     currentMessages: response.slice(0, fetchLength),
                     hasLoad: true
                 });
-                this.renderMessages(this.state.currentMessages)
+                this.renderMessages(this.state.currentMessages);
             }
             else {
                 this.setState({
@@ -41,18 +42,19 @@ export class MessagesGrid extends React.Component {
             }
         }
         ).catch();
-    }
+        }
     }
 
-    fetchMoreMessages = () => {
-        var State = this
+    async fetchMoreMessages() {
+        console.log("Fetching more messages");
+        var State = this;
         setTimeout(() => {
-        if(State.state.hasLoad && State.state.currentMessages.length < State.state.allMessages.length){
-            State.setState({
+        if(State.state.hasLoad && State.state.currentMessages.length < State.state.allMessages.length) {
+            this.setState({
                 currentMessages: State.state.allMessages.slice(0, State.state.index + fetchLength),
                 index: State.state.index + fetchLength,
             })
-            State.renderMessages(State.state.currentMessages)
+            this.renderMessages(State.state.currentMessages)
         }
     }, 1500);
   };
@@ -65,12 +67,12 @@ export class MessagesGrid extends React.Component {
         .then(res => arrayToRender[i].user = res);
         }
 
-        if((i+2) < arrayToRender.length){
-            if(arrayToRender[i+1].user === undefined){
+        if((i+2) < arrayToRender.length) {
+            if(arrayToRender[i+1].user === undefined) {
                 await getUser(arrayToRender[i+1].authorId)
                 .then(res => arrayToRender[i+1].user = res);
             }
-            if(arrayToRender[i+2].user === undefined){
+            if(arrayToRender[i+2].user === undefined) {
                 await getUser(arrayToRender[i+2].authorId)
                 .then(res => arrayToRender[i+2].user = res);
             }
@@ -164,6 +166,7 @@ export class MessagesGrid extends React.Component {
 }
 
   render() {
+    console.log("current messages = " + this.state.currentMessages.length);
     return (
       <div>
         <InfiniteScroll
@@ -171,6 +174,7 @@ export class MessagesGrid extends React.Component {
           next={this.fetchMoreMessages}
           hasMore={this.state.currentMessages.length === this.state.allMessages.length ? false : true}
           loader={<h4>Loading...</h4>}
+          style={{overflowX: 'hidden'}}
         >
         {this.state.MessageToDisplay}
         </InfiniteScroll>
