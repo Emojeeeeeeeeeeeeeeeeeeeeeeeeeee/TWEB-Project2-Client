@@ -64,7 +64,7 @@ export class NavbarPage extends React.Component {
                                         <img src="http://a69.g.akamai.net/n/69/10688/v1/img5.allocine.fr/acmedia/medias/nmedia/18/90/07/03/20079741.jpg" className="rounded-circle z-depth-0" style={{height: '35px', width: '35px', padding: 0}} alt="" />
                                     </DropdownToggle>
                                     <DropdownMenu className="dropdown-default" right>
-                                        <MDBDropdownItem href="/profile">My Profile</MDBDropdownItem>
+                                        <MDBDropdownItem href={`/u/${localStorage.getItem('user_id')}`}>My Profile</MDBDropdownItem>
                                         <MDBDropdownItem href="/settings">Settings</MDBDropdownItem>
                                         <MDBDropdownItem divider />
                                         <MDBDropdownItem onClick={this.props.logout}>Logout</MDBDropdownItem>
