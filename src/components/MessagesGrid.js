@@ -109,8 +109,8 @@ export class MessagesGrid extends Component {
                     </MDBRow>
                 );
             }
-            else if((i+1) < arrayToRender.length){
-                if(arrayToRender[i+1].user === undefined){
+            else if((i+1) < arrayToRender.length) {
+                if(arrayToRender[i+1].user === undefined) {
                     await getUser(arrayToRender[i+1].authorId)
                     .then(res => arrayToRender[i+1].user = res);
                 }
@@ -160,6 +160,7 @@ export class MessagesGrid extends Component {
                 })
             }
     }
+    
     this.setState({
         MessageToDisplay : table
     })
