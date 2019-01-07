@@ -41,7 +41,7 @@ export class ProfileCard extends Component {
                                 Followers: {this.props.followers}
                             </a>
                         </div>
-                        <FollowButton />            
+                        {this.props.followButton ? <FollowButton />: ''}            
                     </div>
                 </div>
             </div>  
