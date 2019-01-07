@@ -297,6 +297,28 @@ export function createUser (email, username, password){
       })
   }
 
+  export function searchUser(pattern){
+    const queryToSend = {
+      query: 'query SearchUser($pattern: String!){searchUser(pattern: $pattern){username, image}}',
+      variables: {
+        pattern: pattern,
+      },
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+  
+    return axios({
+      url: 'http://localhost:5000/graphql', 
+      method: 'post',
+      data : queryToSend
+      })
+      .then(response => response.data.data.searchUser)
+      .catch(error => {
+        console.error(error);
+      })
+  }
+
 /*module.exports = {
   createUser,
   createMessage,
