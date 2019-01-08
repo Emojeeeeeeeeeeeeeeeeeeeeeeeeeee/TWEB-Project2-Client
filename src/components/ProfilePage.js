@@ -1,13 +1,13 @@
 import React from 'react';
+import { MDBRow, MDBCol } from 'mdbreact';
 
 import { AuthContext } from './AuthProvider';
 import { NavbarPage } from './Navbar';
 import { BackgroundPage } from './BackgroundPage';
 import { ProfileCard } from './card/ProfileCard';
-
 import { getUser } from '../scripts/graphQL';
-import Background from '../images/login_background_2.jpg';
 
+import Background from '../images/login_background_2.jpg';
 import './card/style.css';
 
 export class ProfilePage extends React.Component {
@@ -52,7 +52,11 @@ export class ProfilePage extends React.Component {
                         <div>
                             <NavbarPage logout={signOut} />
                             <BackgroundPage src={Background}> 
-                                {this.state.toDisplay}
+                            <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
+                                <MDBCol md="3" style={{ marginTop: '7%' }}>
+                                    {this.state.toDisplay}
+                                </MDBCol>
+                            </MDBRow>
                             </BackgroundPage>
                         </div>
                     );

@@ -58,10 +58,10 @@ export class ProfileCard extends Component {
                         <p>{this.state.email}</p>
                         <hr />
                         <div style={{ display: 'flex', flexDirection: 'row' }}>
-                            <a href="USERNAME/following" style={{ margin: '5%' }}>
+                            <a href="USERNAME/following" style={{ margin: '5%' , marginRight: 'auto', fontWeight: 'bold' }}>
                                 Following: {this.state.followingCount}
                             </a>
-                            <a href="USERNAME/followers" style={{ margin: '5%' }}>
+                            <a href="USERNAME/followers" style={{ margin: '5%', marginLeft: 'auto', fontWeight: 'bold' }}>
                                 Followers: {this.state.followersCount}
                             </a>
                         </div>
