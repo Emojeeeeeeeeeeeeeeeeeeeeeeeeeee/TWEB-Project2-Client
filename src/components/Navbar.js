@@ -8,12 +8,22 @@ export class NavbarPage extends React.Component {
         super(props);
         this.state = {
             collapseID: "",
-            image: ""
+            image: "",
+            input: "",
         }
+
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     componentDidMount() {
         this.loadUserImage();
+        console.log(props)
+    }
+
+    handleInputChange(e) {
+        this.setState({
+            input: e.target.value
+        });
     }
 
     async loadUserImage() {
@@ -60,9 +70,9 @@ export class NavbarPage extends React.Component {
 
                         <NavbarNav middle="true">
                             <NavItem>
-                                <FormInline waves>
+                                <FormInline waves onSubmit={this.props.renderSearch.bind(this)(this.state.input)}>
                                     <div className="md-form my-0">
-                                        <input className="form-control mr-sm-2" type="text" placeholder="🔎👪" aria-label="Search" />
+                                        <input className="form-control mr-sm-2" type="text" value={this.state.input} onChange={this.handleInputChange} placeholder="🔎👪" aria-label="Search" />
                                     </div>
                                 </FormInline>
                             </NavItem>

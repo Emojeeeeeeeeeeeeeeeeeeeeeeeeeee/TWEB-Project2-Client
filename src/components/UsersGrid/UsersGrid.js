@@ -24,7 +24,7 @@ export class UsersList extends Component {
     }
 
     componentDidMount() {
-        if(this.state.hasLoad === false){
+        if(this.state.hasLoad === false) {
             this.props.users.then(response => {
                 if(response !== null && response !== undefined) {
                     this.setState({
@@ -62,16 +62,16 @@ export class UsersList extends Component {
         let table = [];
         for(let i = 0; i < arrayToRender.length; i+=3) {
             if(arrayToRender[i].user === undefined){
-            await getUser(arrayToRender[i]._id)
+            await getUser(arrayToRender[i].id)
             .then(res => arrayToRender[i].user = res);
             }
             if((i+2) < arrayToRender.length) {
                 if(arrayToRender[i+1].user === undefined) {
-                await getUser(arrayToRender[i+1]._id)
+                await getUser(arrayToRender[i+1].id)
                 .then(res => arrayToRender[i+1].user = res);
                 }
                 if(arrayToRender[i+2].user === undefined) {
-                    await getUser(arrayToRender[i+2]._id)
+                    await getUser(arrayToRender[i+2].id)
                     .then(res => arrayToRender[i+2].user = res);
                 }
                 table.push(
@@ -105,7 +105,7 @@ export class UsersList extends Component {
             }
             else if((i+1) < arrayToRender.length) {
                 if(arrayToRender[i+1].user === undefined) {
-                    await getUser(arrayToRender[i+1]._id)
+                    await getUser(arrayToRender[i+1].id)
                     .then(res => arrayToRender[i+1].user = res);
                 }
                 table.push(
