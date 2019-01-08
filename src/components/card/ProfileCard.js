@@ -25,8 +25,6 @@ export class ProfileCard extends Component {
     }
 
     componentWillMount() {
-        console.log(this.state)
-        console.log(this.props)
         this.setState({ 
             // set random card color
             cardUpColor: colors[Math.floor(Math.random() * colors.length)]
@@ -48,7 +46,7 @@ export class ProfileCard extends Component {
     render() {
         return (
             <div className="card testimonial-card" style={{ maxWidth: "22rem" }}>
-                <div className={'card-up aqua-gradient'} />
+                <div className={`card-up ${this.state.cardUpColor}`} />
                 <div className="testimonial-card" style={{ marginTop: '7%' }}>
                     <div className="avatar mx-auto white square-image">
                         <img src={this.state.avatar} className="rounded-circle img-responsive" alt="" />

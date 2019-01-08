@@ -60,10 +60,8 @@ export class UsersGrid extends Component {
 
     renderUsers(arrayToRender) {
         let table = [];
-        console.log(arrayToRender)
         for(let i = 0; i < arrayToRender.length; i+=3) {
             if((i+2) < arrayToRender.length) {
-                console.log(arrayToRender)
                 table.push(
                     <MDBRow>
                         <MDBCol size="4">
@@ -98,7 +96,6 @@ export class UsersGrid extends Component {
                         </MDBCol>
                     </MDBRow>
                 );
-                console.log(arrayToRender[i])
             }
             else if((i+1) < arrayToRender.length) {
                 table.push(

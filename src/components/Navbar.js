@@ -19,7 +19,6 @@ export class NavbarPage extends React.Component {
 
     componentDidMount() {
         this.loadUserImage();
-        console.log(this.props)
     }
 
     onSubmit(e) {
@@ -44,7 +43,6 @@ export class NavbarPage extends React.Component {
         this.setState({
             image: user.image
         });
-        console.log(this.state.image);
     }
 
     toggleCollapse = collapseID => () =>

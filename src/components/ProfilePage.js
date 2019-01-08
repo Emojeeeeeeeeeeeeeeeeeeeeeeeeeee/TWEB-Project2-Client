@@ -42,15 +42,6 @@ export class ProfilePage extends React.Component {
             />)
         });   
     }
-    
-    // J'essaye des trucs ici un peu... ça marche pas de ouf, j'commence à craquer. 
-    // Promise.resolve YOLO Aucune idée C'est clairement pas ça
-    /*const user = getUser(match.params['user_id']).then(res => {
-        return Promise.resolve(res);
-    });
-*/
-    //ça c'est un print, pour voir un peu. Parce que bon.. le debugger, tout ça tout ça.. hein. OUAIS. Aller. 
-    //console.log(user);
 
     render(){
         return (
