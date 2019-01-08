@@ -180,7 +180,7 @@ export class NewMessagePage extends Component {
                                     </MDBCardHeader>
 
                                     <form onSubmit={this.onSubmit}>
-                                        <MDBInput type="textarea" label="(max 1️⃣5️⃣5️⃣ characters)" rows="3" maxLength={maxLength} value={this.state.messageContent} onChange={this.handleMessageChange}/>
+                                        <MDBInput type="textarea" label="(max. 155 characters)" rows="3" maxLength={maxLength} value={this.state.messageContent} onChange={this.handleMessageChange}/>
                                         <h4>Message preview:</h4>
                                         <p>{this.translate(this.state.messageContent)}</p>
                                         <div className="text-center mt-4">
