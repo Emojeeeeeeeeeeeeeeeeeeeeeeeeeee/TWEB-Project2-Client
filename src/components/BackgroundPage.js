@@ -5,11 +5,9 @@ export class BackgroundPage extends React.Component {
     render() {
         const backgroundStyle = {
             backgroundImage: `url(${this.props.src})`,
-            width: '100%',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'repeatY',
-            backgroundPosition: 'center', 
-            height: '100vh'
+            backgroundSize: '70%',
+            backgroundRepeat: 'repeat',
+            backgroundAttachement: 'fixed'           
         };
 
         const { children } = this.props;
