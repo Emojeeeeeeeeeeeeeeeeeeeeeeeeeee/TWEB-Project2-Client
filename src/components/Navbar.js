@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, MDBDropdownItem, Fa } from "mdbreact";
+import { Redirect } from 'react-router-dom';
 
 import { getUser } from '../scripts/graphQL';
 
@@ -13,11 +14,20 @@ export class NavbarPage extends React.Component {
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     componentDidMount() {
         this.loadUserImage();
-        console.log(props)
+        console.log(this.props)
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+        if(this.state.input !== "") {
+            console.log(this.state.input);
+            window.location.replace("/search/" + this.state.input);
+        }        
     }
 
     handleInputChange(e) {
@@ -70,7 +80,7 @@ export class NavbarPage extends React.Component {
 
                         <NavbarNav middle="true">
                             <NavItem>
-                                <FormInline waves onSubmit={this.props.renderSearch.bind(this)(this.state.input)}>
+                                <FormInline waves onSubmit={this.onSubmit}>
                                     <div className="md-form my-0">
                                         <input className="form-control mr-sm-2" type="text" value={this.state.input} onChange={this.handleInputChange} placeholder="🔎👪" aria-label="Search" />
                                     </div>

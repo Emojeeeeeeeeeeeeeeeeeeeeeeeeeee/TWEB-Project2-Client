@@ -3,7 +3,7 @@ import { MDBRow, MDBCol } from 'mdbreact';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { getUser } from '../../scripts/graphQL';
-import { ProfileCard } from './card/ProfileCard';
+import { ProfileCard } from '../card/ProfileCard';
 
 import './style.css';
 

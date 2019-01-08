@@ -21,15 +21,15 @@ export class SearchPage extends Component {
 
     renderSearch(username) {
         this.setState({
-            toRender : <UsersList users={searchUser(localStorage.getItem('user_id'), 0).then(res => res.getMessagesFromDB)}/>
+            toRender : <UsersList users={searchUser(localStorage.getItem('user_id'), 0).then(res => res.getMessagesFromDB)} />
         });
-        <Redirect to="/search/:username" />
+        return <Redirect to="/search/:username" />
     }
 
     render() {
         return (
             <div>
-                <NavbarPage renderSearch={this.renderSearch}/>
+                <NavbarPage renderSearch={this.renderSearch} />
                 <BackgroundPage src={Background}>
                     {this.state.toRender}
                 </BackgroundPage >
