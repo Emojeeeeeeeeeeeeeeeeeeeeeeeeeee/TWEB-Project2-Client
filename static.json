@@ -1,5 +1,6 @@
 {
     "root": "build/",
+    "clean_urls": false,
     "proxies": {
       "/auth/": {
         "origin": "https://emojee-server.herokuapp.com/auth"
@@ -10,5 +11,8 @@
       "/api/": {
         "origin": "https://emojee-server.herokuapp.com/api"
       }
+    },
+    "routes": {
+      "/**": "index.html"
     }
 }
