@@ -16,8 +16,8 @@ export class ProfileCard extends Component {
             email: this.props.email,
             following: this.props.following,
             followers: this.props.followers,
-            followingCount: this.props.following.length,
-            followersCount: this.props.followers.length,
+            followingCount: this.props.following === undefined ? 0 : this.props.following.length,
+            followersCount: this.props.followers === undefined ? 0 : this.props.followers.length,
         };
 
         this.incFollow = this.incFollow.bind(this);
@@ -25,6 +25,8 @@ export class ProfileCard extends Component {
     }
 
     componentWillMount() {
+        console.log(this.state)
+        console.log(this.props)
         this.setState({ 
             // set random card color
             cardUpColor: colors[Math.floor(Math.random() * colors.length)]
@@ -52,7 +54,9 @@ export class ProfileCard extends Component {
                         <img src={this.state.avatar} className="rounded-circle img-responsive" alt="" />
                     </div>
                     <div className="card-body">
-                        <h4 className="card-title">{this.state.username}</h4>
+                        <a href={`/u/${this.props.id}`}>
+                            <h4 className="card-title">{this.state.username}</h4>
+                        </a>
                         <p>{this.state.email}</p>
                         <hr />
                         <div style={{ display: 'flex', flexDirection: 'row' }}>

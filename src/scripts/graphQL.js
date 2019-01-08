@@ -322,7 +322,7 @@ export function createUser (email, username, password){
 
   export function searchUser(pattern){
     const queryToSend = {
-      query: 'query SearchUser($pattern: String!){searchUser(pattern: $pattern){username, image, email, following, followers}}',
+      query: 'query SearchUser($pattern: String!){searchUser(pattern: $pattern){username, image, email, following, followers, id}}',
       variables: {
         pattern: pattern,
       },

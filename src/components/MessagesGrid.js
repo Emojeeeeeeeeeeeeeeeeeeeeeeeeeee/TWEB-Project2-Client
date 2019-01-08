@@ -169,7 +169,6 @@ export class MessagesGrid extends Component {
   render() {
     console.log("current messages = " + this.state.currentMessages.length);
     return (
-      <div>
         <InfiniteScroll
           dataLength={this.state.currentMessages.length}
           next={this.fetchMoreMessages}
@@ -179,7 +178,6 @@ export class MessagesGrid extends Component {
         >
         {this.state.MessageToDisplay}
         </InfiniteScroll>
-      </div>
     );
   }
 }

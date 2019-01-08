@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { MDBRow, MDBCol } from 'mdbreact';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import { getUser } from '../../scripts/graphQL';
+import { getUserByEmail } from '../../scripts/graphQL';
 import { ProfileCard } from '../card/ProfileCard';
 
 import './style.css';
 
 const fetchLength = 9;
 
-export class UsersList extends Component {
+export class UsersGrid extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -50,81 +50,78 @@ export class UsersList extends Component {
         setTimeout(() => {
             if(State.state.hasLoad && State.state.currentUsers.length < State.state.allUsers.length) {
                 this.setState({
-                    currentMessages: State.state.allUsers.slice(0, State.state.index + fetchLength),
+                    currentUsers: State.state.allUsers.slice(0, State.state.index + fetchLength),
                     index: State.state.index + fetchLength,
                 })
-                this.renderMessages(State.state.currentUsers)
+                this.renderUsers(State.state.currentUsers)
             }
         }, 1500);
     }
 
-    async renderUsers(arrayToRender) {
+    renderUsers(arrayToRender) {
         let table = [];
+        console.log(arrayToRender)
         for(let i = 0; i < arrayToRender.length; i+=3) {
-            if(arrayToRender[i].user === undefined){
-            await getUser(arrayToRender[i].id)
-            .then(res => arrayToRender[i].user = res);
-            }
             if((i+2) < arrayToRender.length) {
-                if(arrayToRender[i+1].user === undefined) {
-                await getUser(arrayToRender[i+1].id)
-                .then(res => arrayToRender[i+1].user = res);
-                }
-                if(arrayToRender[i+2].user === undefined) {
-                    await getUser(arrayToRender[i+2].id)
-                    .then(res => arrayToRender[i+2].user = res);
-                }
+                console.log(arrayToRender)
                 table.push(
                     <MDBRow>
                         <MDBCol size="4">
                             <ProfileCard
-                                avatar={arrayToRender[i].user.image}
-                                username={arrayToRender[i].user.username}
-                                email={arrayToRender[i].user.email}
-                                following={arrayToRender[i].user.followed}
-                                followers={arrayToRender[i].user.followers} />
+                                avatar={arrayToRender[i].image}
+                                username={arrayToRender[i].username}
+                                email={arrayToRender[i].email}
+                                following={arrayToRender[i].following}
+                                followers={arrayToRender[i].followers}
+                                id={arrayToRender[i].id}
+                                displayFollowButton={arrayToRender[i].id.localeCompare(localStorage.getItem('user_id'))} />
                         </MDBCol>
                         <MDBCol size="4">
                             <ProfileCard
-                                avatar={arrayToRender[i+1].user.image}
-                                username={arrayToRender[i+1].user.username}
-                                email={arrayToRender[i+1].user.email}
-                                following={arrayToRender[i+1].user.followed}
-                                followers={arrayToRender[i+1].user.followers} />
+                                avatar={arrayToRender[i+1].image}
+                                username={arrayToRender[i+1].username}
+                                email={arrayToRender[i+1].email}
+                                following={arrayToRender[i+1].following}
+                                followers={arrayToRender[i+1].followers}
+                                id={arrayToRender[i+1].id}
+                                displayFollowButton={arrayToRender[i+1].id.localeCompare(localStorage.getItem('user_id'))} />
                         </MDBCol>
                         <MDBCol size="4">
                             <ProfileCard
-                                avatar={arrayToRender[i+2].user.image}
-                                username={arrayToRender[i+2].user.username}
-                                email={arrayToRender[i+2].user.email}
-                                following={arrayToRender[i+2].user.followed}
-                                followers={arrayToRender[i+2].user.followers} />
+                                avatar={arrayToRender[i+2].image}
+                                username={arrayToRender[i+2].username}
+                                email={arrayToRender[i+2].email}
+                                following={arrayToRender[i+2].following}
+                                followers={arrayToRender[i+2].followers}
+                                id={arrayToRender[i+2].id}
+                                displayFollowButton={arrayToRender[i+2].id.localeCompare(localStorage.getItem('user_id'))} />
                         </MDBCol>
                     </MDBRow>
                 );
+                console.log(arrayToRender[i])
             }
             else if((i+1) < arrayToRender.length) {
-                if(arrayToRender[i+1].user === undefined) {
-                    await getUser(arrayToRender[i+1].id)
-                    .then(res => arrayToRender[i+1].user = res);
-                }
                 table.push(
                     <MDBRow>
                        <MDBCol size="4">
                             <ProfileCard
-                                avatar={arrayToRender[i].user.image}
-                                username={arrayToRender[i].user.username}
-                                email={arrayToRender[i].user.email}
-                                following={arrayToRender[i].user.followed}
-                                followers={arrayToRender[i].user.followers} />
+                                avatar={arrayToRender[i].image}
+                                username={arrayToRender[i].username}
+                                email={arrayToRender[i].email}
+                                following={arrayToRender[i].followed}
+                                followers={arrayToRender[i].followers}
+                                id={arrayToRender[i].id}
+                                displayFollowButton={arrayToRender[i].id.localeCompare(localStorage.getItem('user_id'))} />
                         </MDBCol>
                         <MDBCol size="4">
                             <ProfileCard
-                                avatar={arrayToRender[i+1].user.image}
-                                username={arrayToRender[i+1].user.username}
-                                email={arrayToRender[i+1].user.email}
-                                following={arrayToRender[i+1].user.followed}
-                                followers={arrayToRender[i+1].user.followers} />
+                                avatar={arrayToRender[i+1].image}
+                                username={arrayToRender[i+1].username}
+                                email={arrayToRender[i+1].email}
+                                following={arrayToRender[i+1].followed}
+                                followers={arrayToRender[i+1].followers}
+                                id={arrayToRender[i+1].id}
+                                displayFollowButton={arrayToRender[i+1].id.localeCompare(localStorage.getItem('user_id'))} />
                         </MDBCol> 
                     </MDBRow>
                 );
@@ -134,11 +131,13 @@ export class UsersList extends Component {
                     <MDBRow>
                       <MDBCol size="4">
                         <ProfileCard
-                            avatar={arrayToRender[i].user.image}
-                            username={arrayToRender[i].user.username}
-                            email={arrayToRender[i].user.email}
-                            following={arrayToRender[i].user.followed}
-                            followers={arrayToRender[i].user.followers} />
+                            avatar={arrayToRender[i].image}
+                            username={arrayToRender[i].username}
+                            email={arrayToRender[i].email}
+                            following={arrayToRender[i].followed}
+                            followers={arrayToRender[i].followers}
+                            id={arrayToRender[i].id}
+                            displayFollowButton={arrayToRender[i].id.localeCompare(localStorage.getItem('user_id'))} />
                         </MDBCol>  
                     </MDBRow>
                 );

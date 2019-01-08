@@ -23,7 +23,6 @@ export class Card extends Component {
 
     render() {
         return (
-            /*<div className="card-container">*/
               <div className="card testimonial-card" style={{ maxWidth: "22rem" }}>
                 <div className={`card-up ${this.state.cardUpColor}`} />
                 <div className="avatar mx-auto white square-image">
@@ -34,7 +33,7 @@ export class Card extends Component {
                   />
                 </div>
                 <div className="card-body">
-                <a href={`/${this.props.userId}`}>
+                <a href={`/u/${this.props.userId}`}>
                   <h4 className="card-title">{this.props.username}</h4>
                 </a>
                   <hr />
