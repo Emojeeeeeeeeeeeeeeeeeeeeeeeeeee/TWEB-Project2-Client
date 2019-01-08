@@ -1,12 +1,30 @@
 import React from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, MDBDropdownItem, Fa } from "mdbreact";
 
+import { getUser } from '../scripts/graphQL';
+
 export class NavbarPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            collapseID: ""
+            collapseID: "",
+            image: ""
         }
+    }
+
+    componentDidMount() {
+        this.loadUserImage();
+    }
+
+    async loadUserImage() {
+        let user;
+        await getUser(localStorage.getItem('user_id')).then(res => {
+            user = res;
+        });
+        this.setState({
+            image: user.image
+        });
+        console.log(this.state.image);
     }
 
     toggleCollapse = collapseID => () =>
@@ -61,7 +79,7 @@ export class NavbarPage extends React.Component {
                             <NavItem>
                                 <Dropdown>
                                     <DropdownToggle caret className="dopdown-toggle" nav>
-                                        <img src="http://a69.g.akamai.net/n/69/10688/v1/img5.allocine.fr/acmedia/medias/nmedia/18/90/07/03/20079741.jpg" className="rounded-circle z-depth-0" style={{height: '35px', width: '35px', padding: 0}} alt="" />
+                                        <img src={this.state.image} className="rounded-circle z-depth-0" style={{height: '35px', width: '35px', padding: 0}} alt="" />
                                     </DropdownToggle>
                                     <DropdownMenu className="dropdown-default" right>
                                         <MDBDropdownItem href={`/u/${localStorage.getItem('user_id')}`}>My Profile</MDBDropdownItem>

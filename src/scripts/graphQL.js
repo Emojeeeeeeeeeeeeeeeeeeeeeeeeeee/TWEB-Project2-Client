@@ -48,7 +48,7 @@ export function deleteMessage(messageId, authorId){
 
 export function getUser(userId){
   const queryToSend = {
-    query: 'query GetUser($userId: String!){getUser(userId: $userId){id, username, image}}',
+    query: 'query GetUser($userId: String!){getUser(userId: $userId){username, image, email, following, followers, id}}',
     variables: {
       userId: userId,
     },
@@ -231,6 +231,29 @@ export function createUser (email, username, password){
       })
   }
 
+  export function hasFollow(targetId, userId){
+    const queryToSend = {
+      query: 'query HasFollow($targetId: String!, $userId: String!){hasFollow(targetId: $targetId, userId: $userId)}',
+      variables: {
+        targetId: targetId,
+        userId: userId
+      },
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+  
+    return axios({
+      url: 'http://localhost:5000/graphql', 
+      method: 'post',
+      data : queryToSend
+      })
+      .then(response => response.data.data.hasFollow)
+      .catch(error => {
+        console.error(error);
+      })
+  }
+
   export function getUserByEmail(email){
     const queryToSend = {
       query: 'query  GetUserByEmail($email: String!){getUserByEmail(email: $email){id}}',
@@ -299,7 +322,7 @@ export function createUser (email, username, password){
 
   export function searchUser(pattern){
     const queryToSend = {
-      query: 'query SearchUser($pattern: String!){searchUser(pattern: $pattern){username, image}}',
+      query: 'query SearchUser($pattern: String!){searchUser(pattern: $pattern){username, image, email, following, followers}}',
       variables: {
         pattern: pattern,
       },

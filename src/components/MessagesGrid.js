@@ -25,7 +25,7 @@ export class MessagesGrid extends Component {
     componentDidMount() {
         if(this.state.hasLoad === false){
         this.props.messages.then(response => {
-            if(response !== null && response != undefined) {
+            if(response !== null && response !== undefined) {
                 this.setState({ 
                     allMessages: response,
                     currentMessages: response.slice(0, fetchLength),

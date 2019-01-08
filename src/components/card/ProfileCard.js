@@ -10,8 +10,18 @@ export class ProfileCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cardUpColor: ""
+            cardUpColor: "",
+            avatar: this.props.avatar,
+            username: this.props.username,
+            email: this.props.email,
+            following: this.props.following,
+            followers: this.props.followers,
+            followingCount: this.props.following.length,
+            followersCount: this.props.followers.length,
         };
+
+        this.incFollow = this.incFollow.bind(this);
+        this.decFollow = this.decFollow.bind(this);
     }
 
     componentWillMount() {
@@ -21,27 +31,39 @@ export class ProfileCard extends Component {
         }); 
     }
 
+    incFollow() {
+        this.setState({
+            followersCount: this.state.followersCount + 1
+        })
+    }
+
+    decFollow() {
+        this.setState({
+            followersCount: this.state.followersCount - 1
+        })
+    }
+
     render() {
         return (
             <div className="card testimonial-card" style={{ maxWidth: "22rem" }}>
                 <div className={'card-up aqua-gradient'} />
                 <div className="testimonial-card" style={{ marginTop: '7%' }}>
                     <div className="avatar mx-auto white square-image">
-                        <img src={this.props.avatar} className="rounded-circle img-responsive" alt="" />
+                        <img src={this.state.avatar} className="rounded-circle img-responsive" alt="" />
                     </div>
                     <div className="card-body">
-                        <h4 className="card-title">{this.props.username}</h4>
-                        <p>{this.props.email}</p>
+                        <h4 className="card-title">{this.state.username}</h4>
+                        <p>{this.state.email}</p>
                         <hr />
                         <div style={{ display: 'flex', flexDirection: 'row' }}>
                             <a href="USERNAME/following" style={{ margin: '5%' }}>
-                                Following: {this.props.following}
+                                Following: {this.state.followingCount}
                             </a>
                             <a href="USERNAME/followers" style={{ margin: '5%' }}>
-                                Followers: {this.props.followers}
+                                Followers: {this.state.followersCount}
                             </a>
                         </div>
-                        {this.props.followButton ? <FollowButton />: ''}            
+                        {this.props.displayFollowButton ? <FollowButton userId={this.props.id} followers={this.state.followers} incFollow={this.incFollow} decFollow={this.decFollow} /> : ''}            
                     </div>
                 </div>
             </div>  
