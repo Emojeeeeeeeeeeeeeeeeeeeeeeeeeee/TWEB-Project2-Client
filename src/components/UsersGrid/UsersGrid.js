@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { MDBRow, MDBCol } from 'mdbreact';
-
 import InfiniteScroll from 'react-infinite-scroll-component';
 
+import { getUser } from '../../scripts/graphQL';
 import { ProfileCard } from './card/ProfileCard';
 
 import './style.css';
@@ -26,7 +26,7 @@ export class UsersList extends Component {
     componentDidMount() {
         if(this.state.hasLoad === false){
             this.props.users.then(response => {
-                if(response !== null && response != undefined) {
+                if(response !== null && response !== undefined) {
                     this.setState({
                         allUsers: response,
                         currentUsers: response.slice(0, fetchLength),
@@ -58,22 +58,22 @@ export class UsersList extends Component {
         }, 1500);
     }
 
-    renderUsers(arrayToRender) {
+    async renderUsers(arrayToRender) {
         let table = [];
         for(let i = 0; i < arrayToRender.length; i+=3) {
-            /*if(arrayToRender[i].user === undefined){
-            await getUser(arrayToRender[i].authorId)
+            if(arrayToRender[i].user === undefined){
+            await getUser(arrayToRender[i]._id)
             .then(res => arrayToRender[i].user = res);
-            }*/
+            }
             if((i+2) < arrayToRender.length) {
-                /*if(arrayToRender[i+1].user === undefined) {
-                await getUser(arrayToRender[i+1].authorId)
+                if(arrayToRender[i+1].user === undefined) {
+                await getUser(arrayToRender[i+1]._id)
                 .then(res => arrayToRender[i+1].user = res);
                 }
                 if(arrayToRender[i+2].user === undefined) {
-                    await getUser(arrayToRender[i+2].authorId)
+                    await getUser(arrayToRender[i+2]._id)
                     .then(res => arrayToRender[i+2].user = res);
-                }*/
+                }
                 table.push(
                     <MDBRow>
                         <MDBCol size="4">
@@ -104,10 +104,10 @@ export class UsersList extends Component {
                 );
             }
             else if((i+1) < arrayToRender.length) {
-                /*if(arrayToRender[i+1].user === undefined) {
-                    await getUser(arrayToRender[i+1].authorId)
+                if(arrayToRender[i+1].user === undefined) {
+                    await getUser(arrayToRender[i+1]._id)
                     .then(res => arrayToRender[i+1].user = res);
-                }*/
+                }
                 table.push(
                     <MDBRow>
                        <MDBCol size="4">
