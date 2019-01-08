@@ -23,7 +23,7 @@ export class Card extends Component {
 
     render() {
         return (
-              <div className="card testimonial-card" style={{ maxWidth: "22rem" }}>
+              <div className="card testimonial-card" style={{ maxWidth: "22rem", marginLeft: 'auto', marginRight: 'auto' }}>
                 <div className={`card-up ${this.state.cardUpColor}`} />
                 <div className="avatar mx-auto white square-image">
                   <img
