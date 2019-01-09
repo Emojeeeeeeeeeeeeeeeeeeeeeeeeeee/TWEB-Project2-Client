@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import { FollowButton } from '../FollowButton/FollowButton';
 
@@ -11,11 +12,12 @@ export class ProfileCard extends Component {
         super(props);
         this.state = {
             cardUpColor: "",
+            id: this.props.id,
             avatar: this.props.avatar,
             username: this.props.username,
             email: this.props.email,
-            following: this.props.following,
-            followers: this.props.followers,
+            following: this.props.following === undefined ? [] : this.props.following,
+            followers: this.props.followers === undefined ? [] : this.props.followers,
             followingCount: this.props.following === undefined ? 0 : this.props.following.length,
             followersCount: this.props.followers === undefined ? 0 : this.props.followers.length,
         };
@@ -52,18 +54,35 @@ export class ProfileCard extends Component {
                         <img src={this.state.avatar} className="rounded-circle img-responsive" alt="" />
                     </div>
                     <div className="card-body">
-                        <a href={`/u/${this.props.id}`}>
+                        <Link to={{
+                           pathname: '/profile',
+                           state: {
+                               id: this.state.id
+                           } 
+                        }}>
                             <h4 className="card-title">{this.state.username}</h4>
-                        </a>
+                        </Link>
                         <p>{this.state.email}</p>
                         <hr />
                         <div style={{ display: 'flex', flexDirection: 'row' }}>
-                            <a href="USERNAME/following" style={{ margin: '5%' , marginRight: 'auto', fontWeight: 'bold' }}>
+                            <Link to={{
+                                pathname: '/following',
+                                state: {
+                                    users: this.state.following
+                                }
+                            }}
+                            style={{ margin: '5%' , marginRight: 'auto', fontWeight: 'bold' }}>
                                 Following: {this.state.followingCount}
-                            </a>
-                            <a href="USERNAME/followers" style={{ margin: '5%', marginLeft: 'auto', fontWeight: 'bold' }}>
+                            </Link>
+                            <Link to={{
+                                pathname: '/followers',
+                                state: {
+                                    users: this.state.followers
+                                }
+                            }}
+                            style={{ margin: '5%', marginLeft: 'auto', fontWeight: 'bold' }}>
                                 Followers: {this.state.followersCount}
-                            </a>
+                            </Link>
                         </div>
                         {this.props.displayFollowButton ? <FollowButton userId={this.props.id} followers={this.state.followers} incFollow={this.incFollow} decFollow={this.decFollow} /> : ''}            
                     </div>

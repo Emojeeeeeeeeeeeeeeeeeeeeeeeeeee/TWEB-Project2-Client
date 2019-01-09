@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AuthContext } from './AuthProvider';
 import { Redirect } from 'react-router-dom';
 import { BackgroundPage } from './BackgroundPage';
+import { toast, ToastContainer } from 'react-toastify';
 
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBModalFooter, MDBIcon, MDBCardHeader, MDBBtn, MDBInput } from 'mdbreact';
 
@@ -20,13 +21,24 @@ export const LoginPage = () => {
                     return <Redirect to="/" />
                 }
 
+                const notifyFailure = () => {
+                    toast('💩 Email or password invalid', {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true
+                        });
+                }
+
                 const onSubmit = (e) => {
                     e.preventDefault();
                     signIn({ email, password });
                 };
 
                 return (
-                    <BackgroundPage src={Background}>
+                    <BackgroundPage src={Background} isGrid={false}>
                         <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
                             <MDBCol md="4">
                                 <MDBCard style={{marginTop: '20%'}}>
@@ -90,6 +102,16 @@ export const LoginPage = () => {
                                 </MDBCard>
                             </MDBCol>
                         </MDBRow>
+                        <ToastContainer
+                            position="top-center"
+                            autoClose={3000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnVisibilityChange
+                            draggable
+                            pauseOnHover/>
                     </BackgroundPage>
                 );
             }}

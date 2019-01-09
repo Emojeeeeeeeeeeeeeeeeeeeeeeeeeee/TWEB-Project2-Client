@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import { LikeButton } from '../LikeButton/LikeButton';
 
@@ -33,9 +34,14 @@ export class Card extends Component {
                   />
                 </div>
                 <div className="card-body">
-                <a href={`/u/${this.props.userId}`}>
-                  <h4 className="card-title">{this.props.username}</h4>
-                </a>
+                <Link to={{
+                    pathname: '/profile',
+                    state: {
+                        id: this.props.userId
+                    }
+                }}>
+                    <h4 className="card-title">{this.props.username}</h4>
+                </Link>
                   <hr />
                   <p>{this.props.messageContent}</p>
                 </div>

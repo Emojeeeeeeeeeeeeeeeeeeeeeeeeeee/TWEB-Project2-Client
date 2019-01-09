@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { MDBRow, MDBCol } from 'mdbreact';
 
 import { AuthContext } from './AuthProvider';
@@ -10,7 +10,7 @@ import { getUser } from '../scripts/graphQL';
 import Background from '../images/login_background_2.jpg';
 import './card/style.css';
 
-export class ProfilePage extends React.Component {
+export class ProfilePage extends Component {
 
     constructor(props){
         super(props)
@@ -26,7 +26,7 @@ export class ProfilePage extends React.Component {
 
     async userCard(){
         let user;
-        await getUser(this.props.match.params['user_id']).then(res => {
+        await getUser(this.props.location.state.id).then(res => {
             user = res;
         });
         this.setState({
@@ -51,8 +51,8 @@ export class ProfilePage extends React.Component {
                     return (
                         <div>
                             <NavbarPage logout={signOut} />
-                            <BackgroundPage src={Background}> 
-                            <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
+                            <BackgroundPage src={Background} isGrid={false}> 
+                            <MDBRow style={ { display: 'flex', justifyContent: 'center' } }>
                                 <MDBCol md="3" style={{ marginTop: '7%' }}>
                                     {this.state.toDisplay}
                                 </MDBCol>

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { BackgroundPage } from './BackgroundPage';
 import { NavbarPage } from './Navbar';
-import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBModalFooter, MDBIcon, MDBCardHeader, MDBBtn, MDBInput } from 'mdbreact';
+import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBCardHeader, MDBBtn, MDBInput } from 'mdbreact';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { createMessage } from '../scripts/graphQL'
 
@@ -17,7 +19,8 @@ export class NewMessagePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            messageContent: ""
+            messageContent: "",
+            hasSendMessage: false
         }
         this.handleMessageChange = this.handleMessageChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -29,9 +32,10 @@ export class NewMessagePage extends Component {
             createMessage(localStorage.getItem('user_id'), this.translate(this.state.messageContent))
                 .then(data => {
                     if(data !== null) {
+                        this.notify();
                         setTimeout(() => {
                             window.location.replace("/");
-                        }, 1000); 
+                        }, 1500); 
                     }
                 });
         }
@@ -39,6 +43,17 @@ export class NewMessagePage extends Component {
 
     handleMessageChange(e) {
         this.setState({ messageContent: e.target.value });
+    }
+
+    notify = () => {
+        toast('🦄 Congratulations ! Message sent.', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true
+            });
     }
 
     isMaybeAlreadyAnEmoji(word) {
@@ -168,7 +183,7 @@ export class NewMessagePage extends Component {
         return (
             <div>
                 <NavbarPage></NavbarPage>
-                <BackgroundPage src={Background}>
+                <BackgroundPage src={Background} isGrid={false}>
                     <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
                         <MDBCol md="4">
                             <MDBCard style={{marginTop: '7%'}}>
@@ -194,6 +209,16 @@ export class NewMessagePage extends Component {
                             </MDBCard>
                         </MDBCol>
                     </MDBRow>
+                    <ToastContainer
+                        position="top-center"
+                        autoClose={1500}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnVisibilityChange
+                        draggable
+                        pauseOnHover/>
                 </BackgroundPage>
             </div>
         );

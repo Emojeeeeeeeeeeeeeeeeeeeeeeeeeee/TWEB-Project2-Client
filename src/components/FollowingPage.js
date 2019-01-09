@@ -3,23 +3,28 @@ import React, { Component } from 'react';
 import { NavbarPage } from './Navbar';
 import { BackgroundPage } from './BackgroundPage';
 import { UsersGrid } from './UsersGrid/UsersGrid';
+import { getFollowings } from '../scripts/graphQL';
 
 import Background from '../images/login_background_2.jpg';
-import { searchUser } from '../scripts/graphQL';
 
-export class SearchPage extends Component {
+export class FollowingPage extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            toDisplay:<h2>Loading...</h2>,
+        };
     }
 
     render() {
-        return (
+        //<UsersGrid users={getFollowings(this.props.location.state.username).then(res => res)} />
+        console.log(this.props.location.state.users);
+        return(
+            
             <div>
                 <NavbarPage />
                 <BackgroundPage src={Background} isGrid={true}>
-                    <UsersGrid users={searchUser(localStorage.getItem('search_username')).then(res => res)} />
-                    {localStorage.removeItem('search_username')}
+        
                 </BackgroundPage >
             </div>
         );

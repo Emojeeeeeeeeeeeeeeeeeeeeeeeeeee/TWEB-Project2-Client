@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, MDBDropdownItem, Fa } from "mdbreact";
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import { getUser } from '../scripts/graphQL';
 
@@ -11,6 +11,7 @@ export class NavbarPage extends React.Component {
             collapseID: "",
             image: "",
             input: "",
+            redirect: false
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -24,8 +25,8 @@ export class NavbarPage extends React.Component {
     onSubmit(e) {
         e.preventDefault();
         if(this.state.input !== "") {
-            console.log(this.state.input);
-            window.location.replace("/search/" + this.state.input);
+            window.localStorage.setItem('search_username', this.state.input);
+            window.location.replace("/search");
         }        
     }
 
@@ -100,7 +101,16 @@ export class NavbarPage extends React.Component {
                                         <img src={this.state.image} className="rounded-circle z-depth-0" style={{height: '35px', width: '35px', padding: 0}} alt="" />
                                     </DropdownToggle>
                                     <DropdownMenu className="dropdown-default" right>
-                                        <MDBDropdownItem href={`/u/${localStorage.getItem('user_id')}`}>My Profile</MDBDropdownItem>
+                                        <MDBDropdownItem>
+                                            <Link to={{
+                                                pathname: '/profile',
+                                                state: {
+                                                    id: localStorage.getItem('user_id')
+                                                }
+                                            }}>
+                                                My Profile
+                                            </Link>
+                                        </MDBDropdownItem>
                                         <MDBDropdownItem href="/settings">Settings</MDBDropdownItem>
                                         <MDBDropdownItem divider />
                                         <MDBDropdownItem onClick={this.props.logout}>Logout</MDBDropdownItem>
