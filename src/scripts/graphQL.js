@@ -91,6 +91,29 @@ export function getMessages(authorId, offset) {
   });
 }
 
+export function getPersonnalMessages(authorId, offset) {
+  const queryToSend = {
+    query: 'query GetMessagesOfUser($authorId: String!, $offset: Int!){getMessagesFromDB(authorId: $authorId, offset: $offset){id, like, content, authorId}}',
+    variables: {
+      authorId: authorId,
+      offset: offset,
+    },
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }
+
+  return axios( {
+    url: 'http://localhost:5000/graphql', 
+    method: 'post',
+    data: queryToSend
+  })
+  .then(response => response.data.data)
+  .catch(error => {
+    console.error(error);
+  });
+}
+
 export function createUser (email, username, password){
   const queryToSend = {
     query: 'query CreateUser($username: String!, $password: String!, $email: String!){createUser(username: $username, password: $password, email: $email){id}}',
@@ -276,11 +299,12 @@ export function createUser (email, username, password){
       })
   }
 
-  export function getFollowers(userId){
+  export function getFollowers(userId, offset){
     const queryToSend = {
-      query: 'query  GetFollowers($userId: String!){getFollowers(userId: $userId){id}}',
+      query: 'query  GetFollowers($userId: String!, $offset: Int!){getFollowers(userId: $userId, offset: $offset){id}}',
       variables: {
         userId: userId,
+        offset: offset,
       },
       headers: {
         'Content-type': 'application/json'
@@ -298,11 +322,12 @@ export function createUser (email, username, password){
       })
   }
 
-  export function getFollowings(userId){
+  export function getFollowings(userId, offset){
     const queryToSend = {
-      query: 'query GetFollowings($userId: String!){getFollowings(userId: $userId){id}}',
+      query: 'query GetFollowings($userId: String!, $offset: Int!){getFollowings(userId: $userId, offset: $offset){id}}',
       variables: {
         userId: userId,
+        offset: offset,
       },
       headers: {
         'Content-type': 'application/json'
