@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { MDBBtn, MDBCardHeader } from 'mdbreact';
 
+import { updateMood } from '../../scripts/graphQL';
+
 import './style.css'
 
 export class MoodCard extends Component {
 
     handleButton(e) {
-        
+        const userId = localStorage.getItem('user_id');
+        const mood = e.target.value;
+        updateMood(userId, mood);
+        window.location.reload();
     }
 
     render() {

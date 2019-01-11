@@ -371,6 +371,7 @@ export function createUser (email, username, password){
     const queryToSend = {
       query: 'query ChangeImage($userId: String!, $mood: String!){changeImage(userId: $userId, mood: $mood){username, image, email, following, followers, id}}',
       variables: {
+        userId: userId,
         mood: mood,
       },
       headers: {
@@ -380,7 +381,7 @@ export function createUser (email, username, password){
 
     return axios({
       url: 'http://localhost:5000/graphql',
-      methoed: 'post',
+      method: 'post',
       data: queryToSend
     })
       .then(response => response.data)
