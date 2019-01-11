@@ -68,6 +68,28 @@ export function getUser(userId){
     })
 }
 
+export function getUsersByIds(ids){
+  const queryToSend = {
+    query: 'query GetUsersByIds($ids: [String]!){getUsersByIds(ids: $ids){username, image, email, following, followers, id}}',
+    variables: {
+      ids: ids,
+    },
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }
+
+  return axios({
+    url: 'http://localhost:5000/graphql', 
+    method: 'post',
+    data : queryToSend
+    })
+    .then(response => response.data.data.getUsersByIds)
+    .catch(error => {
+      console.error(error);
+    })
+}
+
 export function getMessages(authorId, offset) {
   const queryToSend = {
     query: 'query GetMessagesFromDB($authorId: String!, $offset: Int!){getMessagesFromDB(authorId: $authorId, offset: $offset){id, like, content, authorId}}',

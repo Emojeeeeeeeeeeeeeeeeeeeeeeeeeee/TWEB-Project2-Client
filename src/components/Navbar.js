@@ -97,21 +97,16 @@ export class NavbarPage extends Component {
 
                         <NavbarNav right>
                             <NavItem>
-                                <NavLink className="waves-effect waves-light d-flex align-items-center" 
-                                         to="#!" 
-                                         style={{ fontSize: '1.75rem' }}>
-                                         my<Fa icon="envelope" className="ml-1" />
-                                </NavLink>
-                                <Link  
-                                         to={{
-                                            pathname: '/',
-                                            state: {
-                                                personnal: true
-                                            }
+                                <Link  className="waves-effect waves-light d-flex align-items-center"
+                                    to={{
+                                        pathname: '/',
+                                        state: {
+                                            personnal: true
+                                        }
                                         }}
-                                         style={{ fontSize: '1.75rem' }}>
-                                                my<Fa icon="envelope" className="ml-1" />
-                                            </Link>
+                                    style={{ fontSize: '1.75rem' }}>
+                                    my<Fa icon="envelope" className="ml-1" />
+                                </Link>
                             </NavItem> 
                             <NavItem>
                                 <Dropdown>

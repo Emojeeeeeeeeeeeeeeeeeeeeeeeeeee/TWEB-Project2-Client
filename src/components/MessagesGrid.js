@@ -24,7 +24,6 @@ export class MessagesGrid extends Component {
 
     componentWillMount() {
         if(this.state.hasLoad === false){
-            console.log(this.props.messages)
         this.props.messages.then(response => {
             if(response !== null && response !== undefined) {
                 this.setState({ 
@@ -47,7 +46,7 @@ export class MessagesGrid extends Component {
     }
 
     componentWillReceiveProps({messages}){
-        this.setState ({
+        let nextState = ({
             allMessages:[],
             currentMessages: [],
             MessageToDisplay: [],
@@ -56,12 +55,11 @@ export class MessagesGrid extends Component {
         })
         messages.then(response => {
             if(response !== null && response !== undefined) {
-                this.setState({ 
-                    allMessages: response,
-                    currentMessages: response.slice(0, fetchLength),
-                    hasLoad: true
-                });
-                this.renderMessages(this.state.currentMessages);
+                nextState.allMessages = response;
+                nextState.currentMessages = response.slice(0, fetchLength);
+                nextState.hasLoad = true;
+                this.setState(nextState);
+                this.renderMessages(nextState.currentMessages);
             }
             else {
                 this.setState({

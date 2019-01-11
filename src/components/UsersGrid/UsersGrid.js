@@ -6,6 +6,7 @@ import { getUserByEmail } from '../../scripts/graphQL';
 import { ProfileCard } from '../card/ProfileCard';
 
 import './style.css';
+import { array } from 'prop-types';
 
 const fetchLength = 9;
 
@@ -24,8 +25,8 @@ export class UsersGrid extends Component {
     }
 
     componentDidMount() {
+        console.log("mount")
         if(this.state.hasLoad === false) {
-            if(!Array.isArray(this.props.users)) {
                 this.props.users.then(response => {
                     if(response !== null && response !== undefined) {
                         this.setState({
@@ -43,26 +44,34 @@ export class UsersGrid extends Component {
                         });
                     }
                 }).catch();
-            }
-            else if(Array.isArray(this.props.users)) {
-                if(this.props.users.length > 0) {
-                    console.log(this.props.users);
-                    this.setState({
-                        allUsers: this.props.users,
-                        currentUsers: this.props.users.slice(0, fetchLength),
-                        hasLoad: true
-                    });
-                    this.renderUsers(this.state.currentUsers);
-                }
-                else {
-                    this.setState({
-                        usersToDisplay: (
-                            <h4>No users found</h4>
-                        )
-                    });
-                }
-            }
         }
+    }
+
+    componentWillReceiveProps({users}){
+        let nextState = {
+            allUsers: [],
+            currentUsers: [],
+            usersToDisplay: [],
+            index: fetchLength,
+            hasLoad: false,
+        };
+        users.then(response => {
+            console.log(response !== null && response !== undefined)
+            if(response !== null && response !== undefined) {
+                nextState.allUsers = response;
+                nextState.currentUsers = response.slice(0, fetchLength);
+                nextState.hasLoad = true;
+                this.setState(nextState);
+                this.renderUsers(nextState.currentUsers);
+            }
+            else {
+                this.setState({
+                    usersToDisplay: (
+                        <h4>No users found</h4>
+                    )
+                });
+            }
+        }).catch();
     }
 
     fetchMoreUsers() {
@@ -82,6 +91,7 @@ export class UsersGrid extends Component {
         let table = [];
         for(let i = 0; i < arrayToRender.length; i+=3) {
             console.log("IN FOR");
+            console.log(arrayToRender.length)
             if((i+2) < arrayToRender.length) {
                 table.push(
                     <MDBRow>
@@ -145,6 +155,7 @@ export class UsersGrid extends Component {
                 );
             }
             else {
+                console.log("ELSE")
                 table.push(
                     <MDBRow>
                       <MDBCol size="4">
@@ -164,12 +175,13 @@ export class UsersGrid extends Component {
         this.setState({
             usersToDisplay: table
         });
-        console.log(this.state.allUsers);
-        console.log(this.state.currentUsers);
-        console.log(this.state.usersToDisplay);
+        console.log(table)
+        console.log("end of render")
+        console.log(this.state);
     }
 
     render() {
+        console.log("render usergrid")
         console.log(this.state.allUsers);
         console.log(this.state.currentUsers);
         return (
