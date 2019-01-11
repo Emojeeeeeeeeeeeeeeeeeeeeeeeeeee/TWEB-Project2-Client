@@ -25,11 +25,31 @@ export class UsersGrid extends Component {
 
     componentDidMount() {
         if(this.state.hasLoad === false) {
-            this.props.users.then(response => {
-                if(response !== null && response !== undefined) {
+            if(!Array.isArray(this.props.users)) {
+                this.props.users.then(response => {
+                    if(response !== null && response !== undefined) {
+                        this.setState({
+                            allUsers: response,
+                            currentUsers: response.slice(0, fetchLength),
+                            hasLoad: true
+                        });
+                        this.renderUsers(this.state.currentUsers);
+                    }
+                    else {
+                        this.setState({
+                            usersToDisplay: (
+                                <h4>No users found</h4>
+                            )
+                        });
+                    }
+                }).catch();
+            }
+            else if(Array.isArray(this.props.users)) {
+                if(this.props.users.length > 0) {
+                    console.log(this.props.users);
                     this.setState({
-                        allUsers: response,
-                        currentUsers: response.slice(0, fetchLength),
+                        allUsers: this.props.users,
+                        currentUsers: this.props.users.slice(0, fetchLength),
                         hasLoad: true
                     });
                     this.renderUsers(this.state.currentUsers);
@@ -41,7 +61,7 @@ export class UsersGrid extends Component {
                         )
                     });
                 }
-            }).catch();
+            }
         }
     }
 
@@ -61,6 +81,7 @@ export class UsersGrid extends Component {
     renderUsers(arrayToRender) {
         let table = [];
         for(let i = 0; i < arrayToRender.length; i+=3) {
+            console.log("IN FOR");
             if((i+2) < arrayToRender.length) {
                 table.push(
                     <MDBRow>
@@ -140,13 +161,17 @@ export class UsersGrid extends Component {
                 );
             }
         }
-        
         this.setState({
             usersToDisplay: table
         });
+        console.log(this.state.allUsers);
+        console.log(this.state.currentUsers);
+        console.log(this.state.usersToDisplay);
     }
 
     render() {
+        console.log(this.state.allUsers);
+        console.log(this.state.currentUsers);
         return (
             <InfiniteScroll
                 dataLength={this.state.currentUsers.length}
