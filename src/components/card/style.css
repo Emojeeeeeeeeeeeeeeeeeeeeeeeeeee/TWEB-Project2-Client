@@ -180,8 +180,19 @@ body {
   /***** END GRADIENT COLORS *****/
 
   /***** MOOD *****/
-  #mood{
+  #moodText {
     font-family: 'Gochi Hand', cursive;
     font-size: 'large';
+  }
+
+  .mood {
+    width: 350px;
+    overflow: hidden;
+    height: 100%;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    margin-top: -60px;
+    border: 5px solid #fff;
+    text-align: center;
   }
   /***** END MOOD *****/

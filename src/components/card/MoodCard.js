@@ -16,13 +16,13 @@ export class MoodCard extends Component {
 
     render() {
         return(
-            <div className="card testimonial-card" style={{ maxWidth: "22rem", marginLeft: 'auto', marginRight: 'auto' }}>
+            <div className="card mood" style={{ maxWidth: "26rem", marginLeft: 'auto', marginRight: 'auto',  marginTop: '7%' }}>
                 <MDBCardHeader className="form-header rounded">
-                    <h2 className="my-3" id="mood">
+                    <h2 className="my-3" id="moodText">
                         Mood:
                     </h2> 
                 </MDBCardHeader>
-                <div className="testimonial-card" style={{ marginTop: '7%' }}>
+                <div className="mood" style={{ marginTop: '0%' }}>
                     <div className="card-body">
                         <MDBBtn rounded color="pink" onClick={this.handleButton} value="happy">Happy</MDBBtn>
                         <MDBBtn rounded color="mdb-color" onClick={this.handleButton} value="sad">Sad</MDBBtn>
@@ -32,7 +32,7 @@ export class MoodCard extends Component {
                         <MDBBtn rounded color="danger" onClick={this.handleButton} value="angry">Angry</MDBBtn>
                         <MDBBtn rounded color="pink" onClick={this.handleButton} value="inlove">In Love</MDBBtn>
                         <MDBBtn rounded color="dark-green" onClick={this.handleButton} value="needmoney">I need Money</MDBBtn>
-                        <MDBBtn rounded color="blue-grey" onClick={this.handleButton} value="old">Old</MDBBtn>
+                        <MDBBtn rounded color="blue-grey" onClick={this.handleButton} value="old">I'm too Old for this 💩</MDBBtn>
                         <MDBBtn rounded color="cyan" onClick={this.handleButton} value="underthesea">I'm a fish</MDBBtn>
                         <MDBBtn rounded color="red" onClick={this.handleButton} value="surpriseme">Surprise Me !</MDBBtn>
                     </div>
