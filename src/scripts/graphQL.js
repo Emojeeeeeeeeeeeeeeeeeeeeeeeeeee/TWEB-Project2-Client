@@ -91,11 +91,11 @@ export function getMessages(authorId, offset) {
   });
 }
 
-export function getPersonnalMessages(authorId, offset) {
+export function getPersonnalMessages(userId, offset) {
   const queryToSend = {
-    query: 'query GetMessagesOfUser($authorId: String!, $offset: Int!){getMessagesFromDB(authorId: $authorId, offset: $offset){id, like, content, authorId}}',
+    query: 'query GetMessagesOfUser($userId: String!, $offset: Int!){getMessagesOfUser(userId: $userId, offset: $offset){id, like, content, authorId}}',
     variables: {
-      authorId: authorId,
+      userId: userId,
       offset: offset,
     },
     headers: {

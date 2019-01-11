@@ -22,8 +22,9 @@ export class MessagesGrid extends Component {
         this.renderMessages = this.renderMessages.bind(this);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         if(this.state.hasLoad === false){
+            console.log(this.props.messages)
         this.props.messages.then(response => {
             if(response !== null && response !== undefined) {
                 this.setState({ 
@@ -43,6 +44,34 @@ export class MessagesGrid extends Component {
         }
         ).catch();
         }
+    }
+
+    componentWillReceiveProps({messages}){
+        this.setState ({
+            allMessages:[],
+            currentMessages: [],
+            MessageToDisplay: [],
+            index: fetchLength,
+            hasLoad : false,
+        })
+        messages.then(response => {
+            if(response !== null && response !== undefined) {
+                this.setState({ 
+                    allMessages: response,
+                    currentMessages: response.slice(0, fetchLength),
+                    hasLoad: true
+                });
+                this.renderMessages(this.state.currentMessages);
+            }
+            else {
+                this.setState({
+                    MessageToDisplay: (
+                        <h4>No Messages yet :( But you can write your first message !</h4>
+                    )
+                });
+            }
+        }
+        ).catch();
     }
 
     async fetchMoreMessages() {
@@ -160,7 +189,7 @@ export class MessagesGrid extends Component {
                 })
             }
     }
-    
+    console.log(this.state)
     this.setState({
         MessageToDisplay : table
     })
@@ -168,6 +197,7 @@ export class MessagesGrid extends Component {
 
   render() {
     console.log("current messages = " + this.state.currentMessages.length);
+    console.log("messages = " + this.state.allMessages.length);
     return (
         <InfiniteScroll
           dataLength={this.state.currentMessages.length}

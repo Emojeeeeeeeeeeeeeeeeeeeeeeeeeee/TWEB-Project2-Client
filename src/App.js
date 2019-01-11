@@ -23,7 +23,6 @@ export class App extends React.Component {
   }
 
   componentWillReceiveProps(value) {
-    console.log(value)
     this.setState({hasLoad : value})
   }
 

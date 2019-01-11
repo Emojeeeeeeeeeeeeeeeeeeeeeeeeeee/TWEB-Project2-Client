@@ -66,9 +66,17 @@ export class NavbarPage extends Component {
                     <Collapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
                         <NavbarNav left style={{ fontSize: '2rem' }}>
                             <NavItem active>
-                                <NavLink to="/">
-                                <span role="img" aria-label="home">🏠</span>
-                                </NavLink>
+                             <Link to={{
+                                        pathname: '/',
+                                        state: {
+                                            personnal: false
+                                        },
+                                        query : {
+                                            personnal: false
+                                        }
+                                    }}>
+                                    <span role="img" aria-label="home">🏠</span>
+                                </Link>
                             </NavItem>
                             <NavItem>
                                 <NavLink to="/newMessage">
@@ -94,6 +102,16 @@ export class NavbarPage extends Component {
                                          style={{ fontSize: '1.75rem' }}>
                                          my<Fa icon="envelope" className="ml-1" />
                                 </NavLink>
+                                <Link  
+                                         to={{
+                                            pathname: '/',
+                                            state: {
+                                                personnal: true
+                                            }
+                                        }}
+                                         style={{ fontSize: '1.75rem' }}>
+                                                my<Fa icon="envelope" className="ml-1" />
+                                            </Link>
                             </NavItem> 
                             <NavItem>
                                 <Dropdown>
