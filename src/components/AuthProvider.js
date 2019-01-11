@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {App} from '../App';
 
 const {Provider: AuthContextProvider, Consumer: AuthContext} = React.createContext();
 
@@ -13,14 +14,16 @@ class AuthProvider extends Component {
             error: null,
             signIn: this.signIn,
             signOut: this.signOut,
-            getMessages: this.getMessages
+            getMessages: this.getMessages,
+            hashload : false
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
+        console.log("mounting")
         const token = window.localStorage.getItem('token');
         this.setState({ user : token });
-        /*if (token) {
+        if (token) {
             axios.get('/api/me', {
                 headers: {
                     Authorization: `bearer ${token}`
@@ -28,13 +31,20 @@ class AuthProvider extends Component {
             })
             .then(response => {
                 const { user } = response.data;
-                this.setState({ user });
+                console.log("setState true")
+                this.setState({ user, hashload : true });
             })
             .catch(err => {
                 console.error(err);
                 localStorage.removeItem('token');
             })
-        }*/
+        }
+        else{
+            console.log("set state false")
+            this.setState({
+                hashload : true
+            })
+        }
     }
 
     signIn = ({ email, password }) => {
@@ -59,11 +69,12 @@ class AuthProvider extends Component {
 
     render() {
         const { children } = this.props;
+        console.log("render")
 
         // value = all values given to children
         return (
-            <AuthContextProvider value={this.state}> 
-                {children}
+            <AuthContextProvider value={this.state} > 
+                <App value={this.state.hashload}/>
             </AuthContextProvider>
         );
     }

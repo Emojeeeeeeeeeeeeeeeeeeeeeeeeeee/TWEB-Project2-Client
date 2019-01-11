@@ -5,9 +5,11 @@ import { AuthContext } from './AuthProvider';
 export const ProtectedRoute = ({ component: Component, ...others }) => (
     <Route {...others} render={(params) => (
         <AuthContext>
-            {({ user }) => user
+            {({ user }) => {
+                return user
                 ? <Component {...params} />
                 : <Redirect to="/login" />}
+            }
         </AuthContext>
     )} 
     />
