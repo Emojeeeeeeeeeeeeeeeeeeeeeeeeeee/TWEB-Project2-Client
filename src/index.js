@@ -6,14 +6,13 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
-import App from './App';
+import {App} from './App';
 import AuthProvider from './components/AuthProvider';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
 <BrowserRouter>
     <AuthProvider>
-        <App />
     </AuthProvider>
 </BrowserRouter>,
 document.getElementById('root'));
