@@ -367,9 +367,9 @@ export function createUser (email, username, password){
       })
   }
 
-  export function updateMood(mood) {
+  export function updateMood(userId, mood) {
     const queryToSend = {
-      query: '',
+      query: 'query ChangeImage($userId: String!, $mood: String!){changeImage(userId: $userId, mood: $mood){username, image, email, following, followers, id}}',
       variables: {
         mood: mood,
       },
