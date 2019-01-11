@@ -178,3 +178,10 @@ body {
     background-image: linear-gradient(to top,#30cfd0 0,#330867 100%); 
   }
   /***** END GRADIENT COLORS *****/
+
+  /***** MOOD *****/
+  #mood{
+    font-family: 'Gochi Hand', cursive;
+    font-size: 'large';
+  }
+  /***** END MOOD *****/

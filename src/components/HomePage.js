@@ -16,7 +16,8 @@ export const HomePage = () => {
                     <div>
                         <NavbarPage logout={signOut}/>
                         <BackgroundPage src={Background} isGrid={true}>
-                            <MessagesGrid messages={getMessages(localStorage.getItem('user_id'), 0).then(res => res.getMessagesFromDB)}/>
+                            <MessagesGrid 
+                                messages={getMessages(localStorage.getItem('user_id'), 0).then(res => res.getMessagesFromDB)} />
                         </BackgroundPage>
                     </div>
                 );

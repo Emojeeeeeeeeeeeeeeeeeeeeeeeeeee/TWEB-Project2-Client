@@ -5,29 +5,44 @@ export class BackgroundPage extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            isGrid: this.props.isGrid
+        };
+        this.modifyBackgroundStyle = this.modifyBackgroundStyle.bind(this);
+    }
+
+    modifyBackgroundStyle() {
+        this.setState({
+            isGrid: !this.state.isGrid
+        });
     }
 
     render() {
         const backgroundStyleGrid = {
             backgroundImage: `url(${this.props.src})`,
             backgroundSize: '70%',
-            backgroundRepeat: 'repeat',
-            backgroundAttachement: 'fixed'           
+            backgroundRepeat: 'repeatY',
+            backgroundAttachement: 'fixed',
+            height: '100%'    
         };
 
         const backgroundStyleNoGrid = {
             backgroundImage: `url(${this.props.src})`,
             width: '100%',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'repeatY',
+            backgroundSize: '90%',
+            backgroundRepeat: 'repeat',
             backgroundPosition: 'center', 
-            height: '100vh'
+            height: '100vh',
+            /*backgroundSize: '70%',
+            backgroundRepeat: 'repeat',
+            backgroundAttachement: 'fixed',*/
+            
         };
         
 
         const { children } = this.props;
         return (
-            <Container fluid style={this.props.isGrid === true ? backgroundStyleGrid : backgroundStyleNoGrid}>
+            <Container fluid style={this.state.isGrid === true ? backgroundStyleGrid : backgroundStyleNoGrid}>
                 {children}
             </Container>
         );

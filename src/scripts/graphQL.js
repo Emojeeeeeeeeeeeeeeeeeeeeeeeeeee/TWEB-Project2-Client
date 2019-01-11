@@ -367,6 +367,28 @@ export function createUser (email, username, password){
       })
   }
 
+  export function updateMood(mood) {
+    const queryToSend = {
+      query: '',
+      variables: {
+        mood: mood,
+      },
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }
+
+    return axios({
+      url: 'http://localhost:5000/graphql',
+      methoed: 'post',
+      data: queryToSend
+    })
+      .then(response => response.data)
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
 /*module.exports = {
   createUser,
   createMessage,

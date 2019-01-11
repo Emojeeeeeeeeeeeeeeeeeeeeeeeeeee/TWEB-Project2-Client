@@ -5,6 +5,7 @@ import { AuthContext } from './AuthProvider';
 import { NavbarPage } from './Navbar';
 import { BackgroundPage } from './BackgroundPage';
 import { ProfileCard } from './card/ProfileCard';
+import { MoodCard } from './card/MoodCard';
 import { getUser } from '../scripts/graphQL';
 
 import Background from '../images/login_background_2.jpg';
@@ -55,6 +56,9 @@ export class ProfilePage extends Component {
                             <MDBRow style={ { display: 'flex', justifyContent: 'center' } }>
                                 <MDBCol md="3" style={{ marginTop: '7%' }}>
                                     {this.state.toDisplay}
+                                </MDBCol>
+                                <MDBCol md="3" style={{ marginTop: '2%' }}>
+                                    <MoodCard />
                                 </MDBCol>
                             </MDBRow>
                             </BackgroundPage>

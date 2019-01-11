@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, MDBDropdownItem, Fa } from "mdbreact";
 import { Link, Redirect } from 'react-router-dom';
 
 import { getUser } from '../scripts/graphQL';
 
-export class NavbarPage extends React.Component {
+export class NavbarPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -92,7 +92,7 @@ export class NavbarPage extends React.Component {
                                 <NavLink className="waves-effect waves-light d-flex align-items-center" 
                                          to="#!" 
                                          style={{ fontSize: '1.75rem' }}>
-                                         1<Fa icon="envelope" className="ml-1" />
+                                         my<Fa icon="envelope" className="ml-1" />
                                 </NavLink>
                             </NavItem> 
                             <NavItem>

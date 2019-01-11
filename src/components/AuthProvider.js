@@ -19,7 +19,8 @@ class AuthProvider extends Component {
 
     componentDidMount() {
         const token = window.localStorage.getItem('token');
-        if (token) {
+        this.setState({ user : token });
+        /*if (token) {
             axios.get('/api/me', {
                 headers: {
                     Authorization: `bearer ${token}`
@@ -33,7 +34,7 @@ class AuthProvider extends Component {
                 console.error(err);
                 localStorage.removeItem('token');
             })
-        }
+        }*/
     }
 
     signIn = ({ email, password }) => {

@@ -173,7 +173,7 @@ export class MessagesGrid extends Component {
           dataLength={this.state.currentMessages.length}
           next={this.fetchMoreMessages}
           hasMore={this.state.currentMessages.length === this.state.allMessages.length ? false : true}
-          loader={<h4 style={{overflowX: 'hidden'}}><center><h4 class="loader border-top-danger fast" style={{overflowX: 'hidden'}}></h4></center></h4>}
+          loader={<h4 style={{overflowX: 'hidden', overflowY: 'hidden'}}><center><h4 className="loader border-top-danger fast" style={{overflowX: 'hidden'}}></h4></center></h4>}
           style={{overflowX: 'hidden'}}
         >
         {this.state.MessageToDisplay}
