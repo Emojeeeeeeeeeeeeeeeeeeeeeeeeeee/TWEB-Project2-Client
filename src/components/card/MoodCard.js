@@ -11,7 +11,7 @@ export class MoodCard extends Component {
         const userId = localStorage.getItem('user_id');
         const mood = e.target.value;
         updateMood(userId, mood);
-        window.location.reload();
+        //window.location.reload();
     }
 
     render() {
@@ -33,7 +33,8 @@ export class MoodCard extends Component {
                         <MDBBtn rounded color="pink" onClick={this.handleButton} value="inlove">In Love</MDBBtn>
                         <MDBBtn rounded color="dark-green" onClick={this.handleButton} value="needmoney">I need Money</MDBBtn>
                         <MDBBtn rounded color="blue-grey" onClick={this.handleButton} value="old">Old</MDBBtn>
-                        <MDBBtn rounded color="cyan" onClick={this.handleButton} value="angry">I'm a fish</MDBBtn>
+                        <MDBBtn rounded color="cyan" onClick={this.handleButton} value="underthesea">I'm a fish</MDBBtn>
+                        <MDBBtn rounded color="red" onClick={this.handleButton} value="surpriseme">Surprise Me !</MDBBtn>
                     </div>
                 </div>
             </div>
