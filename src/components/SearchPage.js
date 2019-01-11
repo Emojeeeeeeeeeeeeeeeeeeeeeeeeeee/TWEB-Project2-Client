@@ -6,17 +6,14 @@ import { UsersGrid } from './UsersGrid/UsersGrid';
 
 import Background from '../images/login_background_2.jpg';
 import { searchUser } from '../scripts/graphQL';
+import { NavbarWrapper } from './NavbarWrapper';
 
 export class SearchPage extends Component {
-
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
             <div>
-                <NavbarPage />
+                <NavbarWrapper />
                 <BackgroundPage src={Background} isGrid={true}>
                     <UsersGrid users={searchUser(localStorage.getItem('search_username')).then(res => res)} />
                     {localStorage.removeItem('search_username')}

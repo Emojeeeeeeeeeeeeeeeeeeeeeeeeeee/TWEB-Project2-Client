@@ -16,32 +16,38 @@ export class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      hasLoad : this.props.value
+        user: null,
+        error: null,
+        signIn: this.signIn,
+        signOut: this.signOut,
+        getMessages: this.getMessages,
+        hasLoad : false
     }
     console.log("constructor APP")
     console.log(this.props)
   }
 
   componentWillReceiveProps(value) {
-    this.setState({hasLoad : value})
+    this.setState(value)
+    console.log(value)
   }
 
   render() {
-    if(!this.state.hasLoad){
+    if(!this.props.value.hasLoad){
       console.log(false)
       return <WaitingPage />
     }
     else{
   return (
     <Switch>
-      <ProtectedRoute path="/" exact component={HomePage} />
+      <ProtectedRoute path="/" exact component={HomePage} signOut={this.state.signOut} />
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
-      <ProtectedRoute path="/newMessage" component={NewMessagePage} />
-      <ProtectedRoute path="/profile" component={ProfilePage} />
-      <ProtectedRoute path="/search" component={SearchPage} />
-      <ProtectedRoute path="/following" component={FollowingPage} />
-      <ProtectedRoute path="/followers" component={FollowingPage} />
+      <ProtectedRoute path="/newMessage" component={NewMessagePage} signOut={this.state.signOut} />
+      <ProtectedRoute path="/profile" component={ProfilePage} signOut={this.state.signOut} />
+      <ProtectedRoute path="/search" component={SearchPage} signOut={this.state.signOut} />
+      <ProtectedRoute path="/following" component={FollowingPage} signOut={this.state.signOut} />
+      <ProtectedRoute path="/followers" component={FollowingPage} signOut={this.state.signOut} />
     </Switch>
   );
 };

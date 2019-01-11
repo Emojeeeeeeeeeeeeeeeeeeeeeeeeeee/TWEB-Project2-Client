@@ -4,8 +4,10 @@ import { NavbarPage } from './Navbar';
 import { BackgroundPage } from './BackgroundPage';
 import { UsersGrid } from './UsersGrid/UsersGrid';
 import { getUsersByIds } from '../scripts/graphQL';
+import { AuthContext } from './AuthProvider';
 
 import Background from '../images/login_background_2.jpg';
+import { NavbarWrapper } from './NavbarWrapper';
 
 export class FollowingPage extends Component {
 
@@ -23,14 +25,19 @@ export class FollowingPage extends Component {
     }
 
     render() {
+        return (
+            <AuthContext>
+                {({ signOut }) => {
         //<UsersGrid users={getFollowings(this.props.location.state.username).then(res => res)} />
         return(            
             <div>
-                <NavbarPage />
+                <NavbarWrapper />
                 <BackgroundPage src={Background} isGrid={true}>
                     <UsersGrid users={getUsersByIds(this.props.history.location.state.users).then(res => res)} />
                 </BackgroundPage >
             </div>
         );
-    }
+    }}
+</AuthContext>);
+}
 }

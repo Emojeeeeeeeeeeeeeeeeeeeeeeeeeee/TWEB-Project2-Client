@@ -6,10 +6,11 @@ import { NavbarPage } from './Navbar';
 import { BackgroundPage } from './BackgroundPage';
 import { ProfileCard } from './card/ProfileCard';
 import { MoodCard } from './card/MoodCard';
-import { getUser } from '../scripts/graphQL';
+import { getUser, updateMood } from '../scripts/graphQL';
 
 import Background from '../images/login_background_2.jpg';
 import './card/style.css';
+import { NavbarWrapper } from './NavbarWrapper';
 
 export class ProfilePage extends Component {
 
@@ -19,16 +20,26 @@ export class ProfilePage extends Component {
             toDisplay:<h2>Loading...</h2>,
         };
         this.userCard = this.userCard.bind(this)
+        this.changeImage = this.changeImage.bind(this)
     }
 
     componentDidMount(){
         this.userCard()
     }
 
+    changeImage(mood){
+    const userId = localStorage.getItem('user_id');
+    updateMood(userId, mood)
+    .then(() => {
+        this.userCard();
+    });
+    }
+
     async userCard(){
         let user;
         await getUser(this.props.location.state.id).then(res => {
             user = res;
+            console.log(res)
         });
         this.setState({
             toDisplay : (
@@ -44,28 +55,22 @@ export class ProfilePage extends Component {
         });   
     }
 
-    render(){
-        return (
-            <AuthContext>
-                {({ signOut }) => {
-              
-                    return (
-                        <div>
-                            <NavbarPage logout={signOut} />
-                            <BackgroundPage src={Background} isGrid={false}> 
-                            <MDBRow style={ { display: 'flex', justifyContent: 'center' } }>
-                                <MDBCol md="3" style={{ marginTop: '7%' }}>
-                                    {this.state.toDisplay}
-                                </MDBCol>
-                                <MDBCol md="3" style={{ marginTop: '2%' }}>
-                                    <MoodCard />
-                                </MDBCol>
-                            </MDBRow>
-                            </BackgroundPage>
-                        </div>
+    render(){     
+        console.log("render")         
+            return (
+                <>
+                    <NavbarWrapper />
+                    <BackgroundPage src={Background} isGrid={false}> 
+                    <MDBRow style={ { display: 'flex', justifyContent: 'center' } }>
+                        <MDBCol md="3" style={{ marginTop: '7%' }}>
+                            {this.state.toDisplay}
+                        </MDBCol>
+                        <MDBCol md="3" style={{ marginTop: '2%' }}>
+                            <MoodCard changeImage={this.changeImage}/>
+                        </MDBCol>
+                    </MDBRow>
+                    </BackgroundPage>
+                </>
                     );
-                }}
-            </AuthContext>
-        );
     }
 };

@@ -7,11 +7,18 @@ import './style.css'
 
 export class MoodCard extends Component {
 
+    constructor(props){
+        super(props)
+
+        this.handleButton = this.handleButton.bind(this);
+    }
+
     handleButton(e) {
-        const userId = localStorage.getItem('user_id');
-        const mood = e.target.value;
-        updateMood(userId, mood);
-        //window.location.reload();
+        this.props.changeImage(e.target.value);
+    }
+
+    componentWillReceiveProps(){
+        console.log("update image")
     }
 
     render() {

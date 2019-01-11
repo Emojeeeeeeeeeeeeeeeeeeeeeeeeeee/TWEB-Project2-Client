@@ -7,6 +7,7 @@ import { MessagesGrid } from './MessagesGrid';
 import { getMessages, getPersonnalMessages } from '../scripts/graphQL';
 
 import Background from '../images/login_background_2.jpg';
+import { NavbarWrapper } from './NavbarWrapper';
 
 export class HomePage extends React.Component {
     
@@ -35,19 +36,13 @@ export class HomePage extends React.Component {
 
     render(){
     return (
-        <AuthContext>
-            {({ signOut }) => {
-                return (
-                    <div>
-                        <NavbarPage logout={signOut}/>
-                        <BackgroundPage src={Background} isGrid={true}>
-                            <MessagesGrid 
-                                messages={this.state.displayPersonnalMessage ? getPersonnalMessages(localStorage.getItem('user_id'), 0).then(res => res.getMessagesOfUser) : getMessages(localStorage.getItem('user_id'), 0).then(res => res.getMessagesFromDB)}/>
-                        </BackgroundPage>
-                    </div>
-                );
-            }}
-        </AuthContext>
-    );
+        <>
+            <NavbarWrapper />
+            <BackgroundPage src={Background} isGrid={true}>
+                <MessagesGrid 
+                    messages={this.state.displayPersonnalMessage ? getPersonnalMessages(localStorage.getItem('user_id'), 0).then(res => res.getMessagesOfUser) : getMessages(localStorage.getItem('user_id'), 0).then(res => res.getMessagesFromDB)}/>
+            </BackgroundPage>
+        </>
+    )
         }
 };

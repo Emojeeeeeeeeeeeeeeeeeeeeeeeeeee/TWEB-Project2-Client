@@ -9,6 +9,7 @@ import { createMessage } from '../scripts/graphQL'
 
 import Background from '../images/login_background_2.jpg';
 import allEmoji from '../emojis.json';
+import { NavbarWrapper } from './NavbarWrapper';
 
 const SYMBOLS = '"%&,.<>@[]`{}~';
 const maxLength = '155';
@@ -182,7 +183,7 @@ export class NewMessagePage extends Component {
     render() {
         return (
             <div>
-                <NavbarPage></NavbarPage>
+                <NavbarWrapper />
                 <BackgroundPage src={Background} isGrid={false}>
                     <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
                         <MDBCol md="4">

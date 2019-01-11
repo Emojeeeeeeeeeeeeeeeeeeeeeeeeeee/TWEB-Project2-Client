@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FollowButton } from '../FollowButton/FollowButton';
 
 import './style.css';
+import { getUser } from '../../scripts/graphQL';
 
 const colors = ['aqua-gradient', 'blue-gradient', 'purple-gradient', 'peach-gradient', 'dusty-grass-gradient'];
 
@@ -22,8 +23,7 @@ export class ProfileCard extends Component {
             followersCount: this.props.followers === undefined ? 0 : this.props.followers.length,
         };
 
-        this.incFollow = this.incFollow.bind(this);
-        this.decFollow = this.decFollow.bind(this);
+        this.updateCard = this.updateCard.bind(this);
     }
 
     componentWillMount() {
@@ -33,15 +33,24 @@ export class ProfileCard extends Component {
         }); 
     }
 
-    incFollow() {
+    componentWillReceiveProps({avatar}){
         this.setState({
-            followersCount: this.state.followersCount + 1
+            avatar
         })
     }
 
-    decFollow() {
-        this.setState({
-            followersCount: this.state.followersCount - 1
+    async updateCard() {
+        await getUser(this.state.id)
+        .then(res => {
+            this.setState({
+                avatar: res.image,
+                username: res.username,
+                email: res.email,
+                following: res.following === undefined ? [] : res.following,
+                followers: res.followers === undefined ? [] : res.followers,
+                followingCount: res.following === undefined ? 0 : res.following.length,
+                followersCount: res.followers === undefined ? 0 : res.followers.length,
+            })
         })
     }
 
@@ -84,7 +93,7 @@ export class ProfileCard extends Component {
                                 Followers: {this.state.followersCount}
                             </Link>
                         </div>
-                        {this.props.displayFollowButton ? <FollowButton userId={this.props.id} followers={this.state.followers} incFollow={this.incFollow} decFollow={this.decFollow} /> : ''}            
+                        {this.props.displayFollowButton ? <FollowButton userId={this.props.id} followers={this.state.followers} updateCard={this.updateCard} /> : ''}            
                     </div>
                 </div>
             </div>  

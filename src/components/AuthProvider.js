@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {App} from '../App';
+import { Redirect } from 'react-router-dom';
 
 const {Provider: AuthContextProvider, Consumer: AuthContext} = React.createContext();
 
@@ -15,14 +16,14 @@ class AuthProvider extends Component {
             signIn: this.signIn,
             signOut: this.signOut,
             getMessages: this.getMessages,
-            hashload : false
+            hasLoad : false
         }
     }
 
     componentWillMount() {
         console.log("mounting")
         const token = window.localStorage.getItem('token');
-        this.setState({ user : token });
+        this.setState({ user : "tempUser" });
         if (token) {
             axios.get('/api/me', {
                 headers: {
@@ -32,7 +33,7 @@ class AuthProvider extends Component {
             .then(response => {
                 const { user } = response.data;
                 console.log("setState true")
-                this.setState({ user, hashload : true });
+                this.setState({ user, hasLoad : true });
             })
             .catch(err => {
                 console.error(err);
@@ -42,7 +43,8 @@ class AuthProvider extends Component {
         else{
             console.log("set state false")
             this.setState({
-                hashload : true
+                hasLoad : true,
+                user : null
             })
         }
     }
@@ -65,6 +67,7 @@ class AuthProvider extends Component {
         localStorage.removeItem('token');
         localStorage.removeItem('user_id');
         window.location.reload();
+        return <Redirect to="/" />
     }
 
     render() {
@@ -74,7 +77,7 @@ class AuthProvider extends Component {
         // value = all values given to children
         return (
             <AuthContextProvider value={this.state} > 
-                <App value={this.state.hashload}/>
+                <App value={this.state}/>
             </AuthContextProvider>
         );
     }

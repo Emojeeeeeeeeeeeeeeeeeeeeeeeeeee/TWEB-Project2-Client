@@ -31,26 +31,21 @@ export class FollowButton extends Component {
          // Not followed yet
         if(!this.state.status) {
             follow(this.state.userId, localStorage.getItem('user_id'))
-            .then(res => {
-                this.setState((prevState, props) => ({
-                        follow: prevState.follow + 1,
-                        status: true
+            .then(() => {
+                this.setState({
+                    status: true
                 })
-                );
-                this.props.incFollow()
+                this.props.updateCard();
             })
         }
         // Already followed
         else {
             unfollow(this.state.userId, localStorage.getItem('user_id'))
-            .then(res => {
-            this.setState((prevState, props) => {
-                return {
-                    follow: prevState.follow - 1,
+            .then(() => {
+            this.setState({
                     status: false
-                }
-            });
-            this.props.decFollow();
+                });
+            this.props.updateCard();
         });
         }
     }
