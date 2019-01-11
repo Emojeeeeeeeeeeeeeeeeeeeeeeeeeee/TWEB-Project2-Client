@@ -18,13 +18,11 @@ export class FollowingPage extends Component {
 
     render() {
         //<UsersGrid users={getFollowings(this.props.location.state.username).then(res => res)} />
-        console.log(this.props.location.state.users);
-        return(
-            
+        return(            
             <div>
                 <NavbarPage />
                 <BackgroundPage src={Background} isGrid={true}>
-        
+                    <UsersGrid users={this.props.location.state.users} />
                 </BackgroundPage >
             </div>
         );
