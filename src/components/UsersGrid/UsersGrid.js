@@ -105,7 +105,7 @@ export class UsersGrid extends Component {
                                 avatar={arrayToRender[i].image}
                                 username={arrayToRender[i].username}
                                 email={arrayToRender[i].email}
-                                following={arrayToRender[i].followed}
+                                following={arrayToRender[i].following}
                                 followers={arrayToRender[i].followers}
                                 id={arrayToRender[i].id}
                                 displayFollowButton={arrayToRender[i].id.localeCompare(localStorage.getItem('user_id'))} />
@@ -115,7 +115,7 @@ export class UsersGrid extends Component {
                                 avatar={arrayToRender[i+1].image}
                                 username={arrayToRender[i+1].username}
                                 email={arrayToRender[i+1].email}
-                                following={arrayToRender[i+1].followed}
+                                following={arrayToRender[i+1].following}
                                 followers={arrayToRender[i+1].followers}
                                 id={arrayToRender[i+1].id}
                                 displayFollowButton={arrayToRender[i+1].id.localeCompare(localStorage.getItem('user_id'))} />
@@ -131,7 +131,7 @@ export class UsersGrid extends Component {
                             avatar={arrayToRender[i].image}
                             username={arrayToRender[i].username}
                             email={arrayToRender[i].email}
-                            following={arrayToRender[i].followed}
+                            following={arrayToRender[i].following}
                             followers={arrayToRender[i].followers}
                             id={arrayToRender[i].id}
                             displayFollowButton={arrayToRender[i].id.localeCompare(localStorage.getItem('user_id'))} />
