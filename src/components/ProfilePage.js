@@ -56,7 +56,6 @@ export class ProfilePage extends Component {
     }
 
     render(){     
-        console.log("render")         
             return (
                 <>
                     <NavbarWrapper />

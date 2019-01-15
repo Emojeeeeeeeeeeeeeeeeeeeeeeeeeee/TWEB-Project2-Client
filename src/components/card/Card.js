@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import { LikeButton } from '../LikeButton/LikeButton';
+import { DeleteMessageButton } from '../DeleteMessageButton/DeleteMessageButton';
 
 import './style.css';
 
@@ -25,6 +26,7 @@ export class Card extends Component {
     render() {
         return (
               <div className="card testimonial-card" style={{ maxWidth: "22rem", marginLeft: 'auto', marginRight: 'auto' }}>
+              {this.props.userId.localeCompare(localStorage.getItem('user_id')) ? '' : <DeleteMessageButton messageId={this.props.messageId} />}
                 <div className={`card-up ${this.state.cardUpColor}`} />
                 <div className="avatar mx-auto white square-image">
                   <img
