@@ -10,6 +10,7 @@ import { NewMessagePage } from './components/NewMessagePage';
 import { SearchPage } from './components/SearchPage';
 import { FollowingPage } from './components/FollowingPage';
 import { WaitingPage } from './components/WaitingPage';
+import { ForgotPasswordPage } from './components/ForgotPasswordPage';
 
 export class App extends React.Component {
 
@@ -43,6 +44,7 @@ export class App extends React.Component {
       <ProtectedRoute path="/" exact component={HomePage} signOut={this.state.signOut} />
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
+      <Route path="/oopsPassword" component={ForgotPasswordPage} />
       <ProtectedRoute path="/newMessage" component={NewMessagePage} signOut={this.state.signOut} />
       <ProtectedRoute path="/profile" component={ProfilePage} signOut={this.state.signOut} />
       <ProtectedRoute path="/search" component={SearchPage} signOut={this.state.signOut} />

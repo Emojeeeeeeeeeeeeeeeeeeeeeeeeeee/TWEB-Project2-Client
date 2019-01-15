@@ -92,7 +92,7 @@ export const LoginPage = () => {
                                                     <span role="img" aria-label="up"> 🆙</span>
                                                 </a>
                                                 <br />
-                                                <a href="/#!">Forgot 
+                                                <a href="/oopsPassword">Forgot 
                                                     <span role="img" aria-label="password"> 🔑</span>
                                                     <span role="img" aria-label="questionMark"> ❓</span>
                                                 </a>
