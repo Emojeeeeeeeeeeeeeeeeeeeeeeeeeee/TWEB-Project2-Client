@@ -36,7 +36,7 @@ export class NewMessagePage extends Component {
                         this.notify();
                         setTimeout(() => {
                             window.location.replace("/");
-                        }, 1500); 
+                        }, 2000); 
                     }
                 });
         }
@@ -49,7 +49,7 @@ export class NewMessagePage extends Component {
     notify = () => {
         toast('🦄 Congratulations ! Message sent.', {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -212,7 +212,7 @@ export class NewMessagePage extends Component {
                     </MDBRow>
                     <ToastContainer
                         position="top-center"
-                        autoClose={1500}
+                        autoClose={2000}
                         hideProgressBar={false}
                         newestOnTop={false}
                         closeOnClick
