@@ -24,18 +24,14 @@ export class App extends React.Component {
         getMessages: this.getMessages,
         hasLoad : false
     }
-    console.log("constructor APP")
-    console.log(this.props)
   }
 
   componentWillReceiveProps(value) {
-    this.setState(value)
-    console.log(value)
+    this.setState(value);
   }
 
   render() {
     if(!this.props.value.hasLoad){
-      console.log(false)
       return <WaitingPage />
     }
     else{

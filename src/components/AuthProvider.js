@@ -21,7 +21,6 @@ class AuthProvider extends Component {
     }
 
     componentWillMount() {
-        console.log("mounting")
         const token = window.localStorage.getItem('token');
         this.setState({ user : "tempUser" });
         if (token) {
@@ -32,7 +31,6 @@ class AuthProvider extends Component {
             })
             .then(response => {
                 const { user } = response.data;
-                console.log("setState true")
                 this.setState({ user, hasLoad : true });
             })
             .catch(err => {
@@ -41,7 +39,6 @@ class AuthProvider extends Component {
             })
         }
         else{
-            console.log("set state false")
             this.setState({
                 hasLoad : true,
                 user : null
@@ -72,7 +69,6 @@ class AuthProvider extends Component {
 
     render() {
         const { children } = this.props;
-        console.log("render")
 
         // value = all values given to children
         return (

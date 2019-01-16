@@ -73,7 +73,6 @@ export class MessagesGrid extends Component {
     }
 
     async fetchMoreMessages() {
-        console.log("Fetching more messages");
         var State = this;
         setTimeout(() => {
         if(State.state.hasLoad && State.state.currentMessages.length < State.state.allMessages.length) {
@@ -187,15 +186,12 @@ export class MessagesGrid extends Component {
                 })
             }
     }
-    console.log(this.state)
     this.setState({
         MessageToDisplay : table
     })
 }
 
   render() {
-    console.log("current messages = " + this.state.currentMessages.length);
-    console.log("messages = " + this.state.allMessages.length);
     return (
         <InfiniteScroll
           dataLength={this.state.currentMessages.length}
