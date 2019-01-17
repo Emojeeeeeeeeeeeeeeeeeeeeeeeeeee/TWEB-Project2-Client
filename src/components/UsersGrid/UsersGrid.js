@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBRow, MDBCol } from 'mdbreact';
+import { MDBRow, MDBCol, MDBCard, MDBCardBody } from 'mdbreact';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { getUserByEmail } from '../../scripts/graphQL';
@@ -25,7 +25,6 @@ export class UsersGrid extends Component {
     }
 
     componentDidMount() {
-        console.log("mount")
         if(this.state.hasLoad === false) {
                 this.props.users.then(response => {
                     if(response !== null && response !== undefined) {
@@ -39,7 +38,20 @@ export class UsersGrid extends Component {
                     else {
                         this.setState({
                             usersToDisplay: (
-                                <h4>No users found</h4>
+                                <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
+                                    <MDBCol size="4">
+                                        <MDBCard style={{marginTop: '20%'}}>
+                                            <MDBCardBody>
+                                                <div>
+                                                    <h4>
+                                                        No users found 
+                                                        <span role="img" aria-label="cryingFace">😢</span>
+                                                    </h4>
+                                                </div>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </MDBCol>
+                                </MDBRow>
                             )
                         });
                     }
@@ -67,7 +79,18 @@ export class UsersGrid extends Component {
             else {
                 this.setState({
                     usersToDisplay: (
-                        <h4>No users found</h4>
+                        <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
+                            <MDBCol size="4">
+                                <MDBCard style={{marginTop: '20%'}}>
+                                    <MDBCardBody>
+                                        <h4>
+                                            No users found 
+                                            <span role="img" aria-label="cryingFace">😢</span>
+                                        </h4>
+                                    </MDBCardBody>
+                                </MDBCard>
+                            </MDBCol>
+                        </MDBRow>
                     )
                 });
             }
@@ -90,8 +113,6 @@ export class UsersGrid extends Component {
     renderUsers(arrayToRender) {
         let table = [];
         for(let i = 0; i < arrayToRender.length; i+=3) {
-            console.log("IN FOR");
-            console.log(arrayToRender.length)
             if((i+2) < arrayToRender.length) {
                 table.push(
                     <MDBRow>
@@ -175,15 +196,9 @@ export class UsersGrid extends Component {
         this.setState({
             usersToDisplay: table
         });
-        console.log(table)
-        console.log("end of render")
-        console.log(this.state);
     }
 
     render() {
-        console.log("render usergrid")
-        console.log(this.state.allUsers);
-        console.log(this.state.currentUsers);
         return (
             <InfiniteScroll
                 dataLength={this.state.currentUsers.length}

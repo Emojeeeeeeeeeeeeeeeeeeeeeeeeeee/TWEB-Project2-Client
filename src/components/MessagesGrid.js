@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MDBRow, MDBCol } from 'mdbreact';
+import { MDBRow, MDBCol, MDBCard, MDBCardBody } from 'mdbreact';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { getMessages, getUser } from '../scripts/graphQL';
 
@@ -36,7 +36,17 @@ export class MessagesGrid extends Component {
             else {
                 this.setState({
                     MessageToDisplay: (
-                        <h4>No Messages yet :( But you can write your first message !</h4>
+                        <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
+                            <MDBCol size="4">
+                                <MDBCard style={{marginTop: '20%'}}>
+                                    <MDBCardBody>
+                                        <div>
+                                            <h4>No Messages yet :( But you can write your first message !</h4>
+                                        </div>
+                                    </MDBCardBody>
+                                </MDBCard>
+                            </MDBCol>
+                        </MDBRow>
                     )
                 });
             }
@@ -64,7 +74,17 @@ export class MessagesGrid extends Component {
             else {
                 this.setState({
                     MessageToDisplay: (
-                        <h4>No Messages yet :( But you can write your first message !</h4>
+                        <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
+                            <MDBCol size="4">
+                                <MDBCard style={{marginTop: '20%'}}>
+                                    <MDBCardBody>
+                                        <div>
+                                            <h4>No Messages yet :( But you can write your first message !</h4>
+                                        </div>
+                                    </MDBCardBody>
+                                </MDBCard>
+                            </MDBCol>
+                        </MDBRow>
                     )
                 });
             }
