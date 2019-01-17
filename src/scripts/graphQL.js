@@ -136,6 +136,29 @@ export function getPersonnalMessages(userId, offset) {
   });
 }
 
+export function getFavoriteMessages(userId, offset) {
+  const queryToSend = {
+    query: 'query GetFavoriteMessages($userId: String!, $offset: Int!){getFavoriteMessages(userId: $userId, offset: $offset){id, like, content, authorId}}',
+    variables: {
+      userId: userId,
+      offset: offset,
+    },
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }
+
+  return axios( {
+    url: 'http://localhost:5000/graphql', 
+    method: 'post',
+    data: queryToSend
+  })
+  .then(response => response.data.data)
+  .catch(error => {
+    console.error(error);
+  });
+}
+
 export function createUser (email, username, password){
   const queryToSend = {
     query: 'query CreateUser($username: String!, $password: String!, $email: String!){createUser(username: $username, password: $password, email: $email){id}}',
