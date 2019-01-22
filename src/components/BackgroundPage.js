@@ -11,6 +11,13 @@ export class BackgroundPage extends React.Component {
         //this.modifyBackgroundStyle = this.modifyBackgroundStyle.bind(this);
     }
 
+    
+    ccomponentWillReceiveProps({isGrid}){
+        this.setState({
+            isGrid: isGrid
+        })
+    }
+
     render() {
         const backgroundStyleGrid = {
             backgroundImage: `url(${this.props.src})`,
@@ -34,7 +41,6 @@ export class BackgroundPage extends React.Component {
         };
         
         const { children } = this.props;
-
 
         return (
             <Container fluid style={this.state.isGrid === true ? backgroundStyleGrid : backgroundStyleNoGrid}>

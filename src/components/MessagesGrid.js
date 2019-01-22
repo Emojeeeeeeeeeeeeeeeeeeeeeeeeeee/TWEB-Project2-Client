@@ -65,6 +65,15 @@ export class MessagesGrid extends Component {
         })
         messages.then(response => {
             if(response !== null && response !== undefined) {
+                console.log(this.props.isGrid)
+                if(response.length < 7 && this.props.isGrid === true) {
+                    console.log("nogrid")
+                     this.props.setNoGrid();
+                 }
+                 else if(response.length > 6 && this.props.isGrid === false){
+                     console.log("grid")
+                     this.props.setGrid();
+                 }
                 nextState.allMessages = response;
                 nextState.currentMessages = response.slice(0, fetchLength);
                 nextState.hasLoad = true;
@@ -72,6 +81,10 @@ export class MessagesGrid extends Component {
                 this.renderMessages(nextState.currentMessages);
             }
             else {
+                if(this.props.isGrid === true){
+                    console.log("nogrid2")
+                    this.props.setNoGrid();
+                }
                 this.setState({
                     MessageToDisplay: (
                         <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>

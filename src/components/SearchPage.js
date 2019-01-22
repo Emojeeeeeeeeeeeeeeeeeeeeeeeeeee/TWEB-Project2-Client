@@ -39,7 +39,8 @@ export class SearchPage extends Component {
                     <UsersGrid 
                         users={searchUser(localStorage.getItem('search_username')).then(res => res)} 
                         setGrid={this.setBackgroundToGrid}
-                        setNoGrid={this.setBackgrounToNoGrid} />
+                        setNoGrid={this.setBackgrounToNoGrid} 
+                        isGrid={this.state.isGrid} />
                     {localStorage.removeItem('search_username')}
                 </BackgroundPage >
             </div>
