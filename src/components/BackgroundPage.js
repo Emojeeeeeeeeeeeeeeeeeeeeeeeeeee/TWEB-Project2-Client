@@ -8,19 +8,6 @@ export class BackgroundPage extends React.Component {
         this.state = {
             isGrid: this.props.isGrid
         };
-        this.modifyBackgroundStyle = this.modifyBackgroundStyle.bind(this);
-    }
-
-    setBackgroundToGrid() {
-        this.setState({
-            isGrid: true
-        });
-    }
-
-    setBackgrounToNoGrid() {
-        this.setState({
-            isGrid: false
-        });
     }
 
     render() {
