@@ -3,6 +3,7 @@ import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collap
 import { Link, Redirect } from 'react-router-dom';
 
 import { getUser } from '../scripts/graphQL';
+import Logout from '../images/logout.png';
 
 export class NavbarPage extends Component {
     constructor(props) {
@@ -66,7 +67,7 @@ export class NavbarPage extends Component {
                     <Collapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
                         <NavbarNav left style={{ fontSize: '2rem' }}>
                             <NavItem active>
-                             <Link to={{
+                             <NavLink to={{
                                         pathname: '/',
                                         state: {
                                             personnal: false
@@ -76,13 +77,24 @@ export class NavbarPage extends Component {
                                         }
                                     }}>
                                     <span role="img" aria-label="home">🏠</span>
-                                </Link>
+                                </NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink to="/newMessage">
                                     <span role="img" aria-label="newMessage">💬</span>
                                 </NavLink>
                             </NavItem>
+                            <NavItem>
+                                <NavLink  className="waves-effect waves-light d-flex align-items-center"
+                                to={{
+                                    pathname: '/profile',
+                                    state: {
+                                        id: localStorage.getItem('user_id')
+                                    }
+                                    }}>
+                                    <span role="img" aria-label="favorite"><img src={this.state.image} className="rounded-circle z-depth-0" style={{height: '35px', width: '35px', padding: 0}} alt="" /></span>
+                                </NavLink>
+                            </NavItem> 
                         </NavbarNav>
 
                         <NavbarNav middle="true">
@@ -97,7 +109,7 @@ export class NavbarPage extends Component {
 
                         <NavbarNav right>
                             <NavItem>
-                                <Link  className="waves-effect waves-light d-flex align-items-center"
+                                <NavLink  className="waves-effect waves-light d-flex align-items-center"
                                     to={{
                                         pathname: '/',
                                         state: {
@@ -106,26 +118,26 @@ export class NavbarPage extends Component {
                                         }}
                                     style={{ fontSize: '1.75rem' }}>
                                     my<Fa icon="envelope" className="ml-1" />
-                                </Link>
+                                </NavLink>
+                            </NavItem> 
+                            <NavItem>
+                                <NavLink  className="waves-effect waves-light d-flex align-items-center"
+                                    to={{
+                                        pathname: '/favorite',
+                                        state: {
+                                            personnal: true
+                                        }
+                                        }}
+                                    style={{ fontSize: '1.75rem' }}>
+                                    my<span role="img" aria-label="favorite">❤️</span>
+                                </NavLink>
                             </NavItem> 
                             <NavItem>
                                 <Dropdown>
                                     <DropdownToggle caret className="dopdown-toggle" nav>
-                                        <img src={this.state.image} className="rounded-circle z-depth-0" style={{height: '35px', width: '35px', padding: 0}} alt="" />
+                                        <img src={Logout} className="rounded-circle z-depth-0" style={{height: '35px', width: '35px', padding: 0}} alt=""/>
                                     </DropdownToggle>
                                     <DropdownMenu className="dropdown-default" right>
-                                        <MDBDropdownItem>
-                                            <Link to={{
-                                                pathname: '/profile',
-                                                state: {
-                                                    id: localStorage.getItem('user_id')
-                                                }
-                                            }}>
-                                                My Profile
-                                            </Link>
-                                        </MDBDropdownItem>
-                                        <MDBDropdownItem href="/settings">Settings</MDBDropdownItem>
-                                        <MDBDropdownItem divider />
                                         <MDBDropdownItem onClick={this.props.logout}>Logout</MDBDropdownItem>
                                     </DropdownMenu>
                                 </Dropdown>

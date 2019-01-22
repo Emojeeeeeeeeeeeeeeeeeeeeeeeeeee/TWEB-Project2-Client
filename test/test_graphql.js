@@ -5,15 +5,15 @@ import { string } from 'prop-types';
 
 describe("We tests all our graphQL queries",  () =>{
 
-  let userAId;
-  let userBId;
+  let userA;
+  let userB;
   let messageId;
   
   it("Should be possible to retrieve a user from the database",(done) => {
     const userEmail = "toto@tutu.tata";
     getUserByEmail(userEmail).then(data => {
       const email = data.email
-      userAId = data.id;
+      userA = data;
       assert.equal(userEmail, email)
       done()
     })
@@ -23,9 +23,9 @@ describe("We tests all our graphQL queries",  () =>{
     const email = "testing@test.com";
     const username = "test";
     const password = "test";
-    createUser("testing@test.com","test","test")
+    createUser(email,username,password)
     .then(data => {
-      userBId = data.id;
+      userB = data;
       assert.isNotNull(data)
       getUser(data.id)
       .then(data => {
@@ -46,10 +46,10 @@ describe("We tests all our graphQL queries",  () =>{
 
   it("Should be possible to create a message", (done) =>{
     const messageContent = "Testing";
-    createMessage(userBId,messageContent).then(data => {
+    createMessage(userB.id,messageContent).then(data => {
       assert.isNotNull(data);
       messageId = data.id;
-      getMessages(userBId, 0)
+      getMessages(userB.id, 0)
       .then(data => {
         data = data.getMessagesFromDB;
         assert.equal(data.length, 1)
@@ -60,22 +60,22 @@ describe("We tests all our graphQL queries",  () =>{
   })
   
   it("should be possible to like a message",(done) =>{
-    like(messageId,userBId).then(data =>{
+    like(messageId,userB.id).then(data =>{
       assert.isTrue(data)
-      getMessages(userBId, 0)
+      getMessages(userB.id, 0)
       .then(data => {
         data = data.getMessagesFromDB;
         assert.equal(data[0].like.length, 1);
-        assert.equal(data[0].like[0], userBId);
+        assert.equal(data[0].like[0], userB.id);
         done();
       })
     })
   })
   
   it("should be possible to unlike a message",(done) =>{
-    unlike(messageId,userBId).then(data =>{
+    unlike(messageId,userB.id).then(data =>{
       assert.isTrue(data)
-      getMessages(userBId, 0)
+      getMessages(userB.id, 0)
       .then(data => {
         data = data.getMessagesFromDB;
         assert.equal(data[0].like.length, 0);
@@ -86,16 +86,17 @@ describe("We tests all our graphQL queries",  () =>{
 
   
   it("should be possible to follow another user",(done) =>{
-    follow(userAId,userBId).then(data =>{
+    follow(userA.id,userB.id).then(data =>{
       assert.isTrue(data)
-      getUser(userAId)
+      getUser(userA.id)
       .then(data => {
-        assert.equal(data.followers.length, 1);
-        assert.equal(data.followers[0], userBId);
-        getUser(userBId)
+        console.log(userA)
+        assert.equal(data.followers.length, userA.followers.length + 1);
+        assert.isTrue(data.followers.includes(userB.id));
+        getUser(userB.id)
         .then(data => {
-          assert.equal(data.following.length, 1);
-          assert.equal(data.following[0], userAId);
+          assert.equal(data.following.length, userB.followers.length + 1);
+          assert.isTrue(data.following.includes(userA.id));
           done()
         })
       })
@@ -103,14 +104,14 @@ describe("We tests all our graphQL queries",  () =>{
   })
 
   it("should be possible to unfollow a user",(done) =>{
-    unfollow(userAId,userBId).then(data =>{
+    unfollow(userA.id,userB.id).then(data =>{
       assert.isTrue(data)
-      getUser(userAId)
+      getUser(userA.id)
       .then(data => {
-        assert.equal(data.followers.length, 0);
-        getUser(userBId)
+        assert.equal(data.followers.length, userA.followers.length);
+        getUser(userB.id)
         .then(data => {
-          assert.equal(data.following.length, 0);
+          assert.equal(data.following.length, userB.followers.length);
           done()
         })
       })
@@ -119,9 +120,9 @@ describe("We tests all our graphQL queries",  () =>{
 
   
   it("should be possible to delete a message", (done) => {
-    deleteMessage(messageId,userBId).then(data => {
+    deleteMessage(messageId,userB.id).then(data => {
       assert.isTrue(data)
-      getMessages(userBId, 0)
+      getMessages(userB.id, 0)
       .then(data => {
         data = data.getMessagesFromDB;
         assert.isNull(data);
