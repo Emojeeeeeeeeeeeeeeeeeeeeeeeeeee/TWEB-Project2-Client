@@ -66,11 +66,11 @@ export class MessagesGrid extends Component {
         messages.then(response => {
             if(response !== null && response !== undefined) {
                 console.log(this.props.isGrid)
-                if(response.length < 7 && this.props.isGrid === true) {
+                if(response.length < 4 && this.props.isGrid === true) {
                     console.log("nogrid")
                      this.props.setNoGrid();
                  }
-                 else if(response.length > 6 && this.props.isGrid === false){
+                 else if(response.length > 3 && this.props.isGrid === false){
                      console.log("grid")
                      this.props.setGrid();
                  }

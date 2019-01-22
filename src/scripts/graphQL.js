@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const URL = 'https://emojee-client.herokuapp.com/graphql';
+
 export function createMessage (authorId, content) {
   const queryToSend = {
     query: 'query CreateMessage($authorId: String!, $content: String!){createMessage(authorId: $authorId, content: $content){id}}',
@@ -13,7 +15,7 @@ export function createMessage (authorId, content) {
   }
 
   return axios({
-    url: 'http://localhost:5000/graphql',
+    url: URL,
     method: 'post',
     data: queryToSend
   })
@@ -36,7 +38,7 @@ export function deleteMessage(messageId, authorId){
   }
 
   return axios({
-    url: 'http://localhost:5000/graphql', 
+    url: URL, 
     method: 'post',
     data : queryToSend
     })
@@ -58,7 +60,7 @@ export function getUser(userId){
   }
 
   return axios({
-    url: 'http://localhost:5000/graphql', 
+    url: URL, 
     method: 'post',
     data : queryToSend
     })
@@ -80,7 +82,7 @@ export function getUsersByIds(ids){
   }
 
   return axios({
-    url: 'http://localhost:5000/graphql', 
+    url: URL, 
     method: 'post',
     data : queryToSend
     })
@@ -103,7 +105,7 @@ export function getMessages(authorId, offset) {
   }
 
   return axios( {
-    url: 'http://localhost:5000/graphql', 
+    url: URL, 
     method: 'post',
     data: queryToSend
   })
@@ -126,7 +128,7 @@ export function getPersonnalMessages(userId, offset) {
   }
 
   return axios( {
-    url: 'http://localhost:5000/graphql', 
+    url: URL, 
     method: 'post',
     data: queryToSend
   })
@@ -149,7 +151,7 @@ export function getFavoriteMessages(userId, offset) {
   }
 
   return axios( {
-    url: 'http://localhost:5000/graphql', 
+    url: URL, 
     method: 'post',
     data: queryToSend
   })
@@ -173,7 +175,7 @@ export function createUser (email, username, password){
   }
 
   return axios({
-    url: 'http://localhost:5000/graphql', 
+    url: URL, 
     method: 'post',
     data : queryToSend
     })
@@ -196,7 +198,7 @@ export function createUser (email, username, password){
     }
   
     return axios({
-      url: 'http://localhost:5000/graphql', 
+      url: URL, 
       method: 'post',
       data : queryToSend
       })
@@ -219,7 +221,7 @@ export function createUser (email, username, password){
     }
   
     return axios({
-      url: 'http://localhost:5000/graphql', 
+      url: URL, 
       method: 'post',
       data : queryToSend
       })
@@ -242,7 +244,7 @@ export function createUser (email, username, password){
     }
   
     return axios({
-      url: 'http://localhost:5000/graphql', 
+      url: URL, 
       method: 'post',
       data : queryToSend
       })
@@ -265,7 +267,7 @@ export function createUser (email, username, password){
     }
   
     return axios({
-      url: 'http://localhost:5000/graphql', 
+      url: URL, 
       method: 'post',
       data : queryToSend
       })
@@ -289,7 +291,7 @@ export function createUser (email, username, password){
     }
   
     return axios({
-      url: 'http://localhost:5000/graphql', 
+      url: URL, 
       method: 'post',
       data : queryToSend
       })
@@ -312,7 +314,7 @@ export function createUser (email, username, password){
     }
   
     return axios({
-      url: 'http://localhost:5000/graphql', 
+      url: URL, 
       method: 'post',
       data : queryToSend
       })
@@ -334,7 +336,7 @@ export function createUser (email, username, password){
     }
   
     return axios({
-      url: 'http://localhost:5000/graphql', 
+      url: URL, 
       method: 'post',
       data : queryToSend
       })
@@ -357,7 +359,7 @@ export function createUser (email, username, password){
     }
   
     return axios({
-      url: 'http://localhost:5000/graphql', 
+      url: URL, 
       method: 'post',
       data : queryToSend
       })
@@ -380,7 +382,7 @@ export function createUser (email, username, password){
     }
   
     return axios({
-      url: 'http://localhost:5000/graphql', 
+      url: URL, 
       method: 'post',
       data : queryToSend
       })
@@ -402,7 +404,7 @@ export function createUser (email, username, password){
     }
   
     return axios({
-      url: 'http://localhost:5000/graphql', 
+      url: URL, 
       method: 'post',
       data : queryToSend
       })
@@ -425,7 +427,7 @@ export function createUser (email, username, password){
     }
 
     return axios({
-      url: 'http://localhost:5000/graphql',
+      url: URL,
       method: 'post',
       data: queryToSend
     })
@@ -434,9 +436,3 @@ export function createUser (email, username, password){
         console.error(error);
       });
   }
-
-/*module.exports = {
-  createUser,
-  createMessage,
-  getMessage
-}*/
