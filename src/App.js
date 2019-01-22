@@ -11,6 +11,7 @@ import { SearchPage } from './components/SearchPage';
 import { FollowingPage } from './components/FollowingPage';
 import { WaitingPage } from './components/WaitingPage';
 import { ForgotPasswordPage } from './components/ForgotPasswordPage';
+import { FavoritePage } from './components/FavoritePage';
 
 export class App extends React.Component {
 
@@ -46,6 +47,7 @@ export class App extends React.Component {
       <ProtectedRoute path="/search" component={SearchPage} signOut={this.state.signOut} />
       <ProtectedRoute path="/following" component={FollowingPage} signOut={this.state.signOut} />
       <ProtectedRoute path="/followers" component={FollowingPage} signOut={this.state.signOut} />
+      <ProtectedRoute path="/favorite" component={FavoritePage} signOut={this.state.signOut} />
     </Switch>
   );
 };
