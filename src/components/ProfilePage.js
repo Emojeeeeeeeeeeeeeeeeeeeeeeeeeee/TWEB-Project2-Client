@@ -64,9 +64,11 @@ export class ProfilePage extends Component {
                         <MDBCol md="3" style={{ marginTop: '7%' }}>
                             {this.state.toDisplay}
                         </MDBCol>
+                        {this.props.location.state.id.localeCompare(localStorage.getItem('user_id')) ? '' :
                         <MDBCol md="3" style={{ marginTop: '2%' }}>
                             <MoodCard changeImage={this.changeImage}/>
                         </MDBCol>
+                        }
                     </MDBRow>
                     </BackgroundPage>
                 </>
