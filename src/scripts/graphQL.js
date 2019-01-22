@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://emojee-client.herokuapp.com/graphql';
+const URL = 'https://emojee-server.herokuapp.com/graphql';
 
 export function createMessage (authorId, content) {
   const queryToSend = {
