@@ -324,7 +324,7 @@ export function createUser (email, username, password){
 
   export function getUserByEmail(email){
     const queryToSend = {
-      query: 'query  GetUserByEmail($email: String!){getUserByEmail(email: $email){id, username, email}}',
+      query: 'query  GetUserByEmail($email: String!){getUserByEmail(email: $email){id, username, email, following, followers}}',
       variables: {
         email: email,
       },
