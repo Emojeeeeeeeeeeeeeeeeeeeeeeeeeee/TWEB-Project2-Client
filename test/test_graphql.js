@@ -90,12 +90,9 @@ describe("We tests all our graphQL queries",  () =>{
       assert.isTrue(data)
       getUser(userA.id)
       .then(data => {
-        console.log(userA)
-        assert.equal(data.followers.length, userA.followers.length + 1);
         assert.isTrue(data.followers.includes(userB.id));
         getUser(userB.id)
         .then(data => {
-          assert.equal(data.following.length, userB.followers.length + 1);
           assert.isTrue(data.following.includes(userA.id));
           done()
         })
@@ -108,10 +105,10 @@ describe("We tests all our graphQL queries",  () =>{
       assert.isTrue(data)
       getUser(userA.id)
       .then(data => {
-        assert.equal(data.followers.length, userA.followers.length);
+        assert.isFalse(data.followers.includes(userB.id));
         getUser(userB.id)
         .then(data => {
-          assert.equal(data.following.length, userB.followers.length);
+          assert.isFalse(data.following.includes(userA.id));
           done()
         })
       })
