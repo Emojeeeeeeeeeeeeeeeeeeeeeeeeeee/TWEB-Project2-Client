@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {App} from '../App';
 import { Redirect } from 'react-router-dom';
+import { sha256 } from 'js-sha256';
 
 const {Provider: AuthContextProvider, Consumer: AuthContext} = React.createContext();
 
@@ -47,6 +48,7 @@ class AuthProvider extends Component {
     }
 
     signIn = ({ email, password }) => {
+        password = sha256(password);
         axios.post('/auth/login', { email, password })
             .then(response => {
                 const { user, token } = response.data;

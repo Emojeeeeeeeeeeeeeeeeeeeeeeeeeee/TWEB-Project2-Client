@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BackgroundPage } from './BackgroundPage';
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBModalFooter, MDBIcon, MDBCardHeader, MDBBtn, MDBInput } from 'mdbreact';
 import { toast, ToastContainer } from 'react-toastify';
+import { sha256 } from 'js-sha256';
 
 import Background from '../images/login_background_2.jpg';
 import { throws } from 'assert';
@@ -43,7 +44,7 @@ export const RegisterPage = () => {
         let info = {
           email: email,
           username: username,
-          password: password1
+          password: sha256(password1)
         }
 
         createUser(info.email, info.username, info.password).then(data => {

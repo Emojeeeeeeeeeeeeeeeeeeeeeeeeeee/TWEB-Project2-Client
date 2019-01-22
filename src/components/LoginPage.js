@@ -3,7 +3,6 @@ import { AuthContext } from './AuthProvider';
 import { Redirect } from 'react-router-dom';
 import { BackgroundPage } from './BackgroundPage';
 import { toast, ToastContainer } from 'react-toastify';
-
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBModalFooter, MDBIcon, MDBCardHeader, MDBBtn, MDBInput } from 'mdbreact';
 
 import Background from '../images/login_background_3.png';
