@@ -25,6 +25,7 @@ export class UsersGrid extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props.children);
         if(this.state.hasLoad === false) {
                 this.props.users.then(response => {
                     if(response !== null && response !== undefined) {
@@ -68,7 +69,6 @@ export class UsersGrid extends Component {
             hasLoad: false,
         };
         users.then(response => {
-            console.log(response !== null && response !== undefined)
             if(response !== null && response !== undefined) {
                 nextState.allUsers = response;
                 nextState.currentUsers = response.slice(0, fetchLength);
@@ -176,7 +176,6 @@ export class UsersGrid extends Component {
                 );
             }
             else {
-                console.log("ELSE")
                 table.push(
                     <MDBRow>
                       <MDBCol size="4">
@@ -199,6 +198,10 @@ export class UsersGrid extends Component {
     }
 
     render() {
+        if(this.state.allUsers.length < 4) {
+            this.props.setNoGrid();
+        }
+        
         return (
             <InfiniteScroll
                 dataLength={this.state.currentUsers.length}
