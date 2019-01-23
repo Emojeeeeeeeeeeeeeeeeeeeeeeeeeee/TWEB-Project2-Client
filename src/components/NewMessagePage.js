@@ -191,13 +191,15 @@ export class NewMessagePage extends Component {
                                 <MDBCardBody>
                                     <MDBCardHeader className="form-header deep-blue-gradient rounded">
                                         <h3 className="my-3">
-                                            <MDBIcon icon="fa-pencil" /> New message:
+                                            <MDBIcon icon="fa-pencil" /> 🆕 💬:
                                         </h3>    
                                     </MDBCardHeader>
 
                                     <form onSubmit={this.onSubmit}>
                                         <MDBInput type="textarea" label="(max. 155 characters)" rows="3" maxLength={maxLength} value={this.state.messageContent} onChange={this.handleMessageChange}/>
-                                        <h4>Message preview:</h4>
+                                        <h4>
+                                            <span role="img" aria-label="newMessage">💬</span> preview:
+                                        </h4>
                                         <p>{this.translate(this.state.messageContent)}</p>
                                         <div className="text-center mt-4">
                                             <MDBBtn
