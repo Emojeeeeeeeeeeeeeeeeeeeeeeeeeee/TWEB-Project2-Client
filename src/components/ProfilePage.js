@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { MDBRow, MDBCol } from 'mdbreact';
 
-import { AuthContext } from './AuthProvider';
-import { NavbarPage } from './Navbar';
 import { BackgroundPage } from './BackgroundPage';
 import { ProfileCard } from './card/ProfileCard';
 import { MoodCard } from './card/MoodCard';

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { MDBRow, MDBCol, MDBCard, MDBCardBody } from 'mdbreact';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { getMessages, getUser } from '../scripts/graphQL';
+import { getUser } from '../scripts/graphQL';
 
 import { Card } from './card/Card'
 

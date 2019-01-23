@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { AuthContext } from './AuthProvider';
-import { NavbarPage } from './Navbar';
 import { BackgroundPage } from './BackgroundPage';
 import { MessagesGrid } from './MessagesGrid';
 import { getMessages, getPersonnalMessages } from '../scripts/graphQL';

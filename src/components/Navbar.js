@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, MDBDropdownItem, Fa, MDBIcon } from "mdbreact";
-import { Link, Redirect } from 'react-router-dom';
+import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu, MDBDropdownItem, Fa, MDBIcon } from "mdbreact";
 
 import { getUser } from '../scripts/graphQL';
 import Logout from '../images/logout.png';

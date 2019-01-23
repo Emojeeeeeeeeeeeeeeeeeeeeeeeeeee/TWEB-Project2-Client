@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BackgroundPage } from './BackgroundPage';
-import { NavbarPage } from './Navbar';
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBCardHeader, MDBBtn, MDBInput } from 'mdbreact';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
