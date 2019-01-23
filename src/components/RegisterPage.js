@@ -5,7 +5,6 @@ import { toast, ToastContainer } from 'react-toastify';
 import { sha256 } from 'js-sha256';
 
 import Background from '../images/login_background_2.jpg';
-import { throws } from 'assert';
 
 import { createUser } from '../scripts/graphQL';
 

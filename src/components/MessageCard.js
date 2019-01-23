@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardBody, CardUp, Avatar, Col } from 'mdbreact';
+import { Card, CardBody, Col } from 'mdbreact';
 
 const colors = ['aqua'];
 

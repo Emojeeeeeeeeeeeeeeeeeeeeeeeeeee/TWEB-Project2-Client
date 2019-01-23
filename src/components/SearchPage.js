@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import { NavbarPage } from './Navbar';
 import { BackgroundPage } from './BackgroundPage';
 import { UsersGrid } from './UsersGrid/UsersGrid';
 

@@ -44,7 +44,6 @@ export class FollowingPage extends Component {
         return (
             <AuthContext>
                 {({ signOut }) => {
-        //<UsersGrid users={getFollowings(this.props.location.state.username).then(res => res)} />
         return(            
             <div>
                 <NavbarWrapper />
