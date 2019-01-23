@@ -41,7 +41,23 @@ export class MessagesGrid extends Component {
                                 <MDBCard style={{marginTop: '20%'}}>
                                     <MDBCardBody>
                                         <div>
-                                            <h4>No Messages yet :( But you can write your first message !</h4>
+                                            <h4>
+                                                No messages yet 
+                                                <span role="img" aria-label="cryingFace"> 😢</span>
+                                                <br /><br /><br /><br />
+                                                If you're 🆕 on Happy
+                                                <span role="img" aria-label="happyFace1">😙</span>
+                                                <span role="img" aria-label="happyFace2">😺</span>
+                                                <span role="img" aria-label="happyFace3">👻</span>
+                                                , 
+                                                <br /><br />
+                                                you can click on "
+                                                <span role="img" aria-label="writeMessage">✍</span>
+                                                <span role="img" aria-label="newMessage"> 💬 </span>"
+                                                (top left corner) 
+                                                <br /><br />
+                                                to ✍ your first message ❗
+                                            </h4>
                                         </div>
                                     </MDBCardBody>
                                 </MDBCard>
@@ -79,7 +95,21 @@ export class MessagesGrid extends Component {
                                 <MDBCard style={{marginTop: '20%'}}>
                                     <MDBCardBody>
                                         <div>
-                                            <h4>No Messages yet :( But you can write your first message !</h4>
+                                            <h4>
+                                                No messages yet 
+                                                <span role="img" aria-label="cryingFace"> 😢</span>
+                                                <br /><br /><br /><br />
+                                                If you're 🆕 on Happy
+                                                <span role="img" aria-label="happyFace1">😙</span>
+                                                <span role="img" aria-label="happyFace2">😺</span>
+                                                <span role="img" aria-label="happyFace3">👻</span>
+                                                , 
+                                                you can click on 
+                                                <span role="img" aria-label="newMessage"> 💬 </span>
+                                                <br /><br />
+                                                (top left corner) 
+                                                to ✍ your first message ❗ 
+                                            </h4>
                                         </div>
                                     </MDBCardBody>
                                 </MDBCard>

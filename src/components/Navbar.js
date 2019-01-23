@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, MDBDropdownItem, Fa } from "mdbreact";
+import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, MDBDropdownItem, Fa, MDBIcon } from "mdbreact";
 import { Link, Redirect } from 'react-router-dom';
 
 import { getUser } from '../scripts/graphQL';
@@ -81,20 +81,10 @@ export class NavbarPage extends Component {
                             </NavItem>
                             <NavItem>
                                 <NavLink to="/newMessage">
+                                    <span role="img" aria-label="writeMessage">✍</span>
                                     <span role="img" aria-label="newMessage">💬</span>
                                 </NavLink>
                             </NavItem>
-                            <NavItem>
-                                <NavLink  className="waves-effect waves-light d-flex align-items-center"
-                                to={{
-                                    pathname: '/profile',
-                                    state: {
-                                        id: localStorage.getItem('user_id')
-                                    }
-                                    }}>
-                                    <span role="img" aria-label="favorite"><img src={this.state.image} className="rounded-circle z-depth-0" style={{height: '35px', width: '35px', padding: 0}} alt="" /></span>
-                                </NavLink>
-                            </NavItem> 
                         </NavbarNav>
 
                         <NavbarNav middle="true">
@@ -108,6 +98,19 @@ export class NavbarPage extends Component {
                         </NavbarNav>
 
                         <NavbarNav right>
+                            <NavItem>
+                                <NavLink  className="waves-effect waves-light d-flex align-items-center"
+                                to={{
+                                    pathname: '/profile',
+                                    state: {
+                                        id: localStorage.getItem('user_id')
+                                    }
+                                    }}
+                                    style={{ fontSize: '1.75rem' }}>
+                                    {/*<span role="img" aria-label="favorite"><img src={this.state.image} className="rounded-circle z-depth-0" style={{height: '35px', width: '35px', padding: 0}} alt="" /></span>*/}
+                                    my<MDBIcon icon="address-card" className="m1-1" />
+                                </NavLink>
+                            </NavItem> 
                             <NavItem>
                                 <NavLink  className="waves-effect waves-light d-flex align-items-center"
                                     to={{
