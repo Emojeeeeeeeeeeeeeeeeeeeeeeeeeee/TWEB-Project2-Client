@@ -70,6 +70,12 @@ export class UsersGrid extends Component {
         };
         users.then(response => {
             if(response !== null && response !== undefined) {
+               if(response.length < 4 && this.props.isGrid === true) {
+                    this.props.setNoGrid();
+                }
+                else if(response.length > 3 && this.props.isGrid === false){
+                    this.props.setGrid();
+                }
                 nextState.allUsers = response;
                 nextState.currentUsers = response.slice(0, fetchLength);
                 nextState.hasLoad = true;
@@ -77,6 +83,9 @@ export class UsersGrid extends Component {
                 this.renderUsers(nextState.currentUsers);
             }
             else {
+                if(this.props.isGrid === true){
+                    this.props.setNoGrid();
+                }
                 this.setState({
                     usersToDisplay: (
                         <MDBRow style={ { display: 'flex', justifyContent: 'center'} }>
@@ -198,9 +207,6 @@ export class UsersGrid extends Component {
     }
 
     render() {
-        if(this.state.allUsers.length < 4) {
-            this.props.setNoGrid();
-        }
         
         return (
             <InfiniteScroll

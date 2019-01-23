@@ -15,12 +15,28 @@ export class FollowingPage extends Component {
         super(props);
         this.state = {
             toDisplay:<h2>Loading...</h2>,
+            isGrid : true,
         };
+        this.setBackgrounToNoGrid = this.setBackgrounToNoGrid.bind(this);
+        this.setBackgroundToGrid = this.setBackgroundToGrid.bind(this);
     }
 
     componentWillReceiveProps(){
         this.setState({
             toDisplay:<h2>Loading...</h2>
+        });
+    }
+
+    
+    setBackgroundToGrid() {
+        this.setState({
+            isGrid: true
+        });
+    }
+
+    setBackgrounToNoGrid() {
+        this.setState({
+            isGrid: false
         });
     }
 
@@ -32,8 +48,11 @@ export class FollowingPage extends Component {
         return(            
             <div>
                 <NavbarWrapper />
-                <BackgroundPage src={Background} isGrid={true}>
-                    <UsersGrid users={getUsersByIds(this.props.history.location.state.users).then(res => res)} />
+                <BackgroundPage src={Background} isGrid={this.state.isGrid}>
+                    <UsersGrid users={getUsersByIds(this.props.history.location.state.users).then(res => res)} 
+                        setGrid={this.setBackgroundToGrid}
+                        setNoGrid={this.setBackgrounToNoGrid} 
+                        isGrid={this.state.isGrid} />
                 </BackgroundPage >
             </div>
         );
