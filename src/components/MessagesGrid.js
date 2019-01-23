@@ -52,8 +52,7 @@ export class MessagesGrid extends Component {
                                                 , 
                                                 <br /><br />
                                                 you can click on "
-                                                <span role="img" aria-label="writeMessage">✍</span>
-                                                <span role="img" aria-label="newMessage"> 💬 </span>"
+                                                <span role="img" aria-label="newMessage">💬</span>"
                                                 (top left corner) 
                                                 <br /><br />
                                                 to ✍ your first message ❗
@@ -117,8 +116,8 @@ export class MessagesGrid extends Component {
                                                 <span role="img" aria-label="happyFace2">😺</span>
                                                 <span role="img" aria-label="happyFace3">👻</span>
                                                 , 
-                                                you can click on 
-                                                <span role="img" aria-label="newMessage"> 💬 </span>
+                                                you can click on "
+                                                <span role="img" aria-label="newMessage">💬</span>"
                                                 <br /><br />
                                                 (top left corner) 
                                                 to ✍ your first message ❗ 

@@ -80,7 +80,6 @@ export class NavbarPage extends Component {
                             </NavItem>
                             <NavItem>
                                 <NavLink to="/newMessage">
-                                    <span role="img" aria-label="writeMessage">✍</span>
                                     <span role="img" aria-label="newMessage">💬</span>
                                 </NavLink>
                             </NavItem>
