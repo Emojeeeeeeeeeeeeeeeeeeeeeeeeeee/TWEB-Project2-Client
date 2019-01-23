@@ -108,7 +108,7 @@ export class NavbarPage extends Component {
                                     }}
                                     style={{ fontSize: '1.75rem' }}>
                                     {/*<span role="img" aria-label="favorite"><img src={this.state.image} className="rounded-circle z-depth-0" style={{height: '35px', width: '35px', padding: 0}} alt="" /></span>*/}
-                                    my<MDBIcon icon="address-card" className="m1-1" />
+                                    my<MDBIcon icon="user-circle" className="m1-1" />
                                 </NavLink>
                             </NavItem> 
                             <NavItem>
